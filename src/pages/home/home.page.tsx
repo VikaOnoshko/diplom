@@ -1,9 +1,12 @@
 import logo from '@assets/images/logo.png';
-import flowers from '@assets/images/presents/flowers.png';
-import present from '@assets/images/presents/present.png';
-import rose from '@assets/images/presents/rose.png';
-import sweets from '@assets/images/presents/sweets.png';
+
+import komp from '@assets/images/presents/komp.png';
+
 import { IconButton } from '@ui/shared/icon-button';
+import PersonIcon from '@mui/icons-material/Person';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import './index.less';
 
 export const HomePage = () => {
   return (
@@ -23,13 +26,13 @@ export const HomePage = () => {
             </div>
             <div className="header__actions">
               <IconButton>
-                <span>person</span>
+                <PersonIcon />
               </IconButton>
               <IconButton>
-                <span>Cart</span>
+                <ShoppingCartIcon />
               </IconButton>
               <IconButton>
-                <span>Favorite</span>
+                <FavoriteIcon />
               </IconButton>
             </div>
           </div>
@@ -37,39 +40,40 @@ export const HomePage = () => {
       </div>
       <div className="main">
         <div className="banner">
-          <div className="banner__sale">
-            <div className="banner__card">
-              <div className="banner__img">
-                <img src={flowers} alt="flowers" />
+          <div className="banner__container">
+            <div className="banner__wrapper">
+              <div className="banner__sale">
+                <div className="banner__card">
+                  <div className="banner__img">
+                    <img src={komp} alt="komp" />
+                  </div>
+                  <span className="banner__text banner__text_left">Розы</span>
+                </div>
+                <div className="banner__card">
+                  <div className="banner__img">
+                    <img src={komp} alt="komp" />
+                  </div>
+                  <span className="banner__text banner__text_left">Розы</span>
+                </div>
+                <div className="banner__card">
+                  <div className="banner__img">
+                    <img src={komp} alt="komp" />
+                  </div>
+                  <span className="banner__text banner__text_left">Розы</span>
+                </div>
+                <div className="banner__card">
+                  <div className="banner__img">
+                    <img src={komp} alt="komp" />
+                  </div>
+                  <span className="banner__text banner__text_left">Розы</span>
+                </div>
+                <div className="banner__card">
+                  <div className="banner__img">
+                    <img src={komp} alt="komp" />
+                  </div>
+                  <span className="banner__text banner__text_left">Розы</span>
+                </div>
               </div>
-              <span>Скидки -10% на все букеты по предзаказу на 8 марта</span>
-            </div>
-          </div>
-          <div className="banner__catalog">
-            <div className="banner__card">
-              <div className="banner__img">
-                <img src={rose} alt="rose" />
-              </div>
-              <span>Розы</span>
-            </div>
-            <div className="banner__card">
-              <div className="banner__img">
-                <img src={present} alt="present" />
-              </div>
-              <span>Подарки</span>
-            </div>
-            <div className="banner__card">
-              <div className="banner__background"></div>
-              <div className="banner__img">
-                <img src={sweets} alt="sweets" />
-              </div>
-              <span>Подарочные корзины</span>
-            </div>
-            <div className="banner__card">
-              <div className="banner__img">
-                <img src={sweets} alt="sweets" />
-              </div>
-              <span>Цветы в коробке</span>
             </div>
           </div>
         </div>
