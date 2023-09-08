@@ -1,12 +1,13 @@
 import logo from '@assets/images/logo.png';
 
-import komp from '@assets/images/presents/komp.png';
-
 import { IconButton } from '@ui/shared/icon-button';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './index.less';
+
+import { HomeBanner } from '@components/home/banner';
+import { HomeForClient } from '@components/home/for-client';
 
 export const HomePage = () => {
   return (
@@ -39,44 +40,8 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="main">
-        <div className="banner">
-          <div className="banner__container">
-            <div className="banner__wrapper">
-              <div className="banner__sale">
-                <div className="banner__card">
-                  <div className="banner__img">
-                    <img src={komp} alt="komp" />
-                  </div>
-                  <span className="banner__text banner__text_left">Розы</span>
-                </div>
-                <div className="banner__card">
-                  <div className="banner__img">
-                    <img src={komp} alt="komp" />
-                  </div>
-                  <span className="banner__text banner__text_left">Розы</span>
-                </div>
-                <div className="banner__card">
-                  <div className="banner__img">
-                    <img src={komp} alt="komp" />
-                  </div>
-                  <span className="banner__text banner__text_left">Розы</span>
-                </div>
-                <div className="banner__card">
-                  <div className="banner__img">
-                    <img src={komp} alt="komp" />
-                  </div>
-                  <span className="banner__text banner__text_left">Розы</span>
-                </div>
-                <div className="banner__card">
-                  <div className="banner__img">
-                    <img src={komp} alt="komp" />
-                  </div>
-                  <span className="banner__text banner__text_left">Розы</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <HomeBanner />
+        <HomeForClient />
       </div>
       <div className="footer"></div>
     </div>

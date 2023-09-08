@@ -1,5 +1,5 @@
 ._container() {
-  max-width: 1420px;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -15,11 +15,11 @@
 }
 
 .banner {
-  &_container {
+  &__container {
     ._container();
   }
 
-  &_wrapper {
+  &__wrapper {
     ._wrapper();
   }
 
@@ -69,4 +69,28 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
   }
+}
+
+.for-client {
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+  }
+
+  &__card-list {
+    display: flex;
+    margin: 0 -10px;
+  }
+
+  &__card {
+    width: 100%;
+    margin: 0 10px;
+  }
+}
+
+.for-client__img {
+  background-color: aqua;
 }
