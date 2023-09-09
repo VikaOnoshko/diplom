@@ -1,5 +1,7 @@
+import './index.less';
+
 export type IconButtonProps = WithChildren;
 
 export const IconButton = ({ children }: IconButtonProps) => {
-  return <button>{children}</button>;
+  return <button className="icon-button">{children}</button>;
 };

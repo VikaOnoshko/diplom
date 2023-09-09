@@ -1,3 +1,5 @@
+import './index.less';
+
 export type BadgeProps = WithChildren & { badgeContent: string | number };
 
 export const Badge = ({ children, badgeContent }: BadgeProps) => {

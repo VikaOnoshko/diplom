@@ -25,19 +25,21 @@ export const HomePage = () => {
                 <span>Акции</span>
                 <span>Новости</span>
               </div>
-              <IconButton>
-                <span className="icon-person"></span>
-              </IconButton>
-              <IconButton>
-                <Badge badgeContent={4}>
-                  <span className="icon-cart"></span>
-                </Badge>
-              </IconButton>
-              <IconButton>
-                <Badge badgeContent={4}>
-                  <span className="icon-favorite"></span>
-                </Badge>
-              </IconButton>
+              <div className="header__icons">
+                <IconButton>
+                  <span className="icon-person"></span>
+                </IconButton>
+                <IconButton>
+                  <Badge badgeContent={4}>
+                    <span className="icon-cart"></span>
+                  </Badge>
+                </IconButton>
+                <IconButton>
+                  <Badge badgeContent={4}>
+                    <span className="icon-favorite"></span>
+                  </Badge>
+                </IconButton>
+              </div>
             </div>
           </div>
         </div>
