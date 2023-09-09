@@ -1,0 +1,33 @@
+@import '../../../index.less';
+
+.product-list {
+  margin-top: 40px;
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+  }
+
+  &__header {
+    ._center();
+    font-size: 27px;
+    position: relative;
+  }
+
+  &__pages {
+    margin: 0 -10px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+
+    svg {
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
+  &__body {
+    margin-top: 30px;
+  }
+}

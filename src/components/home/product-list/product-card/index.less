@@ -1,0 +1,108 @@
+@import '.././index.less';
+
+.product-card__mark {
+  position: absolute;
+}
+
+.product-card {
+  position: relative;
+  max-height: 544px;
+  border: 1px solid rgba(149, 109, 132, 1);
+  width: 340px;
+  padding: 5px 20px;
+
+  &__header {
+    .product-card__border {
+      border-radius: 50px;
+      color: black;
+      width: 50px;
+      height: 50px;
+      border: 1px dashed red;
+      ._center();
+    }
+
+    .product-card__number {
+      span {
+        font-weight: 300px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+    .product-card__like {
+      top: 20px;
+      right: 20px;
+    }
+    .product-card__top {
+      bottom: 170px;
+      right: 26px;
+
+      &_circle {
+        border-radius: 50px;
+        color: rgba(149, 109, 132, 1);
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: rgba(157, 117, 140, 0.39);
+
+        ._center();
+      }
+    }
+  }
+
+  &__body {
+    .product-card__rating {
+      margin-bottom: 10px;
+    }
+
+    .product-card__properties {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .product-card__old-price {
+      text-decoration: line-through;
+      color: rgba(189, 189, 189, 1);
+      font-weight: 300;
+      font-size: 18px;
+    }
+
+    .product-card__actual-price {
+      color: rgba(149, 109, 132, 1);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .product-card__name {
+      span {
+        font-weight: 300;
+        font-size: 18px;
+        color: rgba(51, 51, 51, 1);
+      }
+    }
+
+    .product-card__button {
+      ._center();
+      margin-top: 10px;
+      button {
+        background-color: rgba(149, 109, 132, 1);
+        width: 220px;
+        height: 50px;
+        border-radius: 7px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(163, 124, 146);
+          transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+      }
+    }
+    .product-card__action {
+      margin-top: 10px;
+      ._center();
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

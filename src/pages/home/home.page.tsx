@@ -10,6 +10,7 @@ import './index.less';
 import { HomeBanner } from '@components/home/banner';
 import { HomeForClient } from '@components/home/for-client';
 import { Stack } from '@mui/material';
+import { ProductList } from '@components/home/product-list';
 
 export const HomePage = () => {
   return (
@@ -50,6 +51,7 @@ export const HomePage = () => {
       <div className="main">
         <HomeBanner />
         <HomeForClient />
+        <ProductList />
       </div>
       <div className="footer"></div>
     </div>

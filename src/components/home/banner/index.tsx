@@ -11,8 +11,6 @@ const BANNERS: HomeBanner[] = [
   { id: 5, img: komp, title: 'Розы', position: 'left' },
 ];
 
-import './index.less';
-
 export const HomeBanner = () => {
   const [banners, setBanners] = useState<HomeBanner[]>([]);
 
