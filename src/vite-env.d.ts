@@ -17,3 +17,14 @@ type ForClient = {
   title: string;
   description: string;
 };
+
+type Product = {
+  id: number;
+  name: string;
+  img: string;
+  sale?: number;
+  favorite: boolean;
+  top: boolean;
+  rating: number;
+  price: number;
+};

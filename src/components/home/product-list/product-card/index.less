@@ -1,65 +1,79 @@
+@import '@style/constants.less';
 @import '@style/mixins.less';
 
 .product-card {
-  position: relative;
-  max-height: 544px;
-  border: 1px solid rgba(149, 109, 132, 1);
-  width: 340px;
-  padding: 5px 20px;
+  border: @primary-border;
+  max-width: 340px;
 
-  &__border {
-    border-radius: 50px;
-    color: black;
-    width: 50px;
-    height: 50px;
-    border: 1px dashed red;
-    ._center();
+  &__header {
+    position: relative;
   }
 
-  &__number {
-    span {
-      font-weight: 300px;
-      font-size: 16px;
-      color: rgba(0, 0, 0, 1);
-    }
-  }
-  &__like {
-    top: 20px;
-    right: 20px;
-    color: red;
-  }
-  &__top {
-    bottom: 170px;
-    right: 26px;
-
-    &_circle {
-      border-radius: 50px;
-      color: rgba(149, 109, 132, 1);
-      width: 50px;
-      height: 50px;
-      border: none;
-      background-color: rgba(157, 117, 140, 0.39);
-
-      ._center();
+  &__img {
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
     }
   }
 
   &__mark {
+    ._center();
     position: absolute;
+
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+
+    span {
+      font-weight: 300;
+      font-size: 16px;
+      color: @primary-color;
+    }
+  }
+
+  &__sale {
+    top: 20px;
+    left: 20px;
+
+    border: 1px dashed red;
+
+    span {
+      color: red;
+    }
   }
 
   &__like {
-    // opacity: 0;
+    top: 20px;
+    right: 20px;
+    // color: red;
+    opacity: 0;
     transition: all 0.3s ease-out;
+    cursor: pointer;
+
+    span::before {
+      font-size: 25px;
+    }
   }
 
-  &:hover &__like {
-    opacity: 1;
-    transition: all 0.3s ease-in;
+  &__top {
+    bottom: 20px;
+    right: 20px;
+
+    background-color: rgba(157, 117, 140, 0.39);
   }
 
   &__rating {
     margin-bottom: 10px;
+  }
+
+  &__body {
+    height: 180px;
+    padding: 5px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__properties {
@@ -81,6 +95,13 @@
   }
 
   &__name {
+    max-width: 60%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+
     span {
       font-weight: 300;
       font-size: 18px;
@@ -107,10 +128,15 @@
     }
   }
 
-  &__action {
+  &__fast-order {
     margin-top: 10px;
     ._center();
     text-decoration: underline;
     cursor: pointer;
+  }
+
+  &:hover &__like {
+    opacity: 1;
+    transition: all 0.3s ease-in;
   }
 }

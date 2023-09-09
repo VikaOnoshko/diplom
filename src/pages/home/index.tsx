@@ -47,7 +47,8 @@ export const HomePage = () => {
       <div className="main">
         <HomeBanner />
         <HomeForClient />
-        <ProductList />
+        <ProductList title="Акции" />
+        <ProductList title="Подарки" />
       </div>
       <div className="footer"></div>
     </div>
