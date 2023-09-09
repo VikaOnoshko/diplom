@@ -7,41 +7,40 @@
   width: 340px;
   padding: 5px 20px;
 
-  &__header {
-    .product-card__border {
+  &__border {
+    border-radius: 50px;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border: 1px dashed red;
+    ._center();
+  }
+
+  &__number {
+    span {
+      font-weight: 300px;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+  &__like {
+    top: 20px;
+    right: 20px;
+    color: red;
+  }
+  &__top {
+    bottom: 170px;
+    right: 26px;
+
+    &_circle {
       border-radius: 50px;
-      color: black;
+      color: rgba(149, 109, 132, 1);
       width: 50px;
       height: 50px;
-      border: 1px dashed red;
+      border: none;
+      background-color: rgba(157, 117, 140, 0.39);
+
       ._center();
-    }
-
-    .product-card__number {
-      span {
-        font-weight: 300px;
-        font-size: 16px;
-        color: rgba(0, 0, 0, 1);
-      }
-    }
-    .product-card__like {
-      top: 20px;
-      right: 20px;
-    }
-    .product-card__top {
-      bottom: 170px;
-      right: 26px;
-
-      &_circle {
-        border-radius: 50px;
-        color: rgba(149, 109, 132, 1);
-        width: 50px;
-        height: 50px;
-        border: none;
-        background-color: rgba(157, 117, 140, 0.39);
-
-        ._center();
-      }
     }
   }
 

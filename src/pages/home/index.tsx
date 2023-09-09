@@ -1,15 +1,11 @@
+import './index.less';
 import logo from '@assets/images/logo.png';
 
 import { IconButton } from '@ui/shared/icon-button';
-import Badge from '@mui/material/Badge';
-import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import './index.less';
+import { Badge } from '@ui/shared/badge';
 
 import { HomeBanner } from '@components/home/banner';
 import { HomeForClient } from '@components/home/for-client';
-import { Stack } from '@mui/material';
 import { ProductList } from '@components/home/product-list';
 
 export const HomePage = () => {
@@ -29,21 +25,19 @@ export const HomePage = () => {
                 <span>Акции</span>
                 <span>Новости</span>
               </div>
-              <Stack className="header__actions" spacing={4} direction="row">
-                <IconButton>
-                  <PersonIcon />
-                </IconButton>
-                <IconButton>
-                  <Badge badgeContent={4} color="secondary">
-                    <ShoppingCartIcon />
-                  </Badge>
-                </IconButton>
-                <IconButton>
-                  <Badge badgeContent={4} color="secondary">
-                    <FavoriteIcon />
-                  </Badge>
-                </IconButton>
-              </Stack>
+              <IconButton>
+                <span className="icon-person"></span>
+              </IconButton>
+              <IconButton>
+                <Badge badgeContent={4}>
+                  <span className="icon-cart"></span>
+                </Badge>
+              </IconButton>
+              <IconButton>
+                <Badge badgeContent={4}>
+                  <span className="icon-favorite"></span>
+                </Badge>
+              </IconButton>
             </div>
           </div>
         </div>

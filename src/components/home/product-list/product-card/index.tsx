@@ -1,6 +1,4 @@
 import './index.less';
-import '../product-card/index.less';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import fl from '@assets/images/card/img1.png';
 import { Rating } from '@mui/material';
 
@@ -16,7 +14,7 @@ export const ProductCard = () => {
           </div>
         </div>
         <div className="product-card__like product-card__mark">
-          <FavoriteBorderIcon color="primary" />
+          <span className="icon-favorite"></span>
         </div>
         <div className="product-card__img">
           <img src={fl} alt="prod" />
@@ -30,6 +28,7 @@ export const ProductCard = () => {
       <div className="product-card__body">
         <div className="product-card__description">
           <div className="product-card__rating">
+            {/* FIXME: create in ui shared */}
             <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
           </div>
           <div className="product-card__properties">
