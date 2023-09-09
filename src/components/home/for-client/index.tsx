@@ -1,4 +1,7 @@
 import like from '@assets/images/client/like.png';
+import video from '@assets/images/client/video.png';
+import present from '@assets/images/client/giftbox.png';
+
 import { useEffect, useState } from 'react';
 import './index.less';
 
@@ -12,17 +15,16 @@ const FOR_CLIENT: ForClient[] = [
   },
   {
     id: 2,
-    img: like,
-    title: 'Фото доставок наших букетов',
-    description:
-      'Безупречное качество обслуживания и доставка в любую точку города',
+    img: video,
+    title: 'Видео отчеты клиентов',
+    description: 'Наши счастливые клиенты',
   },
   {
     id: 3,
-    img: like,
-    title: 'Фото доставок наших букетов',
+    img: present,
+    title: 'Подарок каждому клиенту',
     description:
-      'Безупречное качество обслуживания и доставка в любую точку города',
+      'К каждому заказу мы прилогаем комплимент от компании в виде маленького презента',
   },
 ];
 
