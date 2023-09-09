@@ -1,4 +1,4 @@
-@import '../../../index.less';
+@import '@style/mixins.less';
 
 .product-list {
   margin-top: 40px;
@@ -17,16 +17,32 @@
   }
 
   &__pages {
-    margin: 0 -10px;
+    ._center();
     position: absolute;
-    top: 0;
-    right: 0px;
-
-    svg {
-      margin: 0 10px;
+    top: 10px;
+    right: 30px;
+    margin: 0 -6px;
+    .product-list__arrow {
       cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 2px solid rgba(149, 109, 132, 1);
+      border-right: 2px solid rgba(149, 109, 132, 1);
+      margin: 0px 6px;
+    }
+
+    .product-list__left {
+      transform: rotate(225deg);
+    }
+
+    .product-list__right {
+      transform: rotate(45deg);
     }
   }
+
   &__body {
     margin-top: 30px;
   }

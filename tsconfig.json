@@ -25,6 +25,7 @@
       "@pages/*":["./src/pages/*"],
       "@redux/*":["./src/redux/*"],
       "@router/*":["./src/router/*"],
+      "@style":["./src/style"],
       "@theme":["./src/theme"],
       "@ui/*":["./src/ui/*"]
     }

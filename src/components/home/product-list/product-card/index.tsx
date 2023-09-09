@@ -16,7 +16,7 @@ export const ProductCard = () => {
           </div>
         </div>
         <div className="product-card__like product-card__mark">
-          <FavoriteBorderIcon />
+          <FavoriteBorderIcon color="primary" />
         </div>
         <div className="product-card__img">
           <img src={fl} alt="prod" />

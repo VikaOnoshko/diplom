@@ -1,8 +1,4 @@
-@import '.././index.less';
-
-.product-card__mark {
-  position: absolute;
-}
+@import '@style/mixins.less';
 
 .product-card {
   position: relative;
@@ -49,60 +45,73 @@
     }
   }
 
-  &__body {
-    .product-card__rating {
-      margin-bottom: 10px;
-    }
+  &__mark {
+    position: absolute;
+  }
 
-    .product-card__properties {
-      display: flex;
-      justify-content: space-between;
-    }
+  &__like {
+    // opacity: 0;
+    transition: all 0.3s ease-out;
+  }
 
-    .product-card__old-price {
-      text-decoration: line-through;
-      color: rgba(189, 189, 189, 1);
+  &:hover &__like {
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+
+  &__rating {
+    margin-bottom: 10px;
+  }
+
+  &__properties {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__old-price {
+    text-decoration: line-through;
+    color: rgba(189, 189, 189, 1);
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  &__actual-price {
+    color: rgba(149, 109, 132, 1);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__name {
+    span {
       font-weight: 300;
       font-size: 18px;
+      color: rgba(51, 51, 51, 1);
     }
+  }
 
-    .product-card__actual-price {
-      color: rgba(149, 109, 132, 1);
+  &__button {
+    ._center();
+    margin-top: 10px;
+    button {
+      background-color: rgba(149, 109, 132, 1);
+      width: 220px;
+      height: 50px;
+      border-radius: 7px;
+      color: rgba(255, 255, 255, 1);
       font-weight: 700;
-      font-size: 18px;
-    }
-
-    .product-card__name {
-      span {
-        font-weight: 300;
-        font-size: 18px;
-        color: rgba(51, 51, 51, 1);
-      }
-    }
-
-    .product-card__button {
-      ._center();
-      margin-top: 10px;
-      button {
-        background-color: rgba(149, 109, 132, 1);
-        width: 220px;
-        height: 50px;
-        border-radius: 7px;
-        color: rgba(255, 255, 255, 1);
-        font-weight: 700;
-        font-size: 16px;
-        cursor: pointer;
-        &:hover {
-          background-color: rgb(163, 124, 146);
-          transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-      }
-    }
-    .product-card__action {
-      margin-top: 10px;
-      ._center();
-      text-decoration: underline;
+      font-size: 16px;
       cursor: pointer;
+      &:hover {
+        background-color: rgb(163, 124, 146);
+        transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
     }
+  }
+
+  &__action {
+    margin-top: 10px;
+    ._center();
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
