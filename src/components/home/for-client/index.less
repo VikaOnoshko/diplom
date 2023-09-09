@@ -1,0 +1,44 @@
+@import '../../../index.less';
+
+.for-client {
+  padding: 25px 0;
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+  }
+
+  &__card-list {
+    display: flex;
+    margin: 0 -10px;
+  }
+
+  &__card {
+    padding: 5px;
+    width: 100%;
+    margin: 0 10px;
+    border: 2px solid rgba(149, 109, 132, 1);
+    background-color: @cursor-color;
+  }
+
+  &__img {
+    ._center();
+    max-height: 80%;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 10px 0;
+    color: @grey-color;
+    ._center();
+  }
+
+  &__description {
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+  }
+}

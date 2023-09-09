@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import komp from '@assets/images/presents/komp.png';
+import './index.less';
 
 const BANNERS: HomeBanner[] = [
   { id: 1, img: komp, title: 'Розы', position: 'left' },
@@ -9,6 +10,8 @@ const BANNERS: HomeBanner[] = [
   { id: 4, img: komp, title: 'Розы', position: 'left' },
   { id: 5, img: komp, title: 'Розы', position: 'left' },
 ];
+
+import './index.less';
 
 export const HomeBanner = () => {
   const [banners, setBanners] = useState<HomeBanner[]>([]);

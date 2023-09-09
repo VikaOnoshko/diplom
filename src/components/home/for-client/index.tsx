@@ -1,5 +1,6 @@
 import like from '@assets/images/client/like.png';
 import { useEffect, useState } from 'react';
+import './index.less';
 
 const FOR_CLIENT: ForClient[] = [
   {
