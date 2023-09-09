@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import komp from '@assets/images/presents/komp.png';
 import './index.less';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const BANNERS: HomeBanner[] = [
   { id: 1, img: komp, title: 'Розы', position: 'left' },
@@ -23,20 +28,35 @@ export const HomeBanner = () => {
     <section className="banner">
       <div className="banner__container">
         <div className="banner__wrapper">
-          <div className="banner__sale">
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="banner__swiper"
+          >
             {banners.map((banner) => (
-              <div className="banner__card" key={banner.id}>
-                <div className="banner__img">
-                  <img src={banner.img} alt="komp" />
+              <SwiperSlide key={banner.id}>
+                <div className="banner__card">
+                  <div className="banner__img">
+                    <img src={banner.img} alt="komp" />
+                  </div>
+                  <span
+                    className={`banner__text banner__text_${banner.position}`}
+                  >
+                    {banner.title}
+                  </span>
                 </div>
-                <span
-                  className={`banner__text banner__text_${banner.position}`}
-                >
-                  {banner.title}
-                </span>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </section>
