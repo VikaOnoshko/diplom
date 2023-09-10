@@ -1,0 +1,42 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.forum {
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+  }
+
+  &__header {
+    ._center();
+    font-size: 27px;
+    position: relative;
+  }
+
+  &__pages {
+    ._center();
+    position: absolute;
+    right: 15px;
+
+    span {
+      font-weight: 300;
+      font-size: 16px;
+      color: @primary-color;
+      margin-right: 10px;
+    }
+  }
+
+  &__img {
+    cursor: pointer;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}

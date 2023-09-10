@@ -7,6 +7,7 @@ import { Badge } from '@ui/shared/badge';
 import { HomeBanner } from '@components/home/banner';
 import { HomeForClient } from '@components/home/for-client';
 import { ProductList } from '@components/home/product-list';
+import { HomeNewsList } from '@components/home/news-list';
 
 export const HomePage = () => {
   return (
@@ -49,6 +50,7 @@ export const HomePage = () => {
         <HomeForClient />
         <ProductList title="Акции" />
         <ProductList title="Подарки" />
+        <HomeNewsList />
       </div>
       <div className="footer"></div>
     </div>

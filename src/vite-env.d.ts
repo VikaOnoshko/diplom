@@ -28,3 +28,10 @@ type Product = {
   rating: number;
   price: number;
 };
+
+type News = {
+  id: number;
+  img: string;
+  title: string;
+  text: string;
+};
