@@ -8,6 +8,7 @@ import { HomeBanner } from '@components/home/banner';
 import { HomeForClient } from '@components/home/for-client';
 import { ProductList } from '@components/home/product-list';
 import { HomeNewsList } from '@components/home/news-list';
+import { HomeMap } from '@components/home/map';
 
 export const HomePage = () => {
   return (
@@ -51,6 +52,7 @@ export const HomePage = () => {
         <ProductList title="Акции" />
         <ProductList title="Подарки" />
         <HomeNewsList />
+        <HomeMap />
       </div>
       <div className="footer"></div>
     </div>
