@@ -59,12 +59,60 @@
         background-image: url('@assets/images/client/left.png');
       }
     }
-    &:nth-child(2)::before {
-      background-image: url('@assets/images/client/center.png');
+
+    &:nth-child(2) {
+      .for-client__title {
+        color: @lite-color;
+        font-weight: 300;
+        font-size: 24px;
+      }
+
+      .for-client__description {
+        font-weight: 300;
+        font-size: 14px;
+        color: @lite-color;
+        ._center();
+      }
+
+      &::before {
+        background-image: url('@assets/images/client/center.png');
+      }
     }
-    &:nth-child(3)::before {
-      transform: scale(-1, 1);
-      background-image: url('@assets/images/client/left.png');
+
+    &:nth-child(3) {
+      position: relative;
+      justify-content: flex-end;
+      display: flex;
+      text-align: right;
+
+      .for-client__img {
+        position: absolute;
+        top: 9px;
+        left: 12px;
+      }
+
+      .for-client__text {
+        width: 50%;
+        margin: 15px 5px;
+      }
+
+      .for-client__title {
+        color: @grey-color;
+        font-weight: 300;
+        font-size: 24px;
+      }
+
+      .for-client__description {
+        font-weight: 300;
+        font-size: 14px;
+        color: @text-color;
+        ._center();
+      }
+
+      &::before {
+        transform: scale(-1, 1);
+        background-image: url('@assets/images/client/left.png');
+      }
     }
   }
 
