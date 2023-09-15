@@ -48,11 +48,11 @@ export const HomeBanner = () => {
                   <div className="banner__img">
                     <img src={banner.img} alt="komp" />
                   </div>
-                  <span
+                  <h4
                     className={`banner__text banner__text_${banner.position}`}
                   >
                     {banner.title}
-                  </span>
+                  </h4>
                 </div>
               </SwiperSlide>
             ))}

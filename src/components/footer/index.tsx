@@ -100,7 +100,7 @@ export const Footer = () => {
               <span>Copyright © 2023. Все права защищены</span>
             </div>
             <div className="footer__pay">
-              <div className="footer__title">
+              <div className="footer__subtitle">
                 <span>Способы оплаты:</span>
               </div>
               <div className="footer__card">
@@ -122,10 +122,7 @@ export const Footer = () => {
                 <a href="https://by.visa.com/" className="footer__img">
                   <img src={vs} alt="card" />
                 </a>
-                <a
-                  href="https://by.visa.com/pay-with-visa/featured-technologies/visa-contactless.html"
-                  className="footer__img"
-                >
+                <a href="https://by.visa.com/ " className="footer__img">
                   <img src={ve} alt="card" />
                 </a>
               </div>

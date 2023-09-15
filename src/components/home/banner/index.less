@@ -1,3 +1,4 @@
+@import '@style/constants.less';
 @import '@style/mixins.less';
 
 .banner {
@@ -42,5 +43,16 @@
       width: 100%;
       object-fit: cover;
     }
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: @text-color;
+}
+
+.banner {
+  span {
+    background-color: @primary-color;
   }
 }
