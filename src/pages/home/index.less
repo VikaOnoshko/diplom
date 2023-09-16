@@ -1,69 +1,11 @@
 @import '@style/constants.less';
 @import '@style/mixins.less';
 
-.header {
-  &__container {
-    ._container();
+.home {
+  .forum,
+  .for-client,
+  .product-list,
+  .home-map {
+    margin: 25px 0 50px 0;
   }
-
-  &__wrapper {
-    ._wrapper();
-    padding-top: 10px;
-  }
-
-  &__menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__logo {
-    max-width: 85px;
-    cursor: pointer;
-    ._center();
-    img {
-      width: 100%;
-    }
-  }
-
-  &__actions {
-    ._center();
-
-    button {
-      display: contents;
-      cursor: pointer;
-      svg {
-        font-size: 30px;
-        color: @primary-color;
-      }
-    }
-  }
-
-  &__navigation {
-    margin: 0 -30px;
-    span {
-      cursor: pointer;
-      ._navigation();
-      font-size: 18px;
-      margin: 0 30px;
-      &:hover {
-        color: @primary-color;
-        transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-    }
-  }
-
-  &__icons {
-    margin: 0 -5px;
-    & > * {
-      margin: 0 5px;
-    }
-  }
-}
-
-.forum,
-.for-client,
-.product-list,
-.home-map {
-  margin: 25px 0 50px 0;
 }
