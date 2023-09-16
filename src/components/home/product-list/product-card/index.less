@@ -1,0 +1,142 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.product-card {
+  border: @primary-border;
+  max-width: 340px;
+
+  &__header {
+    position: relative;
+  }
+
+  &__img {
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+    }
+  }
+
+  &__mark {
+    ._center();
+    position: absolute;
+
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+
+    span {
+      font-weight: 300;
+      font-size: 16px;
+      color: @primary-color;
+    }
+  }
+
+  &__sale {
+    top: 20px;
+    left: 20px;
+
+    border: 1px dashed red;
+
+    span {
+      color: red;
+    }
+  }
+
+  &__like {
+    top: 20px;
+    right: 20px;
+    // color: red;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+
+    span::before {
+      font-size: 25px;
+    }
+  }
+
+  &__top {
+    bottom: 20px;
+    right: 20px;
+
+    background-color: rgba(157, 117, 140, 0.39);
+  }
+
+  &__rating {
+    margin-bottom: 10px;
+  }
+
+  &__body {
+    height: 180px;
+    padding: 5px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__properties {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__old-price {
+    text-decoration: line-through;
+    color: rgba(189, 189, 189, 1);
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  &__actual-price {
+    color: rgba(149, 109, 132, 1);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__name {
+    max-width: 60%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    span {
+      font-weight: 300;
+      font-size: 18px;
+      color: rgba(51, 51, 51, 1);
+    }
+  }
+
+  &__button {
+    ._center();
+    margin-top: 10px;
+    button {
+      background-color: rgba(149, 109, 132, 1);
+      width: 220px;
+      height: 50px;
+      border-radius: 7px;
+      color: rgba(255, 255, 255, 1);
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(163, 124, 146);
+        transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+  }
+
+  &__fast-order {
+    margin-top: 10px;
+    ._center();
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &:hover &__like {
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+}

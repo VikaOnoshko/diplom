@@ -1,0 +1,58 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.banner {
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+  }
+
+  &__swiper {
+    height: 70vh;
+  }
+
+  &__swiper-image {
+    width: 100%;
+  }
+
+  &__card {
+    position: relative;
+  }
+
+  &__text {
+    ._banner();
+    position: absolute;
+
+    font-size: 50px;
+
+    &_right {
+      top: 10px;
+      right: 0px;
+    }
+    &_left {
+      top: 30px;
+      left: 0px;
+    }
+  }
+
+  &__img {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: @text-color;
+}
+
+.banner {
+  span {
+    background-color: @primary-color;
+  }
+}

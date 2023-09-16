@@ -1,0 +1,21 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.icon-button {
+  font-size: 20px;
+  padding: 10px;
+  background-color: transparent;
+
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(249, 239, 245, 0.997);
+    transition: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    border-radius: 100%;
+  }
+
+  [class^='icon-'],
+  [class*=' icon-'] {
+    font-size: 25px;
+    color: @primary-color;
+  }
+}
