@@ -6,6 +6,7 @@ import { signinSchema } from '@components/auth/shema';
 import { useContext } from 'react';
 import { UserContext } from '@components/user';
 import './index.less';
+import { signin } from '../../../firebase';
 
 type SigninFormProps = { goToSignup: () => void };
 
@@ -18,6 +19,10 @@ export const SigninForm = ({ goToSignup }: SigninFormProps) => {
       password: '',
     },
     onSubmit: (values) => {
+      console.log('onSubmit');
+
+      signin(values.email, values.password);
+
       alert(JSON.stringify(values, null, 2));
       UserContextData.login(values.email, values.password);
     },
@@ -59,7 +64,7 @@ export const SigninForm = ({ goToSignup }: SigninFormProps) => {
       }
       actions={
         <>
-          <Button text="Войти" />
+          <Button text="Войти" type="submit" />
           <div className="sigin__change-form" onClick={goToSignup}>
             <span>Регистрация</span>
           </div>

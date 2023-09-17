@@ -3,6 +3,7 @@ import { Field } from '@ui/shared/field';
 import { Form } from '@ui/shared/form';
 import { Button } from '@ui/shared/button';
 import { signupSchema } from '@components/auth/shema';
+import { signup } from '../../../firebase';
 
 export const SignupForm = () => {
   const formik = useFormik({
@@ -14,7 +15,10 @@ export const SignupForm = () => {
       repeatPassword: '',
     },
     onSubmit: (values) => {
+      console.log('handleSubmit');
+
       alert(JSON.stringify(values, null, 2));
+      signup(values.email, values.password);
     },
     validationSchema: signupSchema,
   });
@@ -78,7 +82,7 @@ export const SignupForm = () => {
       }
       actions={
         <>
-          <Button text="Отправить" />
+          <Button text="Отправить" type="submit" />
         </>
       }
     />

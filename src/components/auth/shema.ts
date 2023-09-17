@@ -12,7 +12,7 @@ export const signinSchema = Yup.object().shape({
   password: Yup.string()
     .required('Поле обязательно')
     .matches(
-      /^(?=A)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/gm,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/gm,
       'Некорректный формат',
     ),
 });
@@ -33,7 +33,7 @@ export const signupSchema = Yup.object().shape({
   password: Yup.string()
     .required('Поле обязательно')
     .matches(
-      /^(?=A)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/gm,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/gm,
       'Некорректный формат',
     ),
 

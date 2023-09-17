@@ -9,11 +9,11 @@ interface FormProps {
   >;
 }
 
-export const Form = ({ actions, body }: FormProps) => {
+export const Form = ({ actions, body, formProps }: FormProps) => {
   return (
-    <div className="form">
+    <form className="form" {...formProps}>
       <div className="form__body">{body}</div>
       <div className="form__actions">{actions}</div>
-    </div>
+    </form>
   );
 };
