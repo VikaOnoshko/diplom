@@ -39,7 +39,7 @@
     &:hover {
       &::before,
       &::after {
-        background-color: red;
+        background-color: @text-color;
       }
     }
   }
@@ -51,6 +51,7 @@
     width: 24px;
     height: 2px;
     background-color: @border-color;
+    transition: @transition;
   }
 
   .auth__close::before {
@@ -85,10 +86,10 @@
 
     &:hover {
       .auth__icon {
-        background-color: red;
+        background-color: @text-color;
       }
       .auth__text {
-        color: red;
+        color: @text-color;
       }
     }
   }
@@ -96,6 +97,7 @@
   .auth__icon {
     ._center();
     display: inline-flex;
+    transition: @transition;
 
     background: #cecece;
     width: 25px;
@@ -108,5 +110,6 @@
   .auth__text {
     display: inline;
     color: #cecece;
+    transition: @transition;
   }
 }

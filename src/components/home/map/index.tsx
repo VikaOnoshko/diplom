@@ -23,7 +23,7 @@ const POINT_SETTINGS = {
   lng: 27.5201239,
 };
 
-export const HomeMap = () => {
+export const Map = () => {
   return (
     <section className="home-map">
       <div className="home-map__container">
