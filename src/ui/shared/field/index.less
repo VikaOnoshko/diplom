@@ -1,0 +1,59 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.field {
+  width: 100%;
+  padding-bottom: 15px;
+
+  .field__input-container {
+    display: flex;
+    margin-top: 5px;
+    position: relative;
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+
+  .field__eyes {
+    margin: 8px;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      color: @text-color;
+    }
+  }
+
+  .field__container {
+    color: red;
+    display: flex;
+    align-items: center;
+  }
+
+  .field__label {
+    color: @text-color;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 9px 12px 11px;
+    border: 1px solid @text-color;
+    border-radius: 2px;
+    ._center();
+  }
+}

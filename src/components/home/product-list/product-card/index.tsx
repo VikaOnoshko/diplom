@@ -1,3 +1,4 @@
+import { Button } from '@ui/shared/button';
 import './index.less';
 import { Rating } from '@mui/material';
 
@@ -57,9 +58,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         <div className="product-card__actions">
-          <div className="product-card__button">
-            <button>Заказать</button>
-          </div>
+          <Button text="Заказать" />
           <div className="product-card__fast-order">
             <span>Быстрый заказ</span>
           </div>
