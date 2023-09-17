@@ -6,7 +6,7 @@ import { SignupForm } from './signup';
 type AuthProps = { close: () => void };
 
 export const Auth = ({ close }: AuthProps) => {
-  const [isSignin, setIsSignin] = useState(false);
+  const [isSignin, setIsSignin] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -28,14 +28,19 @@ export const Auth = ({ close }: AuthProps) => {
       <div className="auth__container">
         <div className="auth__wrapper">
           <div className="auth__header">
-            <div className="autn__navigation" onClick={() => setIsSignin(true)}>
-              <div className="auth__icon">
-                <div className="auth__arrow"></div>
+            {!isSignin && (
+              <div
+                className="autn__navigation"
+                onClick={() => setIsSignin(true)}
+              >
+                <div className="auth__icon">
+                  <div className="auth__arrow"></div>
+                </div>
+                <div className="auth__text">
+                  <span>Назад</span>
+                </div>
               </div>
-              <div className="auth__text">
-                <span>Назад</span>
-              </div>
-            </div>
+            )}
             <div className="auth__close" onClick={close}></div>
             <h2 className="auth__title">{title}</h2>
           </div>

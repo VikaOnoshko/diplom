@@ -1,6 +1,7 @@
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
 import { Map } from '@components/home/map';
+import './index.less';
 
 type LayoutProps = WithChildren;
 

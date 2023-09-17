@@ -25,9 +25,9 @@ const POINT_SETTINGS = {
 
 export const Map = () => {
   return (
-    <section className="home-map">
-      <div className="home-map__container">
-        <div className="home-map__wrapper">
+    <section className="map">
+      <div className="map__container">
+        <div className="map__wrapper">
           <GoogleMapReact {...MAP_SETTING}>
             <AnyReactComponent {...POINT_SETTINGS} />
           </GoogleMapReact>
