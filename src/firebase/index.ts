@@ -60,4 +60,6 @@ export const signin = (email: string, password: string) =>
 
       console.error(errorCode);
       console.error(errorMessage);
+
+      throw error;
     });

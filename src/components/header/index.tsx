@@ -3,10 +3,23 @@ import { Badge } from '@ui/shared/badge';
 import { IconButton } from '@ui/shared/icon-button';
 import logo from '@assets/images/logo.png';
 import { Auth } from '@components/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { logout, selectUser } from '@redux/reducers/userReducer';
+import { useAppDispath, useAppSelector } from '@redux/store/store';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
+  const dispatch = useAppDispath();
+
+  const user = useAppSelector(selectUser);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  useEffect(() => {
+    setIsOpenAuth(false);
+  }, [user]);
 
   return (
     <>
@@ -25,9 +38,16 @@ export const Header = () => {
                 <span>Новости</span>
               </div>
               <div className="header__icons">
-                <IconButton onClick={() => setIsOpenAuth(true)}>
-                  <span className="icon-person"></span>
-                </IconButton>
+                {!user && (
+                  <IconButton onClick={() => setIsOpenAuth(true)}>
+                    <span className="icon-person"></span>
+                  </IconButton>
+                )}
+                {!!user && (
+                  <IconButton onClick={handleLogout}>
+                    <span className="icon-sign_out"></span>
+                  </IconButton>
+                )}
                 <IconButton>
                   <Badge badgeContent={4}>
                     <span className="icon-cart"></span>
@@ -44,7 +64,7 @@ export const Header = () => {
         </div>
       </header>
 
-      {isOpenAuth && <Auth close={() => setIsOpenAuth(false)} />}
+      {!user && isOpenAuth && <Auth close={() => setIsOpenAuth(false)} />}
     </>
   );
 };

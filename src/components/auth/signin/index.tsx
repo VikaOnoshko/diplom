@@ -3,15 +3,15 @@ import { Field } from '@ui/shared/field';
 import { Form } from '@ui/shared/form';
 import { Button } from '@ui/shared/button';
 import { signinSchema } from '@components/auth/shema';
-import { useContext } from 'react';
-import { UserContext } from '@components/user';
 import './index.less';
 import { signin } from '../../../firebase';
+import { login } from '@redux/reducers/userReducer';
+import { useAppDispath } from '@redux/store/store';
 
 type SigninFormProps = { goToSignup: () => void };
 
 export const SigninForm = ({ goToSignup }: SigninFormProps) => {
-  const UserContextData = useContext(UserContext);
+  const dispatch = useAppDispath();
 
   const formik = useFormik({
     initialValues: {
@@ -19,12 +19,13 @@ export const SigninForm = ({ goToSignup }: SigninFormProps) => {
       password: '',
     },
     onSubmit: (values) => {
-      console.log('onSubmit');
-
-      signin(values.email, values.password);
-
-      alert(JSON.stringify(values, null, 2));
-      UserContextData.login(values.email, values.password);
+      signin(values.email, values.password)
+        .then((data) => {
+          dispatch(login(data));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     validationSchema: signinSchema,
   });
