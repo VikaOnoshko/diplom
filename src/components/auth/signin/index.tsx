@@ -4,8 +4,8 @@ import { Form } from '@ui/shared/form';
 import { Button } from '@ui/shared/button';
 import { signinSchema } from '@components/auth/shema';
 import './index.less';
-import { signin } from '../../../firebase';
 import { login } from '@redux/reducers/userReducer';
+import { AuthService } from '@services/auth.service';
 import { useAppDispath } from '@redux/store/store';
 
 type SigninFormProps = { goToSignup: () => void };
@@ -18,13 +18,15 @@ export const SigninForm = ({ goToSignup }: SigninFormProps) => {
       email: '',
       password: '',
     },
+    validateOnChange: false,
+    validateOnBlur: true,
     onSubmit: (values) => {
-      signin(values.email, values.password)
+      AuthService.signin(values.email, values.password)
         .then((data) => {
           dispatch(login(data));
         })
         .catch((err) => {
-          console.log(err);
+          formik.setErrors(err);
         });
     },
     validationSchema: signinSchema,

@@ -1,7 +1,13 @@
 import { StoreType } from '@redux/store/store';
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { User } from 'firebase/auth';
 
-export const initialState = {
+export type UserStore = {
+  isAuth: boolean;
+  user: User | null;
+};
+
+export const initialState: UserStore = {
   isAuth: false,
   user: null,
 };
@@ -10,7 +16,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
       state.isAuth = true;
     },

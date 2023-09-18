@@ -18,11 +18,6 @@ export const signinSchema = Yup.object().shape({
 });
 
 export const signupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .required('Поле обязательно')
-    .min(6, 'Имя должно содержать минимум 3 символа')
-    .max(20, 'Имя должно содержать максимум 10 символов'),
-
   email: Yup.string()
     .required('Поле обязательно')
     .matches(

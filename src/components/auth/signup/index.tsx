@@ -3,22 +3,29 @@ import { Field } from '@ui/shared/field';
 import { Form } from '@ui/shared/form';
 import { Button } from '@ui/shared/button';
 import { signupSchema } from '@components/auth/shema';
-import { signup } from '../../../firebase';
+import { useAppDispath } from '@redux/store/store';
+import { login } from '@redux/reducers/userReducer';
+import { AuthService } from '@services/auth.service';
 
 export const SignupForm = () => {
+  const dispatch = useAppDispath();
+
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
       email: '',
       password: '',
       repeatPassword: '',
     },
+    validateOnChange: false,
+    validateOnBlur: true,
     onSubmit: (values) => {
-      console.log('handleSubmit');
-
-      alert(JSON.stringify(values, null, 2));
-      signup(values.email, values.password);
+      AuthService.signup(values.email, values.password)
+        .then((data) => {
+          dispatch(login(data));
+        })
+        .catch((err) => {
+          formik.setErrors(err);
+        });
     },
     validationSchema: signupSchema,
   });
@@ -31,18 +38,6 @@ export const SignupForm = () => {
       }}
       body={
         <>
-          <Field
-            label="Имя"
-            type="string"
-            isError={!!(formik.errors.firstName && formik.values.firstName)}
-            errorText={formik.errors.firstName}
-            inputProps={{
-              name: 'firstName',
-              value: formik.values.firstName,
-              onChange: formik.handleChange,
-            }}
-          />
-
           <Field
             label="Электронная почта"
             type="email"
