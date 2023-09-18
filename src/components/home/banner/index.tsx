@@ -36,7 +36,7 @@ export const HomeBanner = () => {
             {banners.map((banner) => (
               <SwiperSlide key={banner.id}>
                 <div className="banner__img">
-                  <img src={banner.img} alt="komp" />
+                  <img src={banner.img} alt="banner" />
                 </div>
               </SwiperSlide>
             ))}
