@@ -12,8 +12,8 @@ export const HomePage = () => {
       <div className="home">
         <HomeBanner />
         <HomeForClient />
-        <ProductList title="Акции" />
-        <ProductList title="Подарки" />
+        <ProductList title="Акции" filter={{ onSale: true }} />
+        <ProductList title="Подарки" filter={{ category: 'present' }} />
         <HomeNewsList />
       </div>
     </Layout>

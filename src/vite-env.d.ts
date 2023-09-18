@@ -21,10 +21,12 @@ type Product = {
   name: string;
   img: string;
   sale?: number;
+  onSale: boolean;
   favorite: boolean;
   top: boolean;
   rating: number;
   price: number;
+  category: string;
 };
 
 type News = {
