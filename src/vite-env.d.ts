@@ -6,9 +6,7 @@ type WithChildren = {
 
 type HomeBanner = {
   id: number;
-  title: string;
   img: string;
-  position: 'left' | 'right';
 };
 
 type ForClient = {

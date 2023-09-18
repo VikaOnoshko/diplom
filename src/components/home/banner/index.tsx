@@ -3,25 +3,16 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import komp from '@assets/images/presents/komp.png';
 import './index.less';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-const BANNERS: HomeBanner[] = [
-  { id: 1, img: komp, title: 'Розы', position: 'left' },
-  { id: 2, img: komp, title: 'Розы', position: 'left' },
-  { id: 3, img: komp, title: 'Розы', position: 'left' },
-  { id: 4, img: komp, title: 'Розы', position: 'left' },
-  { id: 5, img: komp, title: 'Розы', position: 'left' },
-];
+import { BannerService } from '@services/banner.service';
 
 export const HomeBanner = () => {
   const [banners, setBanners] = useState<HomeBanner[]>([]);
 
   useEffect(() => {
-    //   TODO: use API
-    setBanners(BANNERS);
+    BannerService.getList().then((data) => setBanners(data));
   }, []);
 
   return (
@@ -32,7 +23,7 @@ export const HomeBanner = () => {
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
-              delay: 2500,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             pagination={{
@@ -44,15 +35,8 @@ export const HomeBanner = () => {
           >
             {banners.map((banner) => (
               <SwiperSlide key={banner.id}>
-                <div className="banner__card">
-                  <div className="banner__img">
-                    <img src={banner.img} alt="komp" />
-                  </div>
-                  <h4
-                    className={`banner__text banner__text_${banner.position}`}
-                  >
-                    {banner.title}
-                  </h4>
+                <div className="banner__img">
+                  <img src={banner.img} alt="komp" />
                 </div>
               </SwiperSlide>
             ))}
