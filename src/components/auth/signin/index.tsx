@@ -3,23 +3,31 @@ import { Field } from '@ui/shared/field';
 import { Form } from '@ui/shared/form';
 import { Button } from '@ui/shared/button';
 import { signinSchema } from '@components/auth/shema';
-import { useContext } from 'react';
-import { UserContext } from '@components/user';
 import './index.less';
+import { login } from '@redux/reducers/userReducer';
+import { AuthService } from '@services/auth.service';
+import { useAppDispath } from '@redux/store/store';
 
 type SigninFormProps = { goToSignup: () => void };
 
 export const SigninForm = ({ goToSignup }: SigninFormProps) => {
-  const UserContextData = useContext(UserContext);
+  const dispatch = useAppDispath();
 
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
+    validateOnChange: false,
+    validateOnBlur: true,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      UserContextData.login(values.email, values.password);
+      AuthService.signin(values.email, values.password)
+        .then((data) => {
+          dispatch(login(data));
+        })
+        .catch((err) => {
+          formik.setErrors(err);
+        });
     },
     validationSchema: signinSchema,
   });
@@ -59,7 +67,7 @@ export const SigninForm = ({ goToSignup }: SigninFormProps) => {
       }
       actions={
         <>
-          <Button text="Войти" />
+          <Button text="Войти" type="submit" />
           <div className="sigin__change-form" onClick={goToSignup}>
             <span>Регистрация</span>
           </div>

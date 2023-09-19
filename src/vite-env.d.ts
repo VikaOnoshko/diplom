@@ -6,9 +6,7 @@ type WithChildren = {
 
 type HomeBanner = {
   id: number;
-  title: string;
   img: string;
-  position: 'left' | 'right';
 };
 
 type ForClient = {
@@ -23,10 +21,12 @@ type Product = {
   name: string;
   img: string;
   sale?: number;
+  onSale: boolean;
   favorite: boolean;
   top: boolean;
   rating: number;
   price: number;
+  category: string;
 };
 
 type News = {

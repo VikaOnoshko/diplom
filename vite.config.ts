@@ -20,6 +20,8 @@ export default defineConfig({
       '@components': fileURLToPath(
         new URL('./src/components', import.meta.url),
       ),
+      '@services': fileURLToPath(new URL('./src/services', import.meta.url)),
+      '@providers': fileURLToPath(new URL('./src/providers', import.meta.url)),
       '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
       '@redux': fileURLToPath(new URL('./src/redux', import.meta.url)),
       '@router': fileURLToPath(new URL('./src/router', import.meta.url)),
