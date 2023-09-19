@@ -5,16 +5,21 @@ import vs from '@assets/images/footer/visa.png';
 import ve from '@assets/images/footer/visan.png';
 import mk from '@assets/images/footer/mc.png';
 import './index.less';
+import { useAppNavigate } from '@router/hooks';
 
 export const Footer = () => {
+  const { goToHome } = useAppNavigate();
+
   return (
     <section className="footer">
       <div className="footer__container">
         <div className="footer__wrapper">
           <div className="footer__contacts">
-            <div className="footer__logo">
-              <img src={logo} alt="logo" />
-            </div>
+            <a href="#header">
+              <div className="footer__logo" onClick={goToHome}>
+                <img src={logo} alt="logo" />
+              </div>
+            </a>
             <div className="footer__description">
               <div className="footer__information">
                 <div className="footer__title">
