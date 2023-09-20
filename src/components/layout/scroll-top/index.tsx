@@ -16,7 +16,7 @@ export const ScrollTop = () => {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return <>{show && <div className="scroll-top" onClick={goToTop}></div>}</>;
 };

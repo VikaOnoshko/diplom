@@ -35,3 +35,20 @@ type News = {
   title: string;
   text: string;
 };
+
+type PaginationResponse<T> = {
+  items: T[];
+  count: number;
+};
+
+type GroupCategory = {
+  id: number;
+  name: string;
+};
+
+type Category = {
+  id: number;
+  name: string;
+  img: string;
+  groupCategoryId: number;
+};
