@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import './index.less';
+import { CategoryService } from '@services/category.service';
 
 type GroupCategoryAccordionProps = {
   groupCategory: GroupCategory;
@@ -13,6 +15,14 @@ export const GroupCategoryAccordion = ({
 }: GroupCategoryAccordionProps) => {
   const { name, id } = groupCategory;
 
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    if (isOpen && categories.length === 0) {
+      CategoryService.getList(id).then((data) => setCategories(data));
+    }
+  }, [isOpen]);
+
   return (
     <div className="accordion">
       <div className="accordion__summary" onClick={() => toggle(id)}>
@@ -24,7 +34,11 @@ export const GroupCategoryAccordion = ({
       </div>
       {isOpen && (
         <div className="accordion__details">
-          <span>test</span>
+          {categories.map((category) => (
+            <div className="accordion__category" key={category.id}>
+              {category.name}
+            </div>
+          ))}
         </div>
       )}
     </div>
