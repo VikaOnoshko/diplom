@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './index.less';
 import { CategoryService } from '@services/category.service';
+import { useAppDispath, useAppSelector } from '@redux/store/store';
+import { setFilter } from '@redux/reducers/catalog.reducer';
 
 type GroupCategoryAccordionProps = {
   groupCategory: GroupCategory;
@@ -14,8 +16,18 @@ export const GroupCategoryAccordion = ({
   toggle,
 }: GroupCategoryAccordionProps) => {
   const { name, id } = groupCategory;
-
   const [categories, setCategories] = useState<Category[]>([]);
+
+  const { filter } = useAppSelector((state) => state.catalog);
+  const dispatch = useAppDispath();
+
+  const handleClick = (id: number) => {
+    if (filter.categories === id) {
+      dispatch(setFilter({}));
+    } else {
+      dispatch(setFilter({ categories: id }));
+    }
+  };
 
   useEffect(() => {
     if (isOpen && categories.length === 0) {
@@ -35,7 +47,12 @@ export const GroupCategoryAccordion = ({
       {isOpen && (
         <div className="accordion__details">
           {categories.map((category) => (
-            <div className="accordion__category" key={category.id}>
+            <div
+              className="accordion__category"
+              key={category.id}
+              data-active={filter.categories === category.id}
+              onClick={() => handleClick(category.id)}
+            >
               {category.name}
             </div>
           ))}

@@ -10,6 +10,7 @@ div[data-open='true'] {
 
 .accordion {
   margin: 15px 0px;
+  width: 250px;
 }
 
 .accordion__summary {
@@ -20,7 +21,7 @@ div[data-open='true'] {
   cursor: pointer;
 
   span {
-    font-weight: 300px;
+    font-weight: 300;
     font-size: 20px;
     color: @grey-color;
   }
@@ -52,7 +53,11 @@ div[data-open='true'] {
 .accordion__category {
   padding: 5px;
   color: @primary-color;
-  font-weight: 300px;
+  font-weight: 300;
   font-size: 16px;
   cursor: pointer;
+
+  &[data-active='true'] {
+    font-weight: 700;
+  }
 }

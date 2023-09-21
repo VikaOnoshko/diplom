@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type InitialStateType = {
-  filter: object;
+  filter: { categories?: number };
   sort: string;
 };
 
 const initialState: InitialStateType = {
   filter: {},
-  sort: 'price',
+  sort: 'rating',
 };
 
 export const catalogSlice = createSlice({

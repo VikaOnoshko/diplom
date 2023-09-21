@@ -1,7 +1,7 @@
-import { Button } from '@ui/shared/button';
 import './index.less';
 import { Sort } from '@components/catalog/sort';
 import { Category } from '@components/catalog/category';
+import { CatalogResult } from '@components/catalog/result';
 
 export const CatalogPage = () => {
   return (
@@ -15,9 +15,7 @@ export const CatalogPage = () => {
             <Category />
             <div className="catalog__product">
               <Sort />
-              <div className="product__card">КАРТОЧКИ</div>
-              <Button text="Еще ? товаров" />
-              <div className="product__pagination"></div>
+              <CatalogResult />
             </div>
           </div>
         </div>
