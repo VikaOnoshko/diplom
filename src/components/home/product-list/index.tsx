@@ -16,12 +16,8 @@ export const ProductList = ({ title, filter }: ProductListProps) => {
       limit: 8,
       ...filter,
     }).then((data) => {
-      if (data.length) {
-        setProducts(data);
-      } else {
-        setPage(page - 1);
-        setMaxPage(page - 1);
-      }
+      setProducts(data.items);
+      setMaxPage(Math.ceil(data.count / 8));
     });
   }, [page]);
 

@@ -3,9 +3,10 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import { appReducer } from '../reducers/app.reducer';
 import userReducer from '@redux/reducers/userReducer';
+import catalogReducer from '@redux/reducers/catalog.reducer';
 
 export const store = configureStore({
-  reducer: { app: appReducer, user: userReducer },
+  reducer: { app: appReducer, user: userReducer, catalog: catalogReducer },
 });
 
 export type StoreType = ReturnType<typeof store.getState>;

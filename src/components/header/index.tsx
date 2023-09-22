@@ -6,10 +6,12 @@ import { Auth } from '@components/auth';
 import { useEffect, useState } from 'react';
 import { logout, selectUser } from '@redux/reducers/userReducer';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
+import { useAppNavigate } from '@router/hooks';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
   const dispatch = useAppDispath();
+  const { goToCatalog, goToHome } = useAppNavigate();
 
   const user = useAppSelector(selectUser);
 
@@ -23,15 +25,15 @@ export const Header = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header" id="header">
         <div className="header__container">
           <div className="header__wrapper">
             <div className="header__menu">
-              <div className="header__logo">
+              <div className="header__logo" onClick={goToHome}>
                 <img src={logo} alt="logo" />
               </div>
               <div className="header__navigation">
-                <span>Каталог товаров</span>
+                <span onClick={goToCatalog}>Каталог товаров</span>
                 <span>Форум</span>
                 <span>Отзывы</span>
                 <span>Акции</span>

@@ -1,5 +1,5 @@
-import { Button } from '@ui/shared/button';
 import './index.less';
+import { Button } from '@ui/shared/button';
 import { Rating } from '@mui/material';
 
 type ProductCardProps = {
