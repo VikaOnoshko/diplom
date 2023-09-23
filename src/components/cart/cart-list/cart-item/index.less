@@ -1,0 +1,41 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.cart-item {
+  display: flex;
+  max-width: 950px;
+  border: 1px solid @primary-color;
+
+  &__count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid @primary-color;
+    width: 100px;
+    min-height: 40px;
+  }
+
+  &__icons {
+    display: flex;
+  }
+
+  &__arrow {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgba(149, 109, 132, 1);
+    border-right: 2px solid rgba(149, 109, 132, 1);
+    margin: 0px 6px;
+
+    &_left {
+      transform: rotate(225deg);
+    }
+
+    &_right {
+      transform: rotate(45deg);
+    }
+  }
+}

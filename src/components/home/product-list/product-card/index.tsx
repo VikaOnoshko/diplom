@@ -1,15 +1,35 @@
 import './index.less';
 import { Button } from '@ui/shared/button';
 import { Rating } from '@mui/material';
+import { useAppDispath, useAppSelector } from '@redux/store/store';
+import { addProduct, changeProductCount } from '@redux/reducers/cart.reducer';
 
 type ProductCardProps = {
   product: Product;
+  count: number;
 };
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const { name, price, sale, rating, top, favorite, img } = product;
 
+  const dispatch = useAppDispath();
+
+  const handleClick = () => {
+    dispatch(addProduct(product));
+  };
+
   const actualPrice = sale ? +((price * (100 - sale)) / 100).toFixed(2) : price;
+
+  const products = useAppSelector((state) => state.cart.products);
+
+  const hasInCart = products.some((item) => item.item.id === product.id);
+
+  const handlechangeProductCount = (newCount: number) => {
+    dispatch(changeProductCount({ item: product, count: newCount }));
+  };
+
+  const countInCart =
+    products.find((item) => item.item.id === product.id)?.count || 0;
 
   return (
     <div className="product-card" title={name}>
@@ -58,7 +78,21 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         <div className="product-card__actions">
-          <Button text="Заказать" />
+          {hasInCart && (
+            <div className="cart-item__count">
+              <div
+                className="cart-item__arrow cart-item__arrow_left"
+                onClick={() => handlechangeProductCount(countInCart - 1)}
+              ></div>
+              <div className="cart-item__number">{countInCart}</div>
+              <div
+                className="cart-item__arrow cart-item__arrow_right"
+                onClick={() => handlechangeProductCount(countInCart + 1)}
+              ></div>
+            </div>
+          )}
+
+          {!hasInCart && <Button text="Заказать" onClick={handleClick} />}
           <div className="product-card__fast-order">
             <span>Быстрый заказ</span>
           </div>
