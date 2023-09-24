@@ -1,3 +1,4 @@
+import { Price } from '@components/price';
 import './index.less';
 import {
   changeProductCount,
@@ -21,7 +22,7 @@ export const CartItem = ({ product, count }: Props) => {
 
   const actualPrice = sale ? +((price * (100 - sale)) / 100).toFixed(2) : price;
 
-  const totalCount = (actualPrice * count).toFixed(2);
+  const totalCount = actualPrice * count;
 
   const handleDeleteProduct = () => {
     dispatch(removeProduct(product.id));
@@ -40,11 +41,11 @@ export const CartItem = ({ product, count }: Props) => {
       <div className="cart-item__prices">
         <div className="cart-item__number">
           <div className="cart-item__price">
-            <span>{actualPrice} BYN</span>
+            <Price price={actualPrice} />
           </div>
 
           <div className="cart-item__sale">
-            <span>{price} BYN</span>
+            <Price price={price} />
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@ export const CartItem = ({ product, count }: Props) => {
 
       <div className="cart-item__total-count">
         <div className="cart-item__result-count">
-          <span>{totalCount} BYN</span>
+          <Price price={totalCount} />
         </div>
       </div>
 
@@ -74,7 +75,7 @@ export const CartItem = ({ product, count }: Props) => {
           <span className="icon-favorite"></span>
         </div>
         <div className="cart-item__icon" onClick={() => handleDeleteProduct()}>
-          <span className="icon-favorite"></span>
+          <span className="icon-delete"></span>
         </div>
       </div>
     </div>

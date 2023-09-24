@@ -1,7 +1,19 @@
 import { Button } from '@ui/shared/button';
 import './index.less';
+import { useAppSelector } from '@redux/store/store';
+import { Price } from '@components/price';
 
 export const CartOrder = () => {
+  const products = useAppSelector((state) => state.cart.products);
+
+  const totalPrice = products.reduce((acc, cur) => {
+    return acc + cur.item.price * cur.count;
+  }, 0);
+
+  const totalSale = products.reduce((acc, cur) => {
+    return acc + (cur.item.sale ? (cur.item.sale / 100) * cur.item.price : 0);
+  }, 0);
+
   return (
     <div className="order">
       <div className="order__container">
@@ -16,7 +28,7 @@ export const CartOrder = () => {
                   <span>Товары</span>
                 </div>
                 <div className="order__price">
-                  <span>5 5555</span>
+                  <Price price={totalPrice} />
                 </div>
               </div>
               <div className="order__item">
@@ -24,7 +36,7 @@ export const CartOrder = () => {
                   <span>Скидка</span>
                 </div>
                 <div className="order__price">
-                  <span>5555</span>
+                  <Price price={totalSale} />
                 </div>
               </div>
             </div>
@@ -33,7 +45,7 @@ export const CartOrder = () => {
                 <div className="span">Всего</div>
               </div>
               <div className="result__summ">
-                <span>5566</span>
+                <Price price={totalPrice - totalSale} />
               </div>
             </div>
           </div>

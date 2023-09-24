@@ -17,6 +17,26 @@ const getProducts = (): ItemAndCount<Product>[] => {
   }
 };
 
+const changeProductCountInList = (
+  productList: ItemAndCount<Product>[],
+  prodcut: ItemAndCount<Product>,
+) => {
+  return productList.map((product) => {
+    if (prodcut.item.id === product.item.id) {
+      return prodcut;
+    }
+
+    return product;
+  });
+};
+
+const removeProductFromList = (
+  productList: ItemAndCount<Product>[],
+  productId: number,
+) => {
+  return productList.filter((product) => product.item.id !== productId);
+};
+
 export type InitialStateType = {
   products: ItemAndCount<Product>[];
 };
@@ -29,15 +49,15 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addProduct(state, action: PayloadAction<Product>) {
+    addProduct: (state, action: PayloadAction<Product>) => {
       const existProduct = state.products.find(
         (product) => product.item.id === action.payload.id,
       );
 
       if (existProduct) {
-        this.changeProductCount(state, {
-          payload: { count: existProduct.count + 1, item: existProduct.item },
-          type: '',
+        state.products = changeProductCountInList(state.products, {
+          item: action.payload,
+          count: existProduct.count + 1,
         });
       } else {
         state.products = [
@@ -48,24 +68,23 @@ export const cartSlice = createSlice({
 
       saveProducts(state.products);
     },
-    removeProduct(state, action: PayloadAction<number>) {
-      state.products = state.products.filter(
-        (product) => product.item.id !== action.payload,
-      );
+    removeProduct: (state, action: PayloadAction<number>) => {
+      state.products = removeProductFromList(state.products, action.payload);
 
       saveProducts(state.products);
     },
-    changeProductCount(state, action: PayloadAction<ItemAndCount<Product>>) {
-      state.products = state.products.map((product) => {
-        if (action.payload.item.id === product.item.id) {
-          return action.payload;
-        }
-        return product;
-      });
+    changeProductCount: (
+      state,
+      action: PayloadAction<ItemAndCount<Product>>,
+    ) => {
+      state.products =
+        action.payload.count <= 0
+          ? removeProductFromList(state.products, action.payload.item.id)
+          : changeProductCountInList(state.products, action.payload);
 
       saveProducts(state.products);
     },
-    clear(state) {
+    clear: (state) => {
       state.products = [];
       saveProducts(state.products);
     },

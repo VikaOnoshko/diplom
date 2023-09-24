@@ -22,9 +22,17 @@ export const CartList = () => {
           count={product.count}
         />
       ))}
-      <div className="cart__action">
-        <Button text={'Очистить корзину'} onClick={clearCart} />
-      </div>
+
+      {products.length !== 0 && (
+        <div className="cart__action">
+          <Button text={'Очистить корзину'} onClick={clearCart} />
+        </div>
+      )}
+      {products.length === 0 && (
+        <div className="cart__ampty-message">
+          <span>Корзина пуста</span>
+        </div>
+      )}
     </div>
   );
 };

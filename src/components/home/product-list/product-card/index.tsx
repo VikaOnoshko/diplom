@@ -3,6 +3,7 @@ import { Button } from '@ui/shared/button';
 import { Rating } from '@mui/material';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { addProduct, changeProductCount } from '@redux/reducers/cart.reducer';
+import { Price } from '@components/price';
 
 type ProductCardProps = {
   product: Product;
@@ -67,11 +68,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <div className="product-card__price">
               {sale && (
                 <div className="product-card__old-price">
-                  <span>{price} BYN</span>
+                  <Price price={price} />
                 </div>
               )}
               <div className="product-card__actual-price">
-                <span>{actualPrice} BYN</span>
+                <Price price={actualPrice} />
               </div>
             </div>
           </div>
