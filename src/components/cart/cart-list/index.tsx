@@ -1,15 +1,15 @@
-// import { clear } from '@redux/reducers/cart.reducer';
-// import { useAppDispath } from '@redux/store/store';
-import { useAppSelector } from '@redux/store/store';
+import { useAppDispath, useAppSelector } from '@redux/store/store';
 import './index.less';
 import { CartItem } from './cart-item';
+import { Button } from '@ui/shared/button';
+import { clear } from '@redux/reducers/cart.reducer';
 
 export const CartList = () => {
-  // const dispatch = useAppDispath();
+  const dispatch = useAppDispath();
 
-  // const clearCart = () => {
-  //   dispatch(clear);
-  // };
+  const clearCart = () => {
+    dispatch(clear());
+  };
 
   const products = useAppSelector((state) => state.cart.products);
 
@@ -22,6 +22,9 @@ export const CartList = () => {
           count={product.count}
         />
       ))}
+      <div className="cart__action">
+        <Button text={'Очистить корзину'} onClick={clearCart} />
+      </div>
     </div>
   );
 };

@@ -79,14 +79,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         <div className="product-card__actions">
           {hasInCart && (
-            <div className="cart-item__count">
+            <div className="product-card__count">
               <div
-                className="cart-item__arrow cart-item__arrow_left"
+                className="product-card__arrow product-card__arrow_left"
                 onClick={() => handlechangeProductCount(countInCart - 1)}
               ></div>
-              <div className="cart-item__number">{countInCart}</div>
+              <div className="product-card__number">{countInCart}</div>
               <div
-                className="cart-item__arrow cart-item__arrow_right"
+                className="product-card__arrow product-card__arrow_right"
                 onClick={() => handlechangeProductCount(countInCart + 1)}
               ></div>
             </div>

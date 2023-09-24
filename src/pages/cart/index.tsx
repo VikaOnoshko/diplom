@@ -16,10 +16,10 @@ export const CartPage = () => {
           <div className="cart__main">
             <div className="cart__title">
               <div className="cart__options">
-                <span>Название</span>
-                <span>Цена за шт.</span>
-                <span>Кол-во</span>
-                <span>Итог</span>
+                <span className="cart__name">Название</span>
+                <span className="cart__price">Цена за шт.</span>
+                <span className="cart__count"> Кол-во</span>
+                <span className="cart__finaly">Итог</span>
               </div>
               <div className="cart__nav">
                 <span onClick={goToCatalog}>Продолжить покупки</span>

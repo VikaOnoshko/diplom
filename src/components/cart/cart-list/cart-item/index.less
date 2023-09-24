@@ -3,31 +3,106 @@
 
 .cart-item {
   display: flex;
-  max-width: 950px;
+  max-width: 980px;
   border: 1px solid @primary-color;
+  margin: 20px 0;
+  padding: 20px;
 
   &__count {
+    margin: 0px 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid @primary-color;
     width: 100px;
-    min-height: 40px;
+    height: 40px;
+  }
+
+  &__nav {
+    ._center();
+  }
+
+  &__product {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 16px;
+    color: @grey-color;
+    margin: 0px 50px;
+    width: 190px;
+  }
+
+  &__img {
+    display: flex;
+    text-align: center;
+    width: 75px;
+    min-height: 105px;
+
+    img {
+      width: 100%;
+    }
   }
 
   &__icons {
+    ._center();
+    margin: 0px -6px;
+
+    .cart-item__icon {
+      margin: 0px 6px;
+    }
+  }
+
+  &__prices {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100px;
+  }
+
+  &__price {
+    font-weight: 300;
+    font-size: 16px;
+    color: @grey-color;
+    margin-bottom: 7px;
+  }
+
+  &__total-count {
+    ._center();
+    margin-right: 40px;
+  }
+
+  &__result-count {
+    width: 100px;
+    span {
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+
+  &__sale {
+    font-weight: 300;
+    font-size: 14px;
+    color: @gray-text;
+    text-decoration: line-through;
+  }
+  &__number {
+    align-items: center;
+    flex-direction: column;
     display: flex;
   }
 
   &__arrow {
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    width: 8px;
+    height: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 2px solid rgba(149, 109, 132, 1);
-    border-right: 2px solid rgba(149, 109, 132, 1);
+    border-top: 2px solid @gray-text;
+    border-right: 2px solid @gray-text;
     margin: 0px 6px;
 
     &_left {
@@ -37,5 +112,9 @@
     &_right {
       transform: rotate(45deg);
     }
+  }
+
+  &__icon {
+    cursor: pointer;
   }
 }

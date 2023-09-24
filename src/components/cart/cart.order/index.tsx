@@ -37,6 +37,7 @@ export const CartOrder = () => {
               </div>
             </div>
           </div>
+
           <Button className="button" text="Оформить заказ" />
         </div>
       </div>

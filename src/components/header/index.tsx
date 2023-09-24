@@ -13,6 +13,7 @@ export const Header = () => {
   const dispatch = useAppDispath();
   const { goToCatalog, goToHome, goToCart } = useAppNavigate();
 
+  const products = useAppSelector((state) => state.cart.products);
   const user = useAppSelector(selectUser);
 
   const handleLogout = () => {
@@ -51,12 +52,12 @@ export const Header = () => {
                   </IconButton>
                 )}
                 <IconButton onClick={goToCart}>
-                  <Badge badgeContent={4}>
+                  <Badge badgeContent={products.length}>
                     <span className="icon-cart"></span>
                   </Badge>
                 </IconButton>
                 <IconButton>
-                  <Badge badgeContent={4}>
+                  <Badge badgeContent={1}>
                     <span className="icon-favorite"></span>
                   </Badge>
                 </IconButton>
