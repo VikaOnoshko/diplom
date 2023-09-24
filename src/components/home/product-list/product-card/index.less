@@ -121,13 +121,10 @@
   }
 
   &__count {
-    margin: 0px 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    border: 1px solid #956d84;
     width: 100px;
-    height: 40px;
   }
 
   &__actions {
@@ -138,8 +135,8 @@
 
   &__arrow {
     cursor: pointer;
-    width: 8px;
-    height: 8px;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,5 +157,16 @@
     align-items: center;
     flex-direction: column;
     display: flex;
+  }
+
+  &__nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    span {
+      font-size: 35px;
+      cursor: pointer;
+    }
   }
 }

@@ -50,7 +50,11 @@ export const CartOrder = () => {
             </div>
           </div>
 
-          <Button className="button" text="Оформить заказ" />
+          <Button
+            className="button"
+            text="Оформить заказ"
+            data-disabled={products.length === 0}
+          />
         </div>
       </div>
     </div>

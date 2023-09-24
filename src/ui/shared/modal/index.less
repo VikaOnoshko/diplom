@@ -1,0 +1,26 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  &__container {
+    ._center();
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 13, 13, 0.5);
+  }
+  &__wrapper {
+    padding: 15px;
+    background: white;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+  }
+}

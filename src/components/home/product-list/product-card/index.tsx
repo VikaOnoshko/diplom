@@ -2,7 +2,11 @@ import './index.less';
 import { Button } from '@ui/shared/button';
 import { Rating } from '@mui/material';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
-import { addProduct, changeProductCount } from '@redux/reducers/cart.reducer';
+import {
+  addProduct,
+  changeProductCount,
+  removeProduct,
+} from '@redux/reducers/cart.reducer';
 import { Price } from '@components/price';
 
 type ProductCardProps = {
@@ -31,6 +35,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   const countInCart =
     products.find((item) => item.item.id === product.id)?.count || 0;
+
+  const handleDeleteProduct = () => {
+    dispatch(removeProduct(product.id));
+  };
 
   return (
     <div className="product-card" title={name}>
@@ -80,16 +88,24 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         <div className="product-card__actions">
           {hasInCart && (
-            <div className="product-card__count">
+            <div className="product-card__nav">
+              <div className="product-card__count">
+                <div
+                  className="product-card__arrow product-card__arrow_left"
+                  onClick={() => handlechangeProductCount(countInCart - 1)}
+                ></div>
+                <div className="product-card__number">{countInCart}</div>
+                <div
+                  className="product-card__arrow product-card__arrow_right"
+                  onClick={() => handlechangeProductCount(countInCart + 1)}
+                ></div>
+              </div>
               <div
-                className="product-card__arrow product-card__arrow_left"
-                onClick={() => handlechangeProductCount(countInCart - 1)}
-              ></div>
-              <div className="product-card__number">{countInCart}</div>
-              <div
-                className="product-card__arrow product-card__arrow_right"
-                onClick={() => handlechangeProductCount(countInCart + 1)}
-              ></div>
+                className="product-card__icon"
+                onClick={() => handleDeleteProduct()}
+              >
+                <span className="icon-delete"></span>
+              </div>
             </div>
           )}
 
