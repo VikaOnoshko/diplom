@@ -39,6 +39,9 @@ const removeProductFromList = (
 
 export type InitialStateType = {
   products: ItemAndCount<Product>[];
+  delivery?: number | null;
+  photo?: number | null;
+  postCard?: number | null;
 };
 
 export const initialState: InitialStateType = {

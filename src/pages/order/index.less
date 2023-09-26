@@ -1,7 +1,7 @@
 @import '@style/constants.less';
 @import '@style/mixins.less';
 
-.catalog {
+.order {
   &__container {
     ._container();
   }
@@ -19,7 +19,12 @@
       font-weight: 700;
     }
   }
-  .catalog__main {
+
+  &__main {
     display: flex;
+  }
+
+  .order-details {
+    margin-right: 15px;
   }
 }

@@ -2,6 +2,7 @@ import { Button } from '@ui/shared/button';
 import './index.less';
 import { useAppSelector } from '@redux/store/store';
 import { Price } from '@components/price';
+import { useAppNavigate } from '@router/hooks';
 
 export const CartOrder = () => {
   const products = useAppSelector((state) => state.cart.products);
@@ -11,36 +12,41 @@ export const CartOrder = () => {
   }, 0);
 
   const totalSale = products.reduce((acc, cur) => {
-    return acc + (cur.item.sale ? (cur.item.sale / 100) * cur.item.price : 0);
+    return (
+      acc +
+      (cur.item.sale ? (cur.item.sale / 100) * cur.item.price * cur.count : 0)
+    );
   }, 0);
 
+  const { goToOrder } = useAppNavigate();
+
   return (
-    <div className="order">
-      <div className="order__container">
-        <div className="order__wrapper">
-          <div className="order__header">
+    <div className="cart-order">
+      <div className="cart-order__container">
+        <div className="cart-order__wrapper">
+          <div className="cart-order__header">
             <h2>Ваш заказ</h2>
           </div>
-          <div className="order__main">
-            <div className="order__body">
-              <div className="order__item">
-                <div className="order__name">
+          <div className="cart-order__main">
+            <div className="cart-order__body">
+              <div className="cart-order__item">
+                <div className="cart-order__name">
                   <span>Товары</span>
                 </div>
-                <div className="order__price">
+                <div className="cart-order__price">
                   <Price price={totalPrice} />
                 </div>
               </div>
-              <div className="order__item">
-                <div className="order__name">
+              <div className="cart-order__item">
+                <div className="cart-order__name">
                   <span>Скидка</span>
                 </div>
-                <div className="order__price">
+                <div className="cart-order__price">
                   <Price price={totalSale} />
                 </div>
               </div>
             </div>
-            <div className="order__result">
+            <div className="cart-order__result">
               <div className="result__title">
                 <div className="span">Всего</div>
               </div>
@@ -54,6 +60,7 @@ export const CartOrder = () => {
             className="button"
             text="Оформить заказ"
             data-disabled={products.length === 0}
+            onClick={goToOrder}
           />
         </div>
       </div>

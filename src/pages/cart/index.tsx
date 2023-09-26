@@ -1,6 +1,6 @@
 import { useAppNavigate } from '@router/hooks';
 import './index.less';
-import { CartOrder } from '@components/cart/cart.order';
+import { CartOrder } from '@components/cart/cart-order';
 import { CartList } from '@components/cart/cart-list';
 
 export const CartPage = () => {

@@ -57,3 +57,30 @@ type Category = {
   img: string;
   groupCategoryId: number;
 };
+
+type Order = {
+  recipient: {
+    name: string;
+    telephone: string;
+    date: Date | null;
+    region: string;
+    adress: string;
+    time: string;
+  };
+  sender: {
+    name: string;
+    telephone: string;
+    email: string;
+  };
+  delivery: {
+    isSurprice: boolean;
+    isPhoto: boolean;
+    isVase: boolean;
+    isNotify: boolean;
+    isPostcard: boolean;
+    isBusinessCard: boolean;
+    isPayPostcard: boolean;
+    postcardType: string;
+    postcardText: string;
+  };
+};

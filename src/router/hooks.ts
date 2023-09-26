@@ -8,5 +8,6 @@ export const useAppNavigate = () => {
     goToCatalog: () => navigate(PageNames.CATALOG),
     goToHome: () => navigate(PageNames.HOME),
     goToCart: () => navigate(PageNames.CART),
+    goToOrder: () => navigate(PageNames.ORDER),
   };
 };

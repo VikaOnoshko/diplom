@@ -1,0 +1,21 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.datepicker {
+  width: 100%;
+}
+
+.react-datepicker {
+  &__header {
+    background-color: #956d84;
+  }
+  &__day--keyboard-selected,
+  &__day--selected {
+    background-color: #956d84;
+    transition: @transition;
+    &:hover {
+      background-color: #956d84;
+      filter: brightness(1.2);
+    }
+  }
+}
