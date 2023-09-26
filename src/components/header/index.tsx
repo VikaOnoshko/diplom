@@ -11,8 +11,9 @@ import { useAppNavigate } from '@router/hooks';
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
   const dispatch = useAppDispath();
-  const { goToCatalog, goToHome } = useAppNavigate();
+  const { goToCatalog, goToHome, goToCart } = useAppNavigate();
 
+  const products = useAppSelector((state) => state.cart.products);
   const user = useAppSelector(selectUser);
 
   const handleLogout = () => {
@@ -50,13 +51,13 @@ export const Header = () => {
                     <span className="icon-sign_out"></span>
                   </IconButton>
                 )}
-                <IconButton>
-                  <Badge badgeContent={4}>
+                <IconButton onClick={goToCart}>
+                  <Badge badgeContent={products.length}>
                     <span className="icon-cart"></span>
                   </Badge>
                 </IconButton>
                 <IconButton>
-                  <Badge badgeContent={4}>
+                  <Badge badgeContent={1}>
                     <span className="icon-favorite"></span>
                   </Badge>
                 </IconButton>

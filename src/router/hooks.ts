@@ -7,5 +7,6 @@ export const useAppNavigate = () => {
   return {
     goToCatalog: () => navigate(PageNames.CATALOG),
     goToHome: () => navigate(PageNames.HOME),
+    goToCart: () => navigate(PageNames.CART),
   };
 };

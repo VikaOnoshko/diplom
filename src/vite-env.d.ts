@@ -29,6 +29,11 @@ type Product = {
   category: string;
 };
 
+type ItemAndCount<T> = {
+  item: T;
+  count: number;
+};
+
 type News = {
   id: number;
   img: string;
