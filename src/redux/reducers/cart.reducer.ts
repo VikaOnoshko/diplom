@@ -39,13 +39,15 @@ const removeProductFromList = (
 
 export type InitialStateType = {
   products: ItemAndCount<Product>[];
-  delivery?: number | null;
+  delivery?: number;
   photo?: number | null;
   postCard?: number | null;
+  vase?: number | null;
 };
 
 export const initialState: InitialStateType = {
   products: getProducts(),
+  delivery: 10,
 };
 
 export const cartSlice = createSlice({
@@ -91,10 +93,32 @@ export const cartSlice = createSlice({
       state.products = [];
       saveProducts(state.products);
     },
+
+    setVase: (state, action: PayloadAction<number | null>) => {
+      state.vase = action.payload;
+    },
+
+    setPostCard: (state, action: PayloadAction<number | null>) => {
+      state.postCard = action.payload;
+    },
+    setDelivery: (state, action: PayloadAction<number>) => {
+      state.delivery = action.payload;
+    },
+    setPtoto: (state, action: PayloadAction<number | null>) => {
+      state.photo = action.payload;
+    },
   },
 });
 
-export const { addProduct, removeProduct, changeProductCount, clear } =
-  cartSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  changeProductCount,
+  clear,
+  setVase,
+  setPostCard,
+  setDelivery,
+  setPtoto,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

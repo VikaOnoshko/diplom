@@ -98,10 +98,12 @@
   &__name {
     max-width: 60%;
     overflow: hidden;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
 
     span {
+      display: -webkit-inline-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
       font-weight: 300;
       font-size: 18px;
       color: rgba(51, 51, 51, 1);

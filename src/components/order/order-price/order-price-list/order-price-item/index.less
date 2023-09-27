@@ -1,0 +1,34 @@
+.order-price {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+  }
+
+  &__name {
+    width: 60%;
+    overflow: hidden;
+    span {
+      overflow: hidden;
+      display: -webkit-inline-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__count {
+    width: 10%;
+    span {
+      text-align: right;
+    }
+  }
+
+  &__price {
+    text-align: right;
+    width: 30%;
+
+    span {
+      text-align: right;
+    }
+  }
+}

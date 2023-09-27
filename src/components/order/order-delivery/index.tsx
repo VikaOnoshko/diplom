@@ -2,6 +2,8 @@ import { Field } from '@ui/shared/field';
 import { OrderForm } from '../order-form';
 import { CheckBox } from '@ui/shared/checkbox';
 import './index.less';
+import { useAppDispath } from '@redux/store/store';
+import { setPostCard, setPtoto, setVase } from '@redux/reducers/cart.reducer';
 
 type Props = {
   values: Order['delivery'];
@@ -9,6 +11,8 @@ type Props = {
 };
 
 export const OrderDelivery = ({ values, onChange }: Props) => {
+  const dispatch = useAppDispath();
+
   return (
     <div className="order-delivery">
       <OrderForm title="3. Детали доставки">
@@ -26,6 +30,7 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
             label="Фотоотчет (+ 10 BYN)"
             onChange={(value) => {
               onChange({ ...values, isPhoto: value });
+              dispatch(setPtoto(value ? 10 : null));
             }}
             className="order-delivery__checkbox"
           />
@@ -34,6 +39,7 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
             label="Добавить вазу (+ 50 BYN)"
             onChange={(value) => {
               onChange({ ...values, isVase: value });
+              dispatch(setVase(value ? 50 : null));
             }}
             className="order-delivery__checkbox"
           />
@@ -66,6 +72,7 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
             label="Полномасштабная открытка (+ 20 BYN)"
             onChange={(value) => {
               onChange({ ...values, isBusinessCard: value });
+              dispatch(setPostCard(value ? 20 : null));
             }}
             className="order-delivery__checkbox order-delivery__checkbox_dependent"
           />
