@@ -54,24 +54,27 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
           <CheckBox
             value={values.isPostcard}
             label="Открытка"
-            onChange={(value) => {
-              onChange({ ...values, isPostcard: value });
-            }}
+            onChange={() => {}}
             className="order-delivery__checkbox"
           />
           <CheckBox
-            value={values.isPayPostcard}
+            value={values.isBusinessCard}
             label="Визитка"
             className="order-delivery__checkbox order-delivery__checkbox_dependent"
             onChange={(value) => {
-              onChange({ ...values, isPayPostcard: value });
+              const isPostcard = value || values.isPayPostcard;
+
+              onChange({ ...values, isBusinessCard: value, isPostcard });
             }}
           />
           <CheckBox
-            value={values.isBusinessCard}
+            value={values.isPayPostcard}
             label="Полномасштабная открытка (+ 20 BYN)"
             onChange={(value) => {
-              onChange({ ...values, isBusinessCard: value });
+              const isPostcard = value || values.isBusinessCard;
+
+              onChange({ ...values, isPayPostcard: value, isPostcard });
+
               dispatch(setPostCard(value ? 20 : null));
             }}
             className="order-delivery__checkbox order-delivery__checkbox_dependent"
