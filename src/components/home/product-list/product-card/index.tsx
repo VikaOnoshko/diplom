@@ -8,6 +8,7 @@ import {
   removeProduct,
 } from '@redux/reducers/cart.reducer';
 import { Price } from '@components/price';
+import { useAppNavigate } from '@router/hooks';
 
 type ProductCardProps = {
   product: Product;
@@ -39,6 +40,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const handleDeleteProduct = () => {
     dispatch(removeProduct(product.id));
   };
+
+  const { goToOrder } = useAppNavigate();
 
   return (
     <div className="product-card" title={name}>
@@ -111,7 +114,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           {!hasInCart && <Button text="Заказать" onClick={handleClick} />}
           <div className="product-card__fast-order">
-            <span>Быстрый заказ</span>
+            <span onClick={goToOrder}>Быстрый заказ</span>
           </div>
         </div>
       </div>

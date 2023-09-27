@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { logout, selectUser } from '@redux/reducers/userReducer';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { useAppNavigate } from '@router/hooks';
+import { Currency } from './currency';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
@@ -40,7 +41,9 @@ export const Header = () => {
                 <span>Акции</span>
                 <span>Новости</span>
               </div>
+
               <div className="header__icons">
+                <Currency />
                 {!user && (
                   <IconButton onClick={() => setIsOpenAuth(true)}>
                     <span className="icon-person"></span>
