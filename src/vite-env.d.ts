@@ -83,6 +83,7 @@ type Order = {
     postcardType: string;
     postcardText: string;
   };
+  products?: ItemAndCount<Product>[];
 };
 
 type Currency = {

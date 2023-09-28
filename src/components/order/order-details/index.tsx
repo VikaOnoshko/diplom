@@ -27,15 +27,17 @@ export const OrderDetails = () => {
   };
 
   return (
-    <div className="order-details">
+    <div className="order-details" onBlur={formik.handleBlur}>
       <OrderRecipient
         values={formik.values.recipient}
+        errors={formik.errors.recipient}
         onChange={(value: Order['recipient']) =>
           handleChange({ ...formik.values, recipient: value })
         }
       />
       <OrderSender
         values={formik.values.sender}
+        errors={formik.errors.sender}
         onChange={(value: Order['sender']) =>
           handleChange({ ...formik.values, sender: value })
         }

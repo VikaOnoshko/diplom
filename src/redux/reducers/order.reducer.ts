@@ -1,4 +1,6 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Dispatch, PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { OrderService } from '@services/order.service';
+import { clear } from './cart.reducer';
 
 const defaultOrder: Order = {
   recipient: {
@@ -50,6 +52,13 @@ export const initialState: OrderStore = {
 
 const saveOrder = (order: Order) => {
   localStorage.setItem('order', JSON.stringify(order));
+};
+
+export const createOrder = (body: Order) => async (dispatch: Dispatch) => {
+  await OrderService.create(body);
+
+  dispatch(setOrder({ ...defaultOrder }));
+  dispatch(clear());
 };
 
 export const orderSlice = createSlice({

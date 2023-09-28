@@ -1,17 +1,24 @@
 import './index.less';
 
 import { Button } from '@ui/shared/button';
-import { useAppSelector } from '@redux/store/store';
+import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { OrderPriceList } from './order-price-list';
 import { OrderPriceAdded } from './order-price-list/order-price-added';
 import { Price } from '@components/price';
+import { createOrder } from '@redux/reducers/order.reducer';
 
 export const OrderPrice = () => {
+  const order = useAppSelector((state) => state.order.value);
   const products = useAppSelector((state) => state.cart.products);
   const vase = useAppSelector((state) => state.cart.vase);
   const photo = useAppSelector((state) => state.cart.photo);
   const postCard = useAppSelector((state) => state.cart.postCard);
   const delivery = useAppSelector((state) => state.cart.delivery);
+  const dispatch = useAppDispath();
+
+  const sendOrder = () => {
+    dispatch(createOrder({ ...order, products }));
+  };
 
   const totalPrice = products.reduce((acc, cur) => {
     return acc + cur.item.price * cur.count;
@@ -92,6 +99,7 @@ export const OrderPrice = () => {
             className="button"
             text="Оформить заказ"
             data-disabled={products.length === 0}
+            onClick={sendOrder}
           />
         </div>
       </div>

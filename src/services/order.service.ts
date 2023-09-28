@@ -1,9 +1,9 @@
 import { Request } from '@providers/request';
 
 export const OrderService = {
-  getList(params?: object) {
-    return Request.get<PaginationResponse<Order>>('/orders', {
-      params,
-    }).then((response) => response.data);
+  create(body: Order) {
+    return Request.post<Order>('/orders', body).then(
+      (response) => response.data,
+    );
   },
 };
