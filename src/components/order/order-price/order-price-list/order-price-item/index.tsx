@@ -1,3 +1,4 @@
+import { Price } from '@components/price';
 import './index.less';
 
 type Props = {
@@ -19,7 +20,7 @@ export const OrderPriceItem = ({ product, count }: Props) => {
         <span>{count}</span>
       </div>
       <div className="order-price__price">
-        <span>{actualPrice} BYN</span>
+        <Price price={actualPrice} />
       </div>
     </div>
   );

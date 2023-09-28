@@ -1,7 +1,5 @@
 import * as Yup from 'yup';
 
-//eslint-disable-next-line
-
 export const signinSchema = Yup.object().shape({
   email: Yup.string()
     .required('Поле обязательно')

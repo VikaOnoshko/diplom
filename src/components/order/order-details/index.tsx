@@ -4,9 +4,10 @@ import { OrderRecipient } from '@components/order/order-recipient';
 import { OrderSender } from '@components/order/order-sender';
 import { OrderDelivery } from '@components/order/order-delivery';
 import './index.less';
+import { orderValidate } from '../order-validate';
 
 export const OrderDetails = () => {
-  const formik = useFormik({
+  const formik = useFormik<Order>({
     initialValues: {
       recipient: {
         name: '',
@@ -36,6 +37,7 @@ export const OrderDetails = () => {
     onSubmit: () => {},
     validateOnChange: false,
     validateOnBlur: true,
+    validationSchema: orderValidate,
   });
 
   return (

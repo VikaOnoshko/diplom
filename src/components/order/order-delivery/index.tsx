@@ -27,7 +27,7 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
           />
           <CheckBox
             value={values.isPhoto}
-            label="Фотоотчет (+ 10 BYN)"
+            label="Фотоотчет (за доп плату)"
             onChange={(value) => {
               onChange({ ...values, isPhoto: value });
               dispatch(setPtoto(value ? 10 : null));
@@ -36,7 +36,7 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
           />
           <CheckBox
             value={values.isVase}
-            label="Добавить вазу (+ 50 BYN)"
+            label="Добавить вазу (за доп плату)"
             onChange={(value) => {
               onChange({ ...values, isVase: value });
               dispatch(setVase(value ? 50 : null));
@@ -69,7 +69,7 @@ export const OrderDelivery = ({ values, onChange }: Props) => {
           />
           <CheckBox
             value={values.isPayPostcard}
-            label="Полномасштабная открытка (+ 20 BYN)"
+            label="Полномасштабная открытка (за доп плату)"
             onChange={(value) => {
               const isPostcard = value || values.isBusinessCard;
 
