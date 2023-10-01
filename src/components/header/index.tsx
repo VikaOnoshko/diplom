@@ -14,6 +14,7 @@ import { Nav } from './burger/nav-bar';
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
   const dispatch = useAppDispath();
+
   const { goToHome, goToCart } = useAppNavigate();
 
   const products = useAppSelector((state) => state.cart.products);

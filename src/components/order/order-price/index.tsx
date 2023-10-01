@@ -6,18 +6,22 @@ import { OrderPriceList } from './order-price-list';
 import { OrderPriceAdded } from './order-price-list/order-price-added';
 import { Price } from '@components/price';
 import { createOrder } from '@redux/reducers/order.reducer';
+import { useAppNavigate } from '@router/hooks';
 
 export const OrderPrice = () => {
-  const order = useAppSelector((state) => state.order.value);
-  const products = useAppSelector((state) => state.cart.products);
-  const vase = useAppSelector((state) => state.cart.vase);
-  const photo = useAppSelector((state) => state.cart.photo);
-  const postCard = useAppSelector((state) => state.cart.postCard);
-  const delivery = useAppSelector((state) => state.cart.delivery);
+  const { value: order, isValid } = useAppSelector((state) => state.order);
+  const { products, vase, photo, postCard, delivery } = useAppSelector(
+    (state) => state.cart,
+  );
   const dispatch = useAppDispath();
+  const { goToOrderCreated } = useAppNavigate();
 
   const sendOrder = () => {
-    dispatch(createOrder({ ...order, products }));
+    dispatch(
+      createOrder({ ...order, products }, (newOrder) =>
+        goToOrderCreated(String(newOrder.id)),
+      ),
+    );
   };
 
   const totalPrice = products.reduce((acc, cur) => {
@@ -98,7 +102,7 @@ export const OrderPrice = () => {
           <Button
             className="button"
             text="Оформить заказ"
-            data-disabled={products.length === 0}
+            data-disabled={!isValid}
             onClick={sendOrder}
           />
         </div>

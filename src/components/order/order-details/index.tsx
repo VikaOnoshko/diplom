@@ -7,7 +7,8 @@ import './index.less';
 import { orderValidate } from '../order-validate';
 import { useAppSelector } from '@redux/store/store';
 import { useDispatch } from 'react-redux';
-import { setOrder } from '@redux/reducers/order.reducer';
+import { setIsValidOrder, setOrder } from '@redux/reducers/order.reducer';
+import { useEffect } from 'react';
 
 export const OrderDetails = () => {
   const order = useAppSelector((state) => state.order.value);
@@ -25,6 +26,10 @@ export const OrderDetails = () => {
     formik.setValues(value);
     dispatch(setOrder(value));
   };
+
+  useEffect(() => {
+    dispatch(setIsValidOrder(formik.isValid));
+  }, [formik.isValid]);
 
   return (
     <div className="order-details" onBlur={formik.handleBlur}>

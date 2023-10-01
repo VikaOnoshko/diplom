@@ -2,7 +2,7 @@ import { Dispatch, PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { OrderService } from '@services/order.service';
 import { clear } from './cart.reducer';
 
-const defaultOrder: Order = {
+const defaultOrder = {
   recipient: {
     name: '',
     telephone: '',
@@ -27,17 +27,23 @@ const defaultOrder: Order = {
     postcardType: '',
     postcardText: '',
   },
-};
+} as Order;
 
 export type OrderStore = {
   value: Order;
+  isValid: boolean;
 };
 
 const getOrder = (): Order => {
   try {
     const order = localStorage.getItem('order');
     if (order) {
-      return JSON.parse(order);
+      const data = JSON.parse(order) as Order;
+
+      data.recipient.date =
+        data.recipient.date && new Date(data.recipient.date);
+
+      return data;
     } else {
       return defaultOrder;
     }
@@ -48,18 +54,23 @@ const getOrder = (): Order => {
 
 export const initialState: OrderStore = {
   value: getOrder(),
+  isValid: false,
 };
 
 const saveOrder = (order: Order) => {
   localStorage.setItem('order', JSON.stringify(order));
 };
 
-export const createOrder = (body: Order) => async (dispatch: Dispatch) => {
-  await OrderService.create(body);
+export const createOrder =
+  (body: Order, onSuccess: (order: Order) => void) =>
+  async (dispatch: Dispatch) => {
+    const newOrder = await OrderService.create(body);
 
-  dispatch(setOrder({ ...defaultOrder }));
-  dispatch(clear());
-};
+    onSuccess(newOrder);
+
+    dispatch(setOrder({ ...defaultOrder }));
+    dispatch(clear());
+  };
 
 export const orderSlice = createSlice({
   name: 'order',
@@ -70,9 +81,14 @@ export const orderSlice = createSlice({
 
       saveOrder(action.payload);
     },
+    setIsValidOrder: (state, action: PayloadAction<boolean>) => {
+      state.isValid = action.payload;
+
+      console.log(state.isValid);
+    },
   },
 });
 
-export const { setOrder } = orderSlice.actions;
+export const { setOrder, setIsValidOrder } = orderSlice.actions;
 
 export default orderSlice.reducer;

@@ -31,6 +31,7 @@
       color: @text-color;
     }
   }
+
   &__triangle {
     cursor: pointer;
     width: 0;
@@ -47,5 +48,28 @@
 
   &__name {
     ._center();
+  }
+
+  &[data-variant='order'] &__text {
+    span {
+      color: @gray-text;
+    }
+  }
+
+  &[data-variant='order'].order-form__delivery {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  [data-variant='order'] &__name {
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    height: 41px;
+    justify-content: space-between;
+    padding: 9px 12px 11px;
+
+    select {
+      text-decoration: none;
+    }
   }
 }

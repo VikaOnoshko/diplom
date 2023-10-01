@@ -6,6 +6,7 @@ export type SelectProps = {
   value: string;
   onChange: (value: string) => void;
   className?: string;
+  variant: string;
 };
 
 export const Select = ({
@@ -14,11 +15,12 @@ export const Select = ({
   value,
   onChange,
   className,
+  variant,
 }: SelectProps) => {
   const classSelect = `select ${className}`;
 
   return (
-    <div className={classSelect}>
+    <div className={classSelect} data-variant={variant}>
       {title && (
         <div className="select__text">
           <span>{title}</span>
