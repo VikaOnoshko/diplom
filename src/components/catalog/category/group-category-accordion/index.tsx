@@ -3,6 +3,7 @@ import './index.less';
 import { CategoryService } from '@services/category.service';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { setFilter } from '@redux/reducers/catalog.reducer';
+import { Accordion } from '@ui/shared/accordion';
 
 type GroupCategoryAccordionProps = {
   groupCategory: GroupCategory;
@@ -36,28 +37,23 @@ export const GroupCategoryAccordion = ({
   }, [isOpen]);
 
   return (
-    <div className="accordion">
-      <div className="accordion__summary" onClick={() => toggle(id)}>
-        <span>{name}</span>
-        <div className="accordion__arrow" data-open={isOpen}>
-          <span className="arrow-left"></span>
-          <span className="arrow-right"></span>
+    <Accordion
+      className="group-category"
+      summary={<span>{name}</span>}
+      details={categories.map((category) => (
+        <div
+          className="group-category__category-item"
+          key={category.id}
+          data-active={filter.categories === category.id}
+          onClick={() => handleClick(category.id)}
+        >
+          {category.name}
         </div>
-      </div>
-      {isOpen && (
-        <div className="accordion__details">
-          {categories.map((category) => (
-            <div
-              className="accordion__category"
-              key={category.id}
-              data-active={filter.categories === category.id}
-              onClick={() => handleClick(category.id)}
-            >
-              {category.name}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+      ))}
+      onClickSummary={() => {
+        toggle(id);
+      }}
+      isOpen={isOpen}
+    />
   );
 };

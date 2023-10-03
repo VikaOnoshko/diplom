@@ -6,6 +6,7 @@ import ve from '@assets/images/footer/visan.png';
 import mk from '@assets/images/footer/mc.png';
 import './index.less';
 import { useAppNavigate } from '@router/hooks';
+import { FooterNavAccordion } from './accordion-nav';
 
 export const Footer = () => {
   const { goToHome } = useAppNavigate();
@@ -21,7 +22,7 @@ export const Footer = () => {
               </div>
             </a>
             <div className="footer__description">
-              <div className="footer__information">
+              {/* <div className="footer__information">
                 <div className="footer__title">
                   <h5>ИНФОРМАЦИЯ</h5>
                 </div>
@@ -96,9 +97,11 @@ export const Footer = () => {
                     <span>ЦВЕТЫ В ОФИС</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <FooterNavAccordion />
             </div>
           </div>
+
           <div className="footer__line"></div>
           <div className="footer__copyright">
             <div className="footer__text">
