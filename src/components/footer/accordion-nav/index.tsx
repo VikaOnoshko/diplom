@@ -32,7 +32,9 @@ export const FooterNavAccordion = () => {
         <Accordion
           className="footer-nav-accordions__link-group"
           key={title}
-          summary={<span>title</span>}
+          summary={
+            <span className="footer-nav-accordions__summary">{title}</span>
+          }
           details={links.map((link, index) => (
             <div key={index} className="footer-nav-accordions__link">
               {link}
