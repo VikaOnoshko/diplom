@@ -70,7 +70,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="product-card__description">
           <div className="product-card__rating">
             {/* FIXME: create in ui shared */}
-            <Rating name="half-rating" defaultValue={rating} precision={0.5} />
+            <Rating
+              name="half-rating"
+              defaultValue={rating}
+              precision={0.5}
+              size="small"
+            />
           </div>
           <div className="product-card__properties">
             <div className="product-card__name">
