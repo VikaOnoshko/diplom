@@ -66,8 +66,31 @@
   }
 }
 
+@media screen and (max-width: 1034px) {
+  .product-list__header {
+    font-size: 21px;
+  }
+}
+
 @media screen and (max-width: 850px) {
   .product-list__body {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-list__arrow {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-list__pages {
+    top: 10px;
+    right: 0px;
+  }
+
+  .product-list__arrow {
+    width: 10px;
+    height: 10px;
   }
 }
