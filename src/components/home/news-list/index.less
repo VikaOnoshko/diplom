@@ -33,11 +33,41 @@
     cursor: pointer;
   }
 
-  &__body {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+  &__list {
+    display: flex;
+    margin: 0 -15px;
     margin-top: 25px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .forum {
+    .forum__header {
+      font-size: 21px;
+    }
+
+    .forum-card__title {
+      font-size: 18px;
+    }
+
+    .forum-card__description {
+      font-size: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .forum-card:nth-last-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .forum__list {
+    display: none;
+  }
+
+  .forum__pages {
+    display: none;
   }
 }
