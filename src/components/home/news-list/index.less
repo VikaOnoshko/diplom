@@ -14,6 +14,7 @@
     ._center();
     font-size: 27px;
     position: relative;
+    padding: 15px 0;
   }
 
   &__pages {
@@ -36,7 +37,6 @@
   &__list {
     display: flex;
     margin: 0 -15px;
-    margin-top: 25px;
   }
 }
 
@@ -60,9 +60,14 @@
   .forum-card:nth-last-child(3) {
     display: none;
   }
+
+  .forum__pages span {
+    font-size: 13px;
+    margin-right: 0px;
+  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 450px) {
   .forum__list {
     display: none;
   }

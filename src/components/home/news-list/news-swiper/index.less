@@ -1,8 +1,12 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
 .news__swiper {
   display: none;
+  padding-bottom: 30px;
 
   .swiper-pagination-bullet {
-    background-color: white;
+    background-color: @primary-color;
   }
 
   .swiper-pagination {
@@ -10,7 +14,8 @@
     bottom: 5px;
   }
 }
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 450px) {
   .news__swiper {
     display: flex;
   }

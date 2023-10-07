@@ -12,7 +12,6 @@ import { useAppNavigate } from '@router/hooks';
 
 type ProductCardProps = {
   product: Product;
-  count: number;
 };
 
 export const ProductCard = ({ product }: ProductCardProps) => {

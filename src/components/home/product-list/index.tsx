@@ -2,6 +2,7 @@ import './index.less';
 import { useEffect, useState } from 'react';
 import { ProductCard } from './product-card';
 import { ProductService } from '@services/product.service';
+import { ProductSwiper } from './product-swiper';
 
 type ProductListProps = { title: string; filter?: Partial<Product> };
 
@@ -52,6 +53,7 @@ export const ProductList = ({ title, filter }: ProductListProps) => {
               ></div>
             </div>
           </div>
+          <ProductSwiper products={products} />
           <div className="product-list__body">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
