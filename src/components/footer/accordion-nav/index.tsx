@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Accordion } from '@ui/shared/accordion';
 import './index.less';
 
@@ -26,12 +28,18 @@ const FOOTER_NAV = [
 ];
 
 export const FooterNavAccordion = () => {
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+
   return (
     <div className="footer-nav-accordions">
       {FOOTER_NAV.map(({ title, links }) => (
         <Accordion
           className="footer-nav-accordions__link-group"
           key={title}
+          isOpen={title === openAccordion}
+          onClickSummary={(value) => {
+            setOpenAccordion(value ? title : null);
+          }}
           summary={
             <span className="footer-nav-accordions__summary">{title}</span>
           }
