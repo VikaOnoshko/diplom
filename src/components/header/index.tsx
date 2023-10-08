@@ -10,6 +10,7 @@ import { useAppNavigate } from '@router/hooks';
 import { Currency } from './currency';
 import { BurgerMenu } from './burger';
 import { Nav } from './burger/nav-bar';
+import { Modal } from '@ui/shared/modal';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
@@ -67,7 +68,11 @@ export const Header = () => {
         </div>
       </header>
 
-      {!user && isOpenAuth && <Auth close={() => setIsOpenAuth(false)} />}
+      {!user && (
+        <Modal isOpen={isOpenAuth} onClose={() => setIsOpenAuth(false)}>
+          <Auth close={() => setIsOpenAuth(false)} />
+        </Modal>
+      )}
     </>
   );
 };

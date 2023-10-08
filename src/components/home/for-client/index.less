@@ -178,5 +178,33 @@
       color: @grey-color !important;
       display: none !important;
     }
+
+    &__card {
+      .for-client__text {
+        max-width: none !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .for-client__img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .for-client__card-list {
+    margin: 0px 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .for-client__img {
+    width: 75px !important;
+    height: 75px !important ;
+  }
+
+  .for-client__title {
+    font-size: 11px;
   }
 }
