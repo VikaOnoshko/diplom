@@ -39,10 +39,11 @@ export const Field = ({
   };
 
   const currentType = type === 'password' && showPassword ? 'text' : type;
+
   const currentIcon = showPassword ? (
-    <VisibilityOffIcon className="field_icon" />
+    <VisibilityOffIcon className="field__eyes" />
   ) : (
-    <VisibilityIcon />
+    <VisibilityIcon className="field__eyes" />
   );
 
   return (
@@ -59,12 +60,11 @@ export const Field = ({
             {renderIcon()}
           </button>
         )}
-        {!renderIcon ||
-          (type === 'password' && (
-            <button type="button" className="field__icon" onClick={handleClick}>
-              {currentIcon}
-            </button>
-          ))}
+        {!renderIcon && type === 'password' && (
+          <button type="button" className="field__eyes" onClick={handleClick}>
+            {currentIcon}
+          </button>
+        )}
       </div>
 
       {isError && (

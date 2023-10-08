@@ -34,48 +34,56 @@ export const CartItem = ({ product, count }: Props) => {
         <div className="cart-item__img">
           <img src={img} alt="prod" />
         </div>
-        <div className="cart-item__name">
-          <span>{name}</span>
-        </div>
-      </div>
-      <div className="cart-item__prices">
-        <div className="cart-item__number">
-          <div className="cart-item__price">
-            <Price price={actualPrice} />
+        <div className="cart-item__characteristic">
+          <div className="cart-item__name">
+            <span>{name}</span>
           </div>
 
-          <div className="cart-item__sale">
-            <Price price={price} />
+          <div className="cart-item__prices">
+            <div className="cart-item__number">
+              <div className="cart-item__price">
+                <Price price={actualPrice} />
+              </div>
+
+              <div className="cart-item__sale">
+                <Price price={price} />
+              </div>
+            </div>
+          </div>
+
+          <div className="cart-item__nav">
+            <div className="cart-item__count">
+              <div
+                className="cart-item__arrow cart-item__arrow_left"
+                onClick={() => handlechangeProductCount(count - 1)}
+              ></div>
+              <div className="cart-item__number">{count}</div>
+              <div
+                className="cart-item__arrow cart-item__arrow_right"
+                onClick={() => handlechangeProductCount(count + 1)}
+              ></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="cart-item__nav">
-        <div className="cart-item__count">
-          <div
-            className="cart-item__arrow cart-item__arrow_left"
-            onClick={() => handlechangeProductCount(count - 1)}
-          ></div>
-          <div className="cart-item__number">{count}</div>
-          <div
-            className="cart-item__arrow cart-item__arrow_right"
-            onClick={() => handlechangeProductCount(count + 1)}
-          ></div>
+      <div className="cart-item__added">
+        <div className="cart-item__total-count">
+          <div className="cart-item__result-count">
+            <Price price={totalCount} />
+          </div>
         </div>
-      </div>
 
-      <div className="cart-item__total-count">
-        <div className="cart-item__result-count">
-          <Price price={totalCount} />
-        </div>
-      </div>
-
-      <div className="cart-item__icons">
-        <div className="cart-item__icon">
-          <span className="icon-favorite"></span>
-        </div>
-        <div className="cart-item__icon" onClick={() => handleDeleteProduct()}>
-          <span className="icon-delete"></span>
+        <div className="cart-item__icons">
+          <div className="cart-item__icon">
+            <span className="icon-favorite"></span>
+          </div>
+          <div
+            className="cart-item__icon"
+            onClick={() => handleDeleteProduct()}
+          >
+            <span className="icon-delete"></span>
+          </div>
         </div>
       </div>
     </div>

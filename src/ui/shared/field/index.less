@@ -49,6 +49,7 @@
   }
 
   input {
+    position: relative;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -56,5 +57,19 @@
     border: 1px solid @text-color;
     border-radius: 2px;
     ._center();
+  }
+
+  .field__eyes {
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @text-color;
   }
 }
