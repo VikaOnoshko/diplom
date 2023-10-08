@@ -12,10 +12,12 @@ import { useEffect } from 'react';
 
 export const OrderDetails = () => {
   const order = useAppSelector((state) => state.order.value);
+
   const dispatch = useDispatch();
 
   const formik = useFormik<Order>({
     initialValues: order,
+    isInitialValid: false,
     onSubmit: () => {},
     validateOnChange: false,
     validateOnBlur: true,

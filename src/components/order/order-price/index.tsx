@@ -103,6 +103,7 @@ export const OrderPrice = () => {
             className="button"
             text="Оформить заказ"
             data-disabled={!isValid}
+            disabled={!isValid}
             onClick={sendOrder}
           />
         </div>
