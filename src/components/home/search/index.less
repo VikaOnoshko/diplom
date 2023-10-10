@@ -1,0 +1,34 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.search {
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+    ._center();
+  }
+
+  &__input-box {
+    width: 600px;
+    position: relative;
+
+    input {
+      outline: none;
+      width: 100%;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 8px 0px;
+      border-color: @primary-color;
+    }
+  }
+
+  .icon-search {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
