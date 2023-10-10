@@ -27,7 +27,7 @@ export const Auth = ({ close }: AuthProps) => {
     <>
       <div className="auth__header">
         {!isSignin && (
-          <div className="autn__navigation" onClick={() => setIsSignin(true)}>
+          <div className="auth__navigation" onClick={() => setIsSignin(true)}>
             <div className="auth__icon">
               <div className="auth__arrow"></div>
             </div>

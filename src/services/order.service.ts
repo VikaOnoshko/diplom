@@ -6,4 +6,9 @@ export const OrderService = {
       (response) => response.data,
     );
   },
+  getOne(id: number) {
+    return Request.get<Order>(`/orders/${id}`).then(
+      (response) => response.data,
+    );
+  },
 };

@@ -61,18 +61,14 @@
     transform: rotate(-45deg);
   }
 
-  .auth__title {
+  &__title {
     ._center();
     font-size: 20px;
     color: @grey-color;
     font-weight: 700;
   }
 
-  .field {
-    max-width: 350px;
-  }
-
-  .auth__arrow {
+  &__arrow {
     width: 10px;
     height: 10px;
     border-top: 3px solid @lite-color;
@@ -80,7 +76,10 @@
     transform: translateX(1px) rotate(-135deg);
   }
 
-  .autn__navigation {
+  &__navigation {
+    left: 15px;
+    top: 10px;
+    position: absolute;
     cursor: pointer;
     display: inline;
 
@@ -94,7 +93,7 @@
     }
   }
 
-  .auth__icon {
+  &__icon {
     ._center();
     display: inline-flex;
     transition: @transition;
@@ -107,7 +106,7 @@
     cursor: pointer;
   }
 
-  .auth__text {
+  &__text {
     display: inline;
     color: #cecece;
     transition: @transition;
