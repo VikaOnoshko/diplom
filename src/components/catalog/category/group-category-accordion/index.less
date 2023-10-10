@@ -1,63 +1,16 @@
 @import '@style/constants.less';
 @import '@style/mixins.less';
 
-div[data-open] {
-  width: 20px;
-}
-div[data-open='true'] {
-  transform: rotate(180deg);
-}
-
-.accordion {
-  margin: 15px 0px;
-  width: 250px;
-}
-
-.accordion__summary {
-  display: flex;
-  min-height: 35px;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-
-  span {
+.group-category {
+  &__category-item {
+    padding: 5px;
+    color: @primary-color;
     font-weight: 300;
-    font-size: 20px;
-    color: @grey-color;
-  }
-}
+    font-size: 16px;
+    cursor: pointer;
 
-.accordion__arrow {
-  ._center();
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 2px;
-    background-color: @grey-color;
-  }
-
-  &::before {
-    transform: translate(-30%, 0) rotate(45deg);
-  }
-  &::after {
-    transform: translate(30%, 0) rotate(-45deg);
-  }
-}
-
-.accordion__details {
-  padding: 10px 0;
-}
-
-.accordion__category {
-  padding: 5px;
-  color: @primary-color;
-  font-weight: 300;
-  font-size: 16px;
-  cursor: pointer;
-
-  &[data-active='true'] {
-    font-weight: 700;
+    &[data-active='true'] {
+      font-weight: 700;
+    }
   }
 }

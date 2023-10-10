@@ -40,7 +40,6 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
-
     clip-path: polygon(
       0 0,
       100% 0,
@@ -103,5 +102,75 @@
 
   span {
     color: @primary-color;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .place__contact {
+    display: flex;
+    margin: 30px 0;
+  }
+
+  .place__text {
+    margin-top: 0px;
+  }
+
+  .place__icon {
+    margin-top: 0px;
+  }
+
+  .map__wrapper {
+    height: 315px;
+  }
+
+  .place__name {
+    margin-right: 10px;
+    width: 100px;
+  }
+
+  .place {
+    width: 320px;
+
+    &__logo {
+      max-height: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .map__container {
+    max-width: 100%;
+    padding: 0px;
+  }
+
+  .place {
+    top: 100px;
+    right: initial;
+  }
+
+  .place__container {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 45%,
+      97% 50%,
+      100% 55%,
+      100% 100%,
+      0 100%,
+      0 55%,
+      3% 50%,
+      0 45%,
+      0 0
+    );
+  }
+
+  .map {
+    margin: 70px 0 150px 0;
+    right: 0;
+  }
+
+  .map__wrapper {
+    display: flex;
+    justify-content: center;
   }
 }

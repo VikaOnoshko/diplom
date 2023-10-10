@@ -1,18 +1,31 @@
 import './index.less';
 
 export type SelectProps = {
-  title: string;
+  title?: string;
   options: { name: string; value: string }[];
   value: string;
   onChange: (value: string) => void;
+  className?: string;
+  variant: string;
 };
 
-export const Select = ({ title, options, value, onChange }: SelectProps) => {
+export const Select = ({
+  title,
+  options,
+  value,
+  onChange,
+  className,
+  variant,
+}: SelectProps) => {
+  const classSelect = `select ${className}`;
+
   return (
-    <div className="select">
-      <div className="select__text">
-        <span>{title}</span>
-      </div>
+    <div className={classSelect} data-variant={variant}>
+      {title && (
+        <div className="select__text">
+          <span>{title}</span>
+        </div>
+      )}
       <div className="select__name">
         <select
           name="category"

@@ -2,13 +2,14 @@ import './index.less';
 import { useEffect, useState } from 'react';
 import { ProductCard } from './product-card';
 import { ProductService } from '@services/product.service';
+import { ProductSwiper } from './product-swiper';
 
 type ProductListProps = { title: string; filter?: Partial<Product> };
 
 export const ProductList = ({ title, filter }: ProductListProps) => {
   const [maxPage, setMaxPage] = useState(Infinity);
   const [page, setPage] = useState(1);
-  const [produts, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     ProductService.getList({
@@ -52,8 +53,9 @@ export const ProductList = ({ title, filter }: ProductListProps) => {
               ></div>
             </div>
           </div>
+          <ProductSwiper products={products} />
           <div className="product-list__body">
-            {produts.map((product) => (
+            {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

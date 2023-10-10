@@ -4,6 +4,9 @@ import { HomePage } from './home';
 import { PageNames } from '@router/routes';
 import { CatalogPage } from './catalog';
 import { CartPage } from './cart';
+import { OrderPage } from './order';
+import { OrderCreated } from './order-created';
+import { MyOrder } from './my-order';
 
 export const Pages = () => {
   return (
@@ -12,6 +15,9 @@ export const Pages = () => {
         <Route Component={HomePage} path={PageNames.HOME} />
         <Route Component={CatalogPage} path={PageNames.CATALOG} />
         <Route Component={CartPage} path={PageNames.CART} />
+        <Route Component={OrderPage} path={PageNames.ORDER} />
+        <Route Component={OrderCreated} path={PageNames.ORDER_CREATED} />
+        <Route Component={MyOrder} path={PageNames.MY_ORDER} />
       </Routes>
     </Layout>
   );

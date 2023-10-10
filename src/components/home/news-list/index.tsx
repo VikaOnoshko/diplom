@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './index.less';
 import nav from '@assets/images/news/nav.png';
 import ava from '@assets/images/news/ava.png';
+import { NewsSwiper } from './news-swiper';
 import { NewsCard } from './news-card';
 
 const NEWSLIST: News[] = [
@@ -46,9 +47,12 @@ export const HomeNewsList = () => {
             </div>
           </div>
           <div className="forum__body">
-            {news.map((news) => (
-              <NewsCard key={news.id} news={news} />
-            ))}
+            <div className="forum__list">
+              {news.map((news) => (
+                <NewsCard key={news.id} news={news} />
+              ))}
+            </div>
+            <NewsSwiper />
           </div>
         </div>
       </div>

@@ -10,10 +10,6 @@
     ._wrapper();
   }
 
-  &__swiper {
-    height: 60vh;
-  }
-
   &__swiper-image {
     width: 100%;
   }
@@ -33,4 +29,19 @@
 
 .swiper-pagination-bullet {
   background-color: @primary-color;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 15px;
+  }
+
+  .swiper-button-prev {
+    left: 1px;
+  }
+
+  .swiper-button-next {
+    right: 1px;
+  }
 }

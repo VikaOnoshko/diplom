@@ -15,6 +15,25 @@
     margin: 0 -10px;
   }
 
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 270px;
+    margin: 15px 20px;
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 15px;
+  }
+
   &__card {
     width: 100%;
     margin: 0 10px;
@@ -31,47 +50,53 @@
       z-index: -1;
     }
 
+    &:nth-child(1),
+    &:nth-child(3) {
+      .for-client__title {
+        color: @grey-color;
+      }
+
+      .for-client__description {
+        color: @text-color;
+      }
+    }
+
     &:nth-child(1) {
-      position: relative;
+      display: flex;
+      justify-content: flex-start;
+
       .for-client__img {
         position: absolute;
         top: 10px;
         right: 18px;
       }
 
-      .for-client__title {
-        color: rgba(51, 51, 51, 1);
-        font-weight: 300;
-        font-size: 24px;
-      }
-
       .for-client__text {
-        width: 50%;
-        margin: 30px 15px;
+        text-align: start;
+        max-width: 220px;
       }
 
-      .for-client__description {
-        color: rgba(130, 130, 130, 1);
-        font-weight: 300;
-        font-size: 14px;
-      }
       &::before {
         background-image: url('@assets/images/client/left.png');
       }
     }
 
     &:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      .for-client__text {
+        text-align: center;
+      }
+
       .for-client__title {
         color: @lite-color;
-        font-weight: 300;
-        font-size: 24px;
       }
 
       .for-client__description {
-        font-weight: 300;
-        font-size: 14px;
         color: @lite-color;
-        ._center();
       }
 
       &::before {
@@ -80,33 +105,17 @@
     }
 
     &:nth-child(3) {
-      position: relative;
-      justify-content: flex-end;
       display: flex;
-      text-align: right;
+      justify-content: flex-end;
+      .for-client__text {
+        text-align: end;
+        max-width: 220px;
+      }
 
       .for-client__img {
         position: absolute;
         top: 9px;
         left: 12px;
-      }
-
-      .for-client__text {
-        width: 50%;
-        margin: 15px 5px;
-      }
-
-      .for-client__title {
-        color: @grey-color;
-        font-weight: 300;
-        font-size: 24px;
-      }
-
-      .for-client__description {
-        font-weight: 300;
-        font-size: 14px;
-        color: @text-color;
-        ._center();
       }
 
       &::before {
@@ -120,18 +129,82 @@
     ._center();
     max-height: 80%;
   }
+}
 
-  &__title {
-    font-size: 24px;
-    font-weight: 300;
-    margin: 10px 0;
-    color: @grey-color;
-    ._center();
+@media screen and (max-width: 1400px) {
+  .for-client__card::before {
+    background-size: auto;
   }
 
-  &__description {
-    font-size: 16px;
-    font-weight: 300;
-    color: white;
+  .for-client__img img {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .for-client {
+    margin: 0;
+    &__card {
+      border: none;
+      margin: 0;
+      display: block !important;
+    }
+    &__card::before {
+      content: none;
+    }
+    &__img {
+      background: @primary-color;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      margin: auto;
+      position: initial !important;
+      img {
+        width: 60%;
+      }
+    }
+    &__text {
+      text-align: center !important;
+      margin: 0;
+      width: 100%;
+      max-width: none;
+    }
+    &__title {
+      color: @grey-color !important;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    &__description {
+      color: @grey-color !important;
+      display: none !important;
+    }
+
+    &__card {
+      .for-client__text {
+        max-width: none !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .for-client__img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .for-client__card-list {
+    margin: 0px 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .for-client__img {
+    width: 75px !important;
+    height: 75px !important ;
+  }
+
+  .for-client__title {
+    font-size: 11px;
   }
 }

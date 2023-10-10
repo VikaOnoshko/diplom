@@ -1,0 +1,57 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.accordion {
+  margin: 15px 0px;
+  width: 250px;
+}
+
+.footer {
+  .accordion__summary {
+    display: flex;
+    min-height: 0px;
+  }
+}
+.accordion__summary {
+  display: flex;
+  min-height: 35px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  span {
+    font-weight: 300;
+    font-size: 20px;
+    color: @grey-color;
+  }
+}
+
+.accordion__arrow {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-bottom: 2px solid #bdbdbd;
+  border-right: 2px solid #bdbdbd;
+  margin: 0px 6px;
+  transform: rotate(45deg);
+
+  &[data-open='true'] {
+    transform: rotate(225deg);
+  }
+}
+
+.accordion__details {
+  padding: 10px 0;
+}
+
+.accordion__category {
+  padding: 5px;
+  color: @primary-color;
+  font-weight: 300;
+  font-size: 16px;
+  cursor: pointer;
+
+  &[data-active='true'] {
+    font-weight: 700;
+  }
+}

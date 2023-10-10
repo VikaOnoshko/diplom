@@ -8,10 +8,10 @@ import {
   removeProduct,
 } from '@redux/reducers/cart.reducer';
 import { Price } from '@components/price';
+import { useAppNavigate } from '@router/hooks';
 
 type ProductCardProps = {
   product: Product;
-  count: number;
 };
 
 export const ProductCard = ({ product }: ProductCardProps) => {
@@ -40,6 +40,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     dispatch(removeProduct(product.id));
   };
 
+  const { goToOrder } = useAppNavigate();
+
   return (
     <div className="product-card" title={name}>
       <div className="product-card__header">
@@ -67,7 +69,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="product-card__description">
           <div className="product-card__rating">
             {/* FIXME: create in ui shared */}
-            <Rating name="half-rating" defaultValue={rating} precision={0.5} />
+            <Rating
+              name="half-rating"
+              defaultValue={rating}
+              precision={0.5}
+              size="small"
+            />
           </div>
           <div className="product-card__properties">
             <div className="product-card__name">
@@ -111,7 +118,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           {!hasInCart && <Button text="Заказать" onClick={handleClick} />}
           <div className="product-card__fast-order">
-            <span>Быстрый заказ</span>
+            <span onClick={goToOrder}>Быстрый заказ</span>
           </div>
         </div>
       </div>

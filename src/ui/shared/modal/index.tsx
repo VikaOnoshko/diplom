@@ -18,7 +18,15 @@ export const Modal = ({ children, isOpen, onClose }: Props) => {
               }
             }}
           >
-            <div className="modal__wrapper">{children}</div>
+            <div className="modal__wrapper">
+              <div
+                className="modal__close"
+                onClick={() => {
+                  onClose();
+                }}
+              ></div>
+              {children}
+            </div>
           </div>
         </div>
       )}

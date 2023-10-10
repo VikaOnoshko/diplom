@@ -28,6 +28,7 @@ export default defineConfig({
       '@theme': fileURLToPath(new URL('./src/theme', import.meta.url)),
       '@style': fileURLToPath(new URL('./src/style', import.meta.url)),
       '@ui': fileURLToPath(new URL('./src/ui', import.meta.url)),
+      '@utils': fileURLToPath(new URL('./src/utils', import.meta.url)),
     },
   },
 });

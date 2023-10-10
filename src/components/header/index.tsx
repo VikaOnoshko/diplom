@@ -7,11 +7,16 @@ import { useEffect, useState } from 'react';
 import { logout, selectUser } from '@redux/reducers/userReducer';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { useAppNavigate } from '@router/hooks';
+import { Currency } from './currency';
+import { BurgerMenu } from './burger';
+import { Nav } from './burger/nav-bar';
+import { Modal } from '@ui/shared/modal';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
   const dispatch = useAppDispath();
-  const { goToCatalog, goToHome, goToCart } = useAppNavigate();
+
+  const { goToHome, goToCart } = useAppNavigate();
 
   const products = useAppSelector((state) => state.cart.products);
   const user = useAppSelector(selectUser);
@@ -33,14 +38,10 @@ export const Header = () => {
               <div className="header__logo" onClick={goToHome}>
                 <img src={logo} alt="logo" />
               </div>
-              <div className="header__navigation">
-                <span onClick={goToCatalog}>Каталог товаров</span>
-                <span>Форум</span>
-                <span>Отзывы</span>
-                <span>Акции</span>
-                <span>Новости</span>
-              </div>
+              <BurgerMenu />
+              <Nav />
               <div className="header__icons">
+                <Currency />
                 {!user && (
                   <IconButton onClick={() => setIsOpenAuth(true)}>
                     <span className="icon-person"></span>
@@ -67,7 +68,11 @@ export const Header = () => {
         </div>
       </header>
 
-      {!user && isOpenAuth && <Auth close={() => setIsOpenAuth(false)} />}
+      {!user && (
+        <Modal isOpen={isOpenAuth} onClose={() => setIsOpenAuth(false)}>
+          <Auth close={() => setIsOpenAuth(false)} />
+        </Modal>
+      )}
     </>
   );
 };
