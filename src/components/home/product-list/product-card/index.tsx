@@ -27,7 +27,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   const products = useAppSelector((state) => state.cart.products);
 
-  const hasInCart = products.some((item) => item.item.id === product.id);
+  const hasInCart = products.some(({ item }) => item?.id === product?.id);
 
   const handlechangeProductCount = (newCount: number) => {
     dispatch(changeProductCount({ item: product, count: newCount }));

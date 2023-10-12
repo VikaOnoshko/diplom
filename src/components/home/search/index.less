@@ -1,0 +1,46 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.main-search {
+  &__wrapper {
+    ._center();
+    margin: auto;
+    position: relative;
+    width: 600px;
+  }
+  &__input-box {
+    width: 100%;
+    position: relative;
+
+    input {
+      outline: none;
+      width: 100%;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 5px 25px;
+      border-color: @primary-color;
+    }
+  }
+
+  &__container {
+    ._container();
+  }
+
+  .icon-search {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+  }
+
+  &__result-list {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 1px 1px 10px #0005;
+    transform: translateY(40px);
+  }
+}

@@ -80,10 +80,13 @@ export const MyOrder = () => {
                   </div>
                   <div className="my-order__text">
                     <b>Дата доставки: </b>
-                    <span>{order && <></>}</span>
+                    <span>
+                      {order &&
+                        new Date(order.recipient.date).toLocaleDateString()}
+                    </span>
                   </div>
                   <div className="my-order__text">
-                    <b>Вреям доставки: </b>
+                    <b>Время доставки: </b>
                     <span> {order && order.recipient.time}</span>
                   </div>
                   <div className="my-order__text">
