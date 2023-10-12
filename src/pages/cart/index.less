@@ -35,7 +35,7 @@
 
   &__options {
     span {
-      color: @gray-text;
+      color: var(--gray-text);
       font-weight: 300;
       font-size: 16px;
     }
@@ -45,11 +45,11 @@
     text-decoration: underline;
     display: flex;
     align-items: center;
-    color: @gray-text;
+    color: var(--gray-text);
     cursor: pointer;
 
     span {
-      color: @gray-text;
+      color: var(--gray-text);
       font-weight: 400;
       font-size: 16px;
     }
@@ -62,12 +62,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 2px solid @gray-text;
-  border-right: 2px solid @gray-text;
+  border-top: 2px solid var(--gray-text);
+  border-right: 2px solid var(--gray-text);
   margin: 0px 6px;
   &[data-disabled='true'] {
     cursor: not-allowed;
-    border-color: @border-color;
+    border-color: var(--border-color);
   }
 
   .arrow__top {
@@ -95,7 +95,7 @@
 .item__name {
   span {
     font-weight: 700;
-    color: @grey-color;
+    color: var(--grey-color);
     font-size: 16px;
   }
 }
@@ -107,19 +107,19 @@
 .item__price span {
   font-weight: 300;
   font-size: 16px;
-  color: @grey-color;
+  color: var(--grey-color);
 }
 
 .price__sale span {
   font-weight: 300;
   font-size: 14px;
-  color: @gray-text;
+  color: var(--gray-text);
 }
 
 .item__result-count {
   font-weight: 700;
   font-size: 16px;
-  color: @gray-text;
+  color: var(--gray-text);
 }
 
 .cart__name {

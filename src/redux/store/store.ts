@@ -7,6 +7,7 @@ import catalogReducer from '@redux/reducers/catalog.reducer';
 import currencyReducer from '@redux/reducers/currency.reducer';
 import cartReducer from '@redux/reducers/cart.reducer';
 import orderReducer from '@redux/reducers/order.reducer';
+import themeReducer from '@redux/reducers/theme.reducer';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     cart: cartReducer,
     currency: currencyReducer,
     order: orderReducer,
+    theme: themeReducer,
   },
 });
 

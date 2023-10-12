@@ -53,11 +53,11 @@
     &:nth-child(1),
     &:nth-child(3) {
       .for-client__title {
-        color: @grey-color;
+        color: var(--grey-color);
       }
 
       .for-client__description {
-        color: @text-color;
+        color: var(--text-color);
       }
     }
 
@@ -92,11 +92,11 @@
       }
 
       .for-client__title {
-        color: @lite-color;
+        color: var(--lite-color);
       }
 
       .for-client__description {
-        color: @lite-color;
+        color: var(--lite-color);
       }
 
       &::before {
@@ -153,7 +153,7 @@
       content: none;
     }
     &__img {
-      background: @primary-color;
+      background: var(--primary-color);
       width: 100px;
       height: 100px;
       border-radius: 100%;
@@ -170,12 +170,12 @@
       max-width: none;
     }
     &__title {
-      color: @grey-color !important;
+      color: var(--grey-color) !important;
       font-size: 15px;
       font-weight: bold;
     }
     &__description {
-      color: @grey-color !important;
+      color: var(--grey-color) !important;
       display: none !important;
     }
 

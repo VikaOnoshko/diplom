@@ -16,7 +16,7 @@
     option {
       font-weight: 300;
       font-size: 18px;
-      color: @grey-color;
+      color: var(--grey-color);
     }
   }
 
@@ -26,7 +26,7 @@
     span {
       font-weight: 250;
       font-size: 18px;
-      color: @text-color;
+      color: var(--text-color);
     }
   }
   &__triangle {
@@ -35,11 +35,11 @@
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-top: 7px solid @grey-color;
+    border-top: 7px solid var(--grey-color);
 
     &[data-focus='true'] {
       border-top: 0px;
-      border-bottom: 7px solid @grey-color;
+      border-bottom: 7px solid var(--grey-color);
     }
   }
 
