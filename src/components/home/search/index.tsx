@@ -1,19 +1,28 @@
 import './index.less';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ProductService } from '@services/product.service';
 import { EmptySearchResult } from './empthy-result';
 import { SearchResultProduct } from './search-result';
 
 export const HomeSearch = () => {
+  const [isCanDisplay, setIsCanDisplay] = useState(false);
   const [focus, setFocus] = useState(false);
   const [query, setQuery] = useState('');
   const [products, setProducts] = useState<Product[]>([]);
+  const debounce = useRef(0);
 
   useEffect(() => {
+    clearTimeout(debounce.current);
+
     if (query) {
-      ProductService.getList({ search: query, page: 1, limit: 5 }).then(
-        (data) => setProducts(data.items),
-      );
+      debounce.current = window.setTimeout(() => {
+        ProductService.getList({ name: query, page: 1, limit: 5 }).then(
+          (data) => {
+            setProducts(data.items);
+            setIsCanDisplay(true);
+          },
+        );
+      }, 500);
     }
   }, [query]);
 
@@ -36,7 +45,8 @@ export const HomeSearch = () => {
             />
             <span className="icon-search"></span>
           </div>
-          {(true || focus) &&
+          {focus &&
+            isCanDisplay &&
             (products.length > 0 ? (
               <div className="main-search__result-list">
                 {products.map((product) => (
