@@ -15,6 +15,10 @@ export const SearchResultProduct = ({ product }: SearchResultProductProps) => {
     dispatch(removeProduct(product.id));
   };
 
+  const handleAddProduct = () => {
+    dispatch(addProduct(product));
+  };
+
   const hasInCart = products.some(({ item }) => item?.id === product?.id);
 
   return (
@@ -31,17 +35,11 @@ export const SearchResultProduct = ({ product }: SearchResultProductProps) => {
       </div>
       <div className="result-product__actions">
         {hasInCart && (
-          <span
-            className="icon-delete"
-            onClick={() => handleDeleteProduct()}
-          ></span>
+          <span className="icon-delete" onClick={handleDeleteProduct}></span>
         )}
 
         {!hasInCart && (
-          <span
-            className="icon-cart"
-            onClick={() => dispatch(addProduct(product))}
-          ></span>
+          <span className="icon-cart" onClick={handleAddProduct}></span>
         )}
       </div>
     </li>

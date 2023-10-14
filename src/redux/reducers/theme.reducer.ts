@@ -4,13 +4,12 @@ export type ThemeStoreType = {
   theme: string;
 };
 
-export const initialState: ThemeStoreType = {
-  theme: 'light',
+const saveTheme = (theme: string) => {
+  localStorage.setItem('theme', theme);
 };
 
 const setTheme = (theme: string) => {
   const html = document.querySelector('html');
-
   if (html) {
     html.dataset.theme = `theme-${theme}`;
   }
@@ -19,14 +18,15 @@ const setTheme = (theme: string) => {
 export const themeSlice = createSlice({
   name: 'theme',
   initialState: () => {
-    setTheme(initialState.theme);
-
-    return initialState;
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+    return { theme };
   },
   reducers: {
     toggleTheme: (state) => {
       state.theme = state.theme === 'light' ? 'dark' : 'light';
       setTheme(state.theme);
+      saveTheme(state.theme);
     },
   },
 });

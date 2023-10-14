@@ -4,7 +4,7 @@
 .product-card {
   border: @primary-border;
   max-width: 340px;
-  background-color: white;
+  background-color: var(--background-color);
 
   &__header {
     position: relative;
@@ -106,11 +106,12 @@
 
       font-weight: 300;
       font-size: 18px;
-      color: rgba(51, 51, 51, 1);
+      color: var(--grey-color);
     }
   }
 
   &__fast-order {
+    color: var(--grey-color);
     margin-top: 10px;
     ._center();
     text-decoration: underline;
@@ -159,6 +160,7 @@
     align-items: center;
     flex-direction: column;
     display: flex;
+    color: var(--grey-color);
   }
 
   &__nav {
@@ -170,6 +172,10 @@
       font-size: 35px;
       cursor: pointer;
     }
+  }
+
+  &__empty-star {
+    color: var(--grey-color);
   }
 }
 

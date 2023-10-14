@@ -21,7 +21,6 @@ export const Header = () => {
 
   const products = useAppSelector((state) => state.cart.products);
   const user = useAppSelector(selectUser);
-  const currentTheme = useAppSelector((state) => state.theme.theme);
 
   const handleToggleTheme = () => dispatch(toggleTheme());
 
@@ -46,7 +45,7 @@ export const Header = () => {
               <Nav />
               <div className="header__icons">
                 <IconButton onClick={handleToggleTheme}>
-                  <span className="icon-favorite">{currentTheme}</span>
+                  <span className="icon-brightness-contrast"></span>
                 </IconButton>
                 <Currency />
                 {!user && (
