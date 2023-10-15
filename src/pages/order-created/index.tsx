@@ -32,7 +32,7 @@ export const OrderCreated = () => {
                   goToMyOrder(params.id as string);
                 }}
               >
-                Перейти к заказу
+                Перейти к деталям заказа
               </span>
             </div>
           </div>

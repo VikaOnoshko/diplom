@@ -38,7 +38,7 @@ export const MyOrder = () => {
     (delivery || 0);
 
   return (
-    <div>
+    <div className="my-order">
       <div className="my-order__container">
         <div className="my-order__wrapper">
           <div className="my-order__content">
