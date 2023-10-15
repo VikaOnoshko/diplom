@@ -32,7 +32,7 @@
 
   &__container {
     padding: 10px;
-    background-color: white;
+    background-color: var(--background-color);
     height: 100%;
     width: 100%;
     display: flex;
@@ -71,13 +71,14 @@
     align-items: center;
     justify-content: flex-start;
     display: flex;
+    color: var(--grey-color);
   }
 
   &__title {
     margin-left: 10px;
     font-weight: 400;
     font-size: 16px;
-    color: @text-color;
+    color: var(--text-color);
   }
 
   &__icon {
@@ -88,7 +89,7 @@
     justify-content: space-between;
 
     a {
-      color: @grey-color;
+      color: var(--grey-color);
     }
   }
 
@@ -96,12 +97,12 @@
     margin-top: 10px;
 
     a {
-      color: @grey-color;
+      color: var(--grey-color);
     }
   }
 
   span {
-    color: @primary-color;
+    color: var(--primary-color);
   }
 }
 

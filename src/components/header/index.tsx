@@ -11,6 +11,7 @@ import { Currency } from './currency';
 import { BurgerMenu } from './burger';
 import { Nav } from './burger/nav-bar';
 import { Modal } from '@ui/shared/modal';
+import { toggleTheme } from '@redux/reducers/theme.reducer';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
@@ -20,6 +21,8 @@ export const Header = () => {
 
   const products = useAppSelector((state) => state.cart.products);
   const user = useAppSelector(selectUser);
+
+  const handleToggleTheme = () => dispatch(toggleTheme());
 
   const handleLogout = () => {
     dispatch(logout());
@@ -41,6 +44,9 @@ export const Header = () => {
               <BurgerMenu />
               <Nav />
               <div className="header__icons">
+                <IconButton onClick={handleToggleTheme}>
+                  <span className="icon-brightness-contrast"></span>
+                </IconButton>
                 <Currency />
                 {!user && (
                   <IconButton onClick={() => setIsOpenAuth(true)}>

@@ -6,7 +6,7 @@ export type SelectProps = {
   value: string;
   onChange: (value: string) => void;
   className?: string;
-  variant: string;
+  variant?: string;
 };
 
 export const Select = ({

@@ -5,12 +5,13 @@
   margin: 0 -30px;
   ._center();
   span {
+    color: var(--grey-color);
     cursor: pointer;
     ._navigation();
     font-size: 24px;
     margin: 0 30px;
     &:hover {
-      color: @primary-color;
+      color: var(--primary-color);
       transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
   }
@@ -32,7 +33,7 @@
     width: 100vw;
     display: none;
     flex-direction: column;
-    background-color: @lite-color;
+    background-color: var(--lite-color);
     z-index: 2;
     position: absolute;
     top: 0;

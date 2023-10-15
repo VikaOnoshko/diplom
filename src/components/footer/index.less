@@ -2,7 +2,7 @@
 @import '@style/mixins.less';
 
 .footer {
-  background: @grey-color;
+  background: rgb(42, 36, 39);
   &__container {
     ._container();
   }
@@ -50,7 +50,7 @@
 
   &__line {
     height: 0px;
-    border: 1px solid @primary-color;
+    border: 1px solid var(--primary-color);
     width: 100%;
   }
 
@@ -62,7 +62,7 @@
     h5 {
       font-weight: 700;
       font-size: 16px;
-      color: @lite-color;
+      color: var(--lite-color);
       :hover {
         text-decoration: underline;
       }
@@ -109,7 +109,7 @@
     span {
       font-weight: 300;
       font-size: 12px;
-      color: @lite-color;
+      color: var(--lite-color);
     }
   }
 

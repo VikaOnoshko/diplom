@@ -8,12 +8,16 @@
     height: 0;
   }
 
+  &__label {
+    color: var(--grey-color);
+  }
+
   &__box {
     justify-content: center;
     display: inline-flex;
     width: 1em;
     height: 1em;
-    border: 1px solid @primary-color;
+    border: 1px solid var(--primary-color);
     position: relative;
     transition: all 0.4s linear;
 
@@ -31,6 +35,6 @@
   }
 
   input:checked + &__box {
-    background-color: @primary-color;
+    background-color: var(--primary-color);
   }
 }

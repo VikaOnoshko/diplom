@@ -1,6 +1,8 @@
 import './index.less';
 import { Button } from '@ui/shared/button';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { Rating } from '@mui/material';
+
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import {
   addProduct,
@@ -74,6 +76,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               defaultValue={rating}
               precision={0.5}
               size="small"
+              emptyIcon={
+                <StarBorderIcon
+                  fontSize="inherit"
+                  className={'product-card__empty-star'}
+                />
+              }
             />
           </div>
           <div className="product-card__properties">

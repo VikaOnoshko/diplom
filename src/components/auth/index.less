@@ -23,7 +23,7 @@
     padding: 10px 10px 20px 10px;
     background-color: white;
     min-width: 450px;
-    border: 2px solid @border-color;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
   }
 
@@ -39,7 +39,7 @@
     &:hover {
       &::before,
       &::after {
-        background-color: @text-color;
+        background-color: var(--text-color);
       }
     }
   }
@@ -50,7 +50,7 @@
     position: absolute;
     width: 24px;
     height: 2px;
-    background-color: @border-color;
+    background-color: var(--border-color);
     transition: @transition;
   }
 
@@ -64,15 +64,15 @@
   &__title {
     ._center();
     font-size: 20px;
-    color: @grey-color;
+    color: var(--grey-color);
     font-weight: 700;
   }
 
   &__arrow {
     width: 10px;
     height: 10px;
-    border-top: 3px solid @lite-color;
-    border-right: 3px solid @lite-color;
+    border-top: 3px solid var(--lite-color);
+    border-right: 3px solid var(--lite-color);
     transform: translateX(1px) rotate(-135deg);
   }
 
@@ -85,10 +85,10 @@
 
     &:hover {
       .auth__icon {
-        background-color: @text-color;
+        background-color: var(--text-color);
       }
       .auth__text {
-        color: @text-color;
+        color: var(--text-color);
       }
     }
   }
