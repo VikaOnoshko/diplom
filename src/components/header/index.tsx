@@ -4,7 +4,7 @@ import { IconButton } from '@ui/shared/icon-button';
 import logo from '@assets/images/logo.png';
 import { Auth } from '@components/auth';
 import { useEffect, useState } from 'react';
-import { logout, selectUser } from '@redux/reducers/userReducer';
+import { selectUser } from '@redux/reducers/userReducer';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { useAppNavigate } from '@router/hooks';
 import { Currency } from './currency';
@@ -12,9 +12,11 @@ import { BurgerMenu } from './burger';
 import { Nav } from './burger/nav-bar';
 import { Modal } from '@ui/shared/modal';
 import { toggleTheme } from '@redux/reducers/theme.reducer';
+import { UserIcon } from './user-icon';
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
+
   const dispatch = useAppDispath();
 
   const { goToHome, goToCart } = useAppNavigate();
@@ -23,10 +25,6 @@ export const Header = () => {
   const user = useAppSelector(selectUser);
 
   const handleToggleTheme = () => dispatch(toggleTheme());
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
 
   useEffect(() => {
     setIsOpenAuth(false);
@@ -47,17 +45,17 @@ export const Header = () => {
                 <IconButton onClick={handleToggleTheme}>
                   <span className="icon-brightness-contrast"></span>
                 </IconButton>
-                <Currency />
+                <IconButton>
+                  <Currency />
+                </IconButton>
                 {!user && (
                   <IconButton onClick={() => setIsOpenAuth(true)}>
                     <span className="icon-person"></span>
                   </IconButton>
                 )}
-                {!!user && (
-                  <IconButton onClick={handleLogout}>
-                    <span className="icon-sign_out"></span>
-                  </IconButton>
-                )}
+
+                {!!user && <UserIcon />}
+
                 <IconButton onClick={goToCart}>
                   <Badge badgeContent={products.length}>
                     <span className="icon-cart"></span>
