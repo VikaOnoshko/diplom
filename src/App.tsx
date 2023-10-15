@@ -4,6 +4,7 @@ import { Pages } from '@pages/index';
 import { InitProvider } from '@providers/init';
 
 export const App = () => {
+  
   return (
     <StoreProvider>
       <RouterProvider>
