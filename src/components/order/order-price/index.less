@@ -3,10 +3,10 @@
 
 .order-price {
   width: 100%;
-  max-width: 480px;
+  max-width: 400px;
   &__container {
     margin: 0 auto;
-    padding: 50px;
+    padding: 40px;
     border: 1px solid var(--primary-color);
   }
 
@@ -86,29 +86,22 @@
   }
 }
 
-
 @media screen and (max-width: 360px) {
-.order-price{
+  .order-price {
+    &__container {
+      padding: 20px;
+    }
 
-&__container{
-  padding: 20px ;
+    &__header h2 {
+      font-size: 30px;
+    }
+
+    .button {
+      height: 40px;
+    }
+
+    &__added {
+      padding: 20px 0;
+    }
+  }
 }
-
-&__header h2{
-  font-size: 30px;
-}
-
-
-.button{
-  height: 40px;
-
-}
-
-&__added {
-  padding: 20px 0;
-}
-}
-}
-
-
-

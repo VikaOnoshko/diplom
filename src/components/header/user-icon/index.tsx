@@ -4,6 +4,7 @@ import { useAppDispath } from '@redux/store/store';
 import { Button } from '@ui/shared/button';
 import { IconButton } from '@ui/shared/icon-button';
 import './index.less';
+import { useAppNavigate } from '@router/hooks';
 
 export const UserIcon = () => {
   const [isOpenUser, setIsOpenUser] = useState(false);
@@ -13,6 +14,8 @@ export const UserIcon = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
+
+  const { goToOrderHistory } = useAppNavigate();
 
   return (
     <div className="user">
@@ -42,7 +45,12 @@ export const UserIcon = () => {
             />
           </div>
           <div className="user__line"></div>
-          <div className="user__options">
+          <div
+            className="user__options"
+            onClick={() => {
+              goToOrderHistory();
+            }}
+          >
             <span>Мои заказы</span>
           </div>
         </div>

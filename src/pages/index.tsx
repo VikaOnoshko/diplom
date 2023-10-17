@@ -7,6 +7,7 @@ import { CartPage } from './cart';
 import { OrderPage } from './order';
 import { OrderCreated } from './order-created';
 import { MyOrder } from './my-order';
+import { OrderHistory } from './order-history';
 
 export const Pages = () => {
   return (
@@ -18,6 +19,7 @@ export const Pages = () => {
         <Route Component={OrderPage} path={PageNames.ORDER} />
         <Route Component={OrderCreated} path={PageNames.ORDER_CREATED} />
         <Route Component={MyOrder} path={PageNames.MY_ORDER} />
+        <Route Component={OrderHistory} path={PageNames.ORDER_HISTORY} />
       </Routes>
     </Layout>
   );

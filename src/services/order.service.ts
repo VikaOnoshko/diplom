@@ -6,9 +6,14 @@ export const OrderService = {
       (response) => response.data,
     );
   },
+
   getOne(id: number) {
     return Request.get<Order>(`/orders/${id}`).then(
       (response) => response.data,
     );
+  },
+
+  getList() {
+    return Request.get<Order[]>(`/orders`).then((response) => response.data);
   },
 };
