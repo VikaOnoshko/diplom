@@ -15,7 +15,7 @@ export const UserIcon = () => {
     dispatch(logout());
   };
 
-  const { goToOrderHistory } = useAppNavigate();
+  const { goToOrderHistory, goToCart } = useAppNavigate();
 
   return (
     <div className="user">
@@ -45,13 +45,9 @@ export const UserIcon = () => {
             />
           </div>
           <div className="user__line"></div>
-          <div
-            className="user__options"
-            onClick={() => {
-              goToOrderHistory();
-            }}
-          >
-            <span>Мои заказы</span>
+          <div className="user__options">
+            <span onClick={goToOrderHistory}>Мои заказы</span>
+            <span onClick={goToCart}>Корзина</span>
           </div>
         </div>
       )}

@@ -55,17 +55,18 @@ export const Header = () => {
                 )}
 
                 {!!user && <UserIcon />}
-
-                <IconButton onClick={goToCart}>
-                  <Badge badgeContent={products.length}>
-                    <span className="icon-cart"></span>
-                  </Badge>
-                </IconButton>
-                <IconButton>
-                  <Badge badgeContent={1}>
-                    <span className="icon-favorite"></span>
-                  </Badge>
-                </IconButton>
+                <div className="header__options">
+                  <IconButton onClick={goToCart}>
+                    <Badge badgeContent={products.length}>
+                      <span className="icon-cart"></span>
+                    </Badge>
+                  </IconButton>
+                  <IconButton>
+                    <Badge badgeContent={1}>
+                      <span className="icon-favorite"></span>
+                    </Badge>
+                  </IconButton>
+                </div>
               </div>
             </div>
           </div>
