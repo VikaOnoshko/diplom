@@ -13,5 +13,6 @@ export const useAppNavigate = () => {
       navigate(PageNames.ORDER_CREATED.replace(':id', id)),
     goToMyOrder: (id: string) =>
       navigate(PageNames.MY_ORDER.replace(':id', id)),
+    goToOrderHistory: () => navigate(PageNames.ORDER_HISTORY),
   };
 };

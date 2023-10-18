@@ -1,0 +1,32 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.loader__container {
+  background-color: var(--background-color);
+  ._container();
+  position: fixed;
+}
+
+.loader__wrapper {
+  ._center();
+  width: 100vw;
+  height: 100vh;
+}
+
+.loader__component {
+  border: 13px solid var(--gray-text);
+  border-top: 13px solid var(--primary-color);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

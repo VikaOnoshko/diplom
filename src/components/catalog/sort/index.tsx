@@ -1,3 +1,4 @@
+import './index.less';
 import { Select } from '@ui/shared/select';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { setSort } from '@redux/reducers/catalog.reducer';

@@ -6,4 +6,5 @@ export enum PageNames {
   ORDER = '/order',
   ORDER_CREATED = '/order-created/:id',
   MY_ORDER = '/order/:id',
+  ORDER_HISTORY = '/order-history',
 }

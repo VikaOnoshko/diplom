@@ -1,3 +1,4 @@
+import { auth } from '@providers/firebase';
 import { StoreType } from '@redux/store/store';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from 'firebase/auth';
@@ -8,8 +9,8 @@ export type UserStore = {
 };
 
 export const initialState: UserStore = {
-  isAuth: false,
-  user: null,
+  isAuth: !!auth.currentUser,
+  user: auth.currentUser,
 };
 
 export const userSlice = createSlice({
@@ -23,6 +24,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.isAuth = false;
+      auth.signOut();
     },
   },
 });
