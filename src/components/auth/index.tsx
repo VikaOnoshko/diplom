@@ -17,6 +17,7 @@ export const Auth = ({ close }: AuthProps) => {
   }, []);
 
   const title = isSignin ? 'Вход' : 'Регистрация';
+
   const activeForm = isSignin ? (
     <SigninForm goToSignup={() => setIsSignin(false)} />
   ) : (

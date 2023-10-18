@@ -8,7 +8,6 @@ export type UserStore = {
   user: User | null;
 };
 
-console.log(auth.currentUser);
 export const initialState: UserStore = {
   isAuth: !!auth.currentUser,
   user: auth.currentUser,
@@ -25,6 +24,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.isAuth = false;
+      auth.signOut();
     },
   },
 });
