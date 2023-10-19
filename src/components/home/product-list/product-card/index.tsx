@@ -1,7 +1,7 @@
 import './index.less';
 import { Button } from '@ui/shared/button';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { Rating } from '@mui/material';
+import { Rating, Skeleton } from '@mui/material';
 
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import {
@@ -13,33 +13,36 @@ import { Price } from '@components/price';
 import { useAppNavigate } from '@router/hooks';
 
 type ProductCardProps = {
-  product: Product;
+  loading?: boolean;
+  product?: Product;
 };
 
-export const ProductCard = ({ product }: ProductCardProps) => {
-  const { name, price, sale, rating, top, favorite, img } = product;
+export const ProductCard = ({ product, loading }: ProductCardProps) => {
+  const { name, price, sale, rating, top, favorite, img } = product || {};
 
   const dispatch = useAppDispath();
 
   const handleClick = () => {
-    dispatch(addProduct(product));
+    product && dispatch(addProduct(product));
   };
 
-  const actualPrice = sale ? +((price * (100 - sale)) / 100).toFixed(2) : price;
+  const actualPrice =
+    price && sale ? +((price * (100 - sale)) / 100).toFixed(2) : price;
 
   const products = useAppSelector((state) => state.cart.products);
 
   const hasInCart = products.some(({ item }) => item?.id === product?.id);
 
   const handlechangeProductCount = (newCount: number) => {
-    dispatch(changeProductCount({ item: product, count: newCount }));
+    product && dispatch(changeProductCount({ item: product, count: newCount }));
   };
 
   const countInCart =
-    products.find((item) => item.item.id === product.id)?.count || 0;
+    (product && products.find((item) => item.item.id === product.id)?.count) ||
+    0;
 
   const handleDeleteProduct = () => {
-    dispatch(removeProduct(product.id));
+    product && dispatch(removeProduct(product.id));
   };
 
   const { goToOrder } = useAppNavigate();
@@ -52,14 +55,22 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <span>-{sale}%</span>
           </div>
         )}
-        <div
-          className="product-card__like product-card__mark"
-          data-favorite={favorite}
-        >
-          <span className="icon-favorite"></span>
-        </div>
+
+        {loading || (
+          <div
+            className="product-card__like product-card__mark"
+            data-favorite={favorite}
+          >
+            <span className="icon-favorite"></span>
+          </div>
+        )}
+
         <div className="product-card__img">
-          <img src={img} alt="prod" />
+          {loading ? (
+            <Skeleton variant="rectangular" />
+          ) : (
+            <img src={img} alt="prod" />
+          )}
         </div>
         {top && (
           <div className="product-card__top product-card__mark">
@@ -69,34 +80,50 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       <div className="product-card__body">
         <div className="product-card__description">
-          <div className="product-card__rating">
-            {/* FIXME: create in ui shared */}
-            <Rating
-              name="half-rating"
-              defaultValue={rating}
-              precision={0.5}
-              size="small"
-              emptyIcon={
-                <StarBorderIcon
-                  fontSize="inherit"
-                  className={'product-card__empty-star'}
-                />
-              }
-            />
-          </div>
-          <div className="product-card__properties">
-            <div className="product-card__name">
-              <span>{name}</span>
+          {loading ? (
+            <Skeleton variant="rounded" />
+          ) : (
+            <div className="product-card__rating">
+              <Rating
+                name="half-rating"
+                defaultValue={rating}
+                precision={0.5}
+                size="small"
+                emptyIcon={
+                  <StarBorderIcon
+                    fontSize="inherit"
+                    className={'product-card__empty-star'}
+                  />
+                }
+              />
             </div>
-            <div className="product-card__price">
-              {sale && (
-                <div className="product-card__old-price">
-                  <Price price={price} />
-                </div>
-              )}
-              <div className="product-card__actual-price">
-                <Price price={actualPrice} />
+          )}
+
+          <div className="product-card__properties">
+            {loading ? (
+              <Skeleton variant="text" />
+            ) : (
+              <div className="product-card__name">
+                <span>{name}</span>
               </div>
+            )}
+
+            <div className="product-card__price">
+              {loading ? (
+                <Skeleton variant="text" />
+              ) : (
+                <>
+                  {sale && (
+                    <div className="product-card__old-price">
+                      <Price price={price} />
+                    </div>
+                  )}
+
+                  <div className="product-card__actual-price">
+                    <Price price={actualPrice} />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -124,9 +151,22 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           )}
 
-          {!hasInCart && <Button text="Заказать" onClick={handleClick} />}
+          <div className="product-card__order">
+            {loading ? (
+              <Skeleton variant="rounded" height={35} />
+            ) : (
+              <>
+                {!hasInCart && <Button text="Заказать" onClick={handleClick} />}
+              </>
+            )}
+          </div>
+
           <div className="product-card__fast-order">
-            <span onClick={goToOrder}>Быстрый заказ</span>
+            {loading ? (
+              <Skeleton variant="text" />
+            ) : (
+              <span onClick={goToOrder}>Быстрый заказ</span>
+            )}
           </div>
         </div>
       </div>

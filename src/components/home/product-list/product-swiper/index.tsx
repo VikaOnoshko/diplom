@@ -4,11 +4,12 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import './index.less';
 
 type Props = {
-  products: Product[];
+  loading?: boolean;
+  products?: Product[];
 };
 
-export const ProductSwiper = ({ products }: Props) => {
-  const productSlides = products.reduce<Product[][]>((acc, cur, index) => {
+export const ProductSwiper = ({ products, loading }: Props) => {
+  const productSlides = products?.reduce<Product[][]>((acc, cur, index) => {
     if (index % 4 === 0) {
       acc.push([]);
     }
@@ -37,15 +38,26 @@ export const ProductSwiper = ({ products }: Props) => {
       modules={[Autoplay, Pagination, Navigation]}
       className="product-list__swiper"
     >
-      {productSlides.map((slide, index) => (
-        <SwiperSlide key={index}>
+      {loading && (
+        <SwiperSlide>
           <div className="product-list__slide">
-            {slide.map((product) => (
-              <ProductCard product={product} key={product.id} />
+            {new Array(4).fill(1).map((_, index) => (
+              <ProductCard key={index} loading={true} />
             ))}
           </div>
         </SwiperSlide>
-      ))}
+      )}
+
+      {loading ||
+        productSlides?.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div className="product-list__slide">
+              {slide.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
+            </div>
+          </SwiperSlide>
+        ))}
     </Swiper>
   );
 };

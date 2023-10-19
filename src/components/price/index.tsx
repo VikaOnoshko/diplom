@@ -1,10 +1,10 @@
 import { useAppSelector } from '@redux/store/store';
 
 type Props = {
-  price: number;
+  price?: number;
 };
 
-export const Price = ({ price }: Props) => {
+export const Price = ({ price = 0 }: Props) => {
   const { currency, type } = useAppSelector((state) => state.currency);
 
   const activeCurrency = currency.find((item) => {
