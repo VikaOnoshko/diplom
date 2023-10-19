@@ -2,6 +2,8 @@ import { OrderService } from '@services/order.service';
 import { useEffect, useState } from 'react';
 import './index.less';
 import { OrderHistoryItem } from './item-history-order';
+import { Breadcrumbs } from '@ui/shared/breadcrumb';
+import { PageNames } from '@router/routes';
 
 export const OrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState<Order[]>([]);
@@ -14,6 +16,12 @@ export const OrderHistory = () => {
     <div className="order-history">
       <div className="order-history__container">
         <div className="order-history__wrapper">
+          <Breadcrumbs
+            crumbs={[
+              { title: 'Главная', link: PageNames.HOME },
+              { title: 'История заказов' },
+            ]}
+          />
           <div className="order-history__header">
             <h1>История заказов</h1>
           </div>

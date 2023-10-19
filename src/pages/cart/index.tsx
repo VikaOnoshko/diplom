@@ -2,6 +2,8 @@ import { useAppNavigate } from '@router/hooks';
 import './index.less';
 import { CartOrder } from '@components/cart/cart-order';
 import { CartList } from '@components/cart/cart-list';
+import { Breadcrumbs } from '@ui/shared/breadcrumb';
+import { PageNames } from '@router/routes';
 
 export const CartPage = () => {
   const { goToCatalog } = useAppNavigate();
@@ -10,6 +12,12 @@ export const CartPage = () => {
     <div className="cart">
       <div className="cart__container">
         <div className="cart__wrapper">
+          <Breadcrumbs
+            crumbs={[
+              { title: 'Главная', link: PageNames.CART },
+              { title: 'Корзина' },
+            ]}
+          />
           <div className="cart__header">
             <h1>Корзина</h1>
           </div>
