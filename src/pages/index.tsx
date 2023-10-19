@@ -8,11 +8,10 @@ import { OrderPage } from './order';
 import { OrderCreated } from './order-created';
 import { MyOrder } from './my-order';
 import { OrderHistory } from './order-history';
-import { UserContext } from '@components/user';
-import { useContext } from 'react';
+import { useAppSelector } from '@redux/store/store';
 
 export const Pages = () => {
-  const { isAuth } = useContext(UserContext);
+  const isAuth = useAppSelector((state) => state.user.isAuth);
 
   return (
     <Layout>

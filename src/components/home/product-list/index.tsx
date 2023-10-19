@@ -9,17 +9,23 @@ type ProductListProps = { title: string; filter?: Partial<Product> };
 export const ProductList = ({ title, filter }: ProductListProps) => {
   const [maxPage, setMaxPage] = useState(Infinity);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    setLoading(true);
     ProductService.getList({
       page,
       limit: 8,
       ...filter,
-    }).then((data) => {
-      setProducts(data.items);
-      setMaxPage(Math.ceil(data.count / 8));
-    });
+    })
+      .then((data) => {
+        setProducts(data.items);
+        setMaxPage(Math.ceil(data.count / 8));
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [page]);
 
   const goToNextPage = () => {
@@ -53,11 +59,20 @@ export const ProductList = ({ title, filter }: ProductListProps) => {
               ></div>
             </div>
           </div>
-          <ProductSwiper products={products} />
+          <ProductSwiper loading={loading} products={products} />
           <div className="product-list__body">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {loading &&
+              new Array(8)
+                .fill(1)
+                .map((_, index) => <ProductCard key={index} loading={true} />)}
+            {!loading &&
+              products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  loading={false}
+                />
+              ))}
           </div>
         </div>
       </div>
