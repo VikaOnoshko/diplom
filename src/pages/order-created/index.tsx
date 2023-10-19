@@ -3,6 +3,8 @@ import './index.less';
 import { Confettiful } from '@utils/confettiful';
 import { useAppNavigate } from '@router/hooks';
 import { useParams } from 'react-router-dom';
+import { Breadcrumbs } from '@ui/shared/breadcrumb';
+import { PageNames } from '@router/routes';
 
 export const OrderCreated = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,6 +23,14 @@ export const OrderCreated = () => {
       <div className="order-created__container">
         <div className="order-created__wrapper">
           <div className="confetti" ref={ref}></div>
+          <Breadcrumbs
+            crumbs={[
+              { title: 'Главная', link: PageNames.HOME },
+              { title: 'Корзина', link: PageNames.CART },
+              { title: 'Оформление заказа', link: PageNames.ORDER },
+              { title: 'Статус заказа' },
+            ]}
+          />
           <div className="order-created__header">
             <h1>Статус заказа</h1>
           </div>

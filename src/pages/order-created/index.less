@@ -2,6 +2,7 @@
 @import '@style/mixins.less';
 
 .order-created {
+  margin: 30px 0px 100px 0;
   &__container {
     ._container();
   }
@@ -39,5 +40,31 @@
       font-size: 20px;
       color: var(--grey-color);
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .order-created__header {
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  .order-created__description span {
+    font-size: 12px;
+  }
+
+  .order-created__main h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .order-created__main h2 {
+    font-size: 19px;
+  }
+
+  .order-created__description span {
+    font-size: 12px;
   }
 }

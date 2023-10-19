@@ -4,6 +4,8 @@ import './index.less';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '@redux/store/store';
+import { Breadcrumbs } from '@ui/shared/breadcrumb';
+import { PageNames } from '@router/routes';
 
 export const MyOrder = () => {
   const { id } = useParams<{ id: string }>();
@@ -41,150 +43,166 @@ export const MyOrder = () => {
     <div className="my-order">
       <div className="my-order__container">
         <div className="my-order__wrapper">
-          <div className="my-order__content">
-            <div className="my-order__items">
-              <div className="my-order__sender">
-                <div className="my-order__item">
-                  <div className="my-order__title">
-                    <h3>Отправитель:</h3>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Имя: </b>
-                    <span>{order && order.sender.name}</span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Почта:</b> <span>{order && order.sender.email}</span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Телефон: </b>
-                    <span>{order && order.sender.telephone}</span>
+          <Breadcrumbs
+            crumbs={[
+              { title: 'Главная', link: PageNames.HOME },
+              { title: 'Оформление заказа', link: PageNames.ORDER },
+              { title: 'Детали заказа' },
+            ]}
+          />
+          <div className="my-order__header">
+            <h1>Детали заказа</h1>
+          </div>
+          <div className="my-order__body">
+            <div className="my-order__content">
+              <div className="my-order__items">
+                <div className="my-order__sender">
+                  <div className="my-order__item">
+                    <div className="my-order__title">
+                      <h3>Отправитель:</h3>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Имя: </b>
+                      <span>{order && order.sender.name}</span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Почта:</b> <span>{order && order.sender.email}</span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Телефон: </b>
+                      <span>{order && order.sender.telephone}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="my-order__recipient">
-                <div className="my-order__item">
-                  <div className="my-order__title">
-                    <h3>Получатель: </h3>
+                <div className="my-order__recipient">
+                  <div className="my-order__item">
+                    <div className="my-order__title">
+                      <h3>Получатель: </h3>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Имя: </b>
+                      <span> {order && order.recipient.name}</span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Регион: </b>
+                      <span> {order && order.recipient.region}</span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Адрес: </b>
+                      <span> {order && order.recipient.adress}</span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Дата доставки: </b>
+                      <span>
+                        {order &&
+                          new Date(order.recipient.date).toLocaleDateString()}
+                      </span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Время доставки: </b>
+                      <span> {order && order.recipient.time}</span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Телефон: </b>
+                      <span> {order && order.recipient.telephone}</span>
+                    </div>
                   </div>
-                  <div className="my-order__text">
-                    <b>Имя: </b>
-                    <span> {order && order.recipient.name}</span>
+                </div>
+                <div className="my-order__delivery">
+                  <div className="my-order__item">
+                    <div className="my-order__title">
+                      <h3>Детали: </h3>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Сюрприз: </b>
+                      <span>
+                        {order && order.delivery.isSurprice
+                          ? 'нужен'
+                          : 'не нужен'}
+                      </span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Фотоотчет: </b>
+                      <span>
+                        {order && order.delivery.isPhoto ? 'да' : 'нет'}
+                      </span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Ваза: </b>
+                      <span>
+                        {order && order.delivery.isVase ? 'да' : 'нет'}
+                      </span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Напомнить о событии: </b>
+                      <span>
+                        {order && order.delivery.isNotify
+                          ? 'нужно'
+                          : 'не нужно'}
+                      </span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Визитка: </b>
+                      <span>
+                        {order && order.delivery.isPostcard ? 'да' : 'нет'}
+                      </span>
+                    </div>
+                    <div className="my-order__text">
+                      <b>Полномасштабная открытка: </b>
+                      <span>
+                        {order && order.delivery.isPayPostcard ? 'да' : 'нет'}
+                      </span>
+                    </div>
                   </div>
-                  <div className="my-order__text">
-                    <b>Регион: </b>
-                    <span> {order && order.recipient.region}</span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Адрес: </b>
-                    <span> {order && order.recipient.adress}</span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Дата доставки: </b>
-                    <span>
+                </div>
+                <div className="my-order__product">
+                  <div className="my-order__item">
+                    <div className="my-order__title">
+                      <h3>Состав заказа: </h3>
+                    </div>
+                    <div className="my-order__text">
                       {order &&
-                        new Date(order.recipient.date).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Время доставки: </b>
-                    <span> {order && order.recipient.time}</span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Телефон: </b>
-                    <span> {order && order.recipient.telephone}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="my-order__delivery">
-                <div className="my-order__item">
-                  <div className="my-order__title">
-                    <h3>Детали: </h3>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Сюрприз: </b>
-                    <span>
-                      {order && order.delivery.isSurprice
-                        ? 'нужен'
-                        : 'не нужен'}
-                    </span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Фотоотчет: </b>
-                    <span>
-                      {order && order.delivery.isPhoto ? 'да' : 'нет'}
-                    </span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Ваза: </b>
-                    <span>{order && order.delivery.isVase ? 'да' : 'нет'}</span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Напомнить о событии: </b>
-                    <span>
-                      {order && order.delivery.isNotify ? 'нужно' : 'не нужно'}
-                    </span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Визитка: </b>
-                    <span>
-                      {order && order.delivery.isPostcard ? 'да' : 'нет'}
-                    </span>
-                  </div>
-                  <div className="my-order__text">
-                    <b>Полномасштабная открытка: </b>
-                    <span>
-                      {order && order.delivery.isPayPostcard ? 'да' : 'нет'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="my-order__product">
-                <div className="my-order__item">
-                  <div className="my-order__title">
-                    <h3>Состав заказа: </h3>
-                  </div>
-                  <div className="my-order__text">
-                    {order &&
-                      order.products?.map(({ item: product, count }) => {
-                        const { name, price, sale } = product;
+                        order.products?.map(({ item: product, count }) => {
+                          const { name, price, sale } = product;
 
-                        return (
-                          <div className="my-product__item">
-                            <div className="my-product__name">
-                              <b>Название: </b>
-                              <span>{name}</span>
-                            </div>
+                          return (
+                            <div className="my-product__item">
+                              <div className="my-product__name">
+                                <b>Название: </b>
+                                <span>{name}</span>
+                              </div>
 
-                            <div className="my-product__price">
-                              <b>Цена: </b>
-                              <Price price={price} />
+                              <div className="my-product__price">
+                                <b>Цена: </b>
+                                <Price price={price} />
+                              </div>
+                              <div className="my_product__count">
+                                <b>Количество: </b>
+                                <span>{count}</span>
+                              </div>
+                              <div className="my_product__allprice">
+                                <b>Итого за товар: </b>
+                                <Price
+                                  price={
+                                    (sale
+                                      ? +((price * (100 - sale)) / 100)
+                                      : price) * count
+                                  }
+                                />
+                              </div>
                             </div>
-                            <div className="my_product__count">
-                              <b>Количество: </b>
-                              <span>{count}</span>
-                            </div>
-                            <div className="my_product__allprice">
-                              <b>Итого за товар: </b>
-                              <Price
-                                price={
-                                  (sale
-                                    ? +((price * (100 - sale)) / 100)
-                                    : price) * count
-                                }
-                              />
-                            </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="my-order__title">
-              <h3>Общая сумма заказа: </h3>
-              <span>
-                <Price price={finallyPrice} />
-              </span>
+              <div className="my-order__title">
+                <h3>Общая сумма заказа: </h3>
+                <span>
+                  <Price price={finallyPrice} />
+                </span>
+              </div>
             </div>
           </div>
         </div>
