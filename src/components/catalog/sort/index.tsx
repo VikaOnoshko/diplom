@@ -34,6 +34,7 @@ export const Sort = () => {
         title={'Сортировка'}
         options={SORT}
       />
+
       <div className="button__filter">
         <Button
           text={sortLabel}
@@ -43,14 +44,15 @@ export const Sort = () => {
         />
 
         {isOptions && (
-          <div
-            className="button__options-list"
-            onClick={() => {
-              isOptions;
-            }}
-          >
+          <div className="button__options-list">
             {SORT.map((item) => (
-              <div className="button__optons__item">
+              <div
+                className="button__optons__item"
+                onClick={() => {
+                  handleChange(item.value);
+                  setIsOptions(!isOptions);
+                }}
+              >
                 <span>{item.name}</span>
               </div>
             ))}
