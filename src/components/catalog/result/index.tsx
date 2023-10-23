@@ -30,23 +30,31 @@ export const CatalogResult = () => {
 
   const moreProducts = totalCount - productList.length;
 
-  // TODO: НЕТ ТОВАРОВ
-
   return (
     <div className="catalog">
-      <div className="catalog-card">
-        {productList.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-      <div className="catalog__pagination">
-        {moreProducts > 0 && (
-          <Button
-            onClick={() => setPage(page + 1)}
-            text={`Еще ${moreProducts} товаров`}
-          />
-        )}
-      </div>
+      {productList.length === 0 && (
+        <div className="catalog-text">
+          <span>Товаров не найдено</span>
+        </div>
+      )}
+      {productList.length > 0 && (
+        <div className="catalog-card">
+          {productList.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+
+      {productList.length > 0 && (
+        <div className="catalog__pagination">
+          {moreProducts > 0 && (
+            <Button
+              onClick={() => setPage(page + 1)}
+              text={`Еще ${moreProducts} товаров`}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 };

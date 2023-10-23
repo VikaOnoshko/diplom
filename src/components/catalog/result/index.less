@@ -1,4 +1,5 @@
 @import '@style/mixins.less';
+@import '@style/constants.less';
 
 .catalog-card {
   display: grid;
@@ -26,6 +27,16 @@
   display: none;
 }
 
+.catalog-text {
+  ._center();
+  padding-top: 50px;
+
+  span {
+    font-size: 30px;
+    color: var(--grey-color);
+  }
+}
+
 @media screen and (max-width: 1250px) {
   .catalog-card {
     grid-template-columns: repeat(2, 1fr);
@@ -46,6 +57,14 @@
 
     .button__filter {
       display: flex;
+    }
+  }
+
+  .catalog-text {
+    padding: 50px 0;
+    span {
+      font-size: 20px;
+      color: var(--grey-color);
     }
   }
 }
