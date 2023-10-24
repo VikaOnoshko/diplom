@@ -24,7 +24,7 @@
     display: flex;
   }
 
-  .catalog__nav button {
+  .catalog__filter-button {
     display: none;
   }
 }
@@ -39,6 +39,10 @@
 
 @media screen and (max-width: 650px) {
   .catalog {
+    .catalog__filter-button {
+      display: block;
+    }
+
     .catalog__nav {
       ._center();
 

@@ -46,9 +46,13 @@ export const UserIcon = () => {
           </div>
           <div className="user__line"></div>
           <div className="user__options">
-            <span onClick={goToOrderHistory}>Мои заказы</span>
+            <span onClick={goToOrderHistory}>
+              <span className="icon-chek"></span> Мои заказы
+            </span>
             {/* <span>Избранное</span> */}
-            <span onClick={goToCart}>Корзина</span>
+            <span onClick={goToCart}>
+              <span className="icon-cart"></span>Корзина
+            </span>
           </div>
         </div>
       )}

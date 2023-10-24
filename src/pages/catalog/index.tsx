@@ -30,7 +30,12 @@ export const CatalogPage = () => {
             <div className="catalog__product">
               <div className="catalog__nav">
                 <Button
-                  text="Фильтр"
+                  className="catalog__filter-button"
+                  text={
+                    <span>
+                      <span className="icon-filter"></span> Фильтр
+                    </span>
+                  }
                   onClick={() => {
                     open();
                   }}

@@ -1,7 +1,7 @@
 import './index.less';
 
 type ButtonProps = {
-  text: string;
+  text: string | React.ReactNode;
 } & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
