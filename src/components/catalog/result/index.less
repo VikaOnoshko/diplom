@@ -1,11 +1,17 @@
 @import '@style/mixins.less';
+@import '@style/constants.less';
 
 .catalog-card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   margin-top: 25px;
+
+  .product-card {
+    max-width: none;
+  }
 }
 
 .catalog__pagination {
@@ -15,4 +21,50 @@
 
 .catalog__product {
   width: 100%;
+}
+
+.button__filter {
+  display: none;
+}
+
+.catalog-text {
+  ._center();
+  padding-top: 50px;
+
+  span {
+    font-size: 30px;
+    color: var(--grey-color);
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .catalog-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .catalog-card {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .catalog__product {
+    select {
+      display: none;
+    }
+
+    .button__filter {
+      display: flex;
+    }
+  }
+
+  .catalog-text {
+    padding: 50px 0;
+    span {
+      font-size: 20px;
+      color: var(--grey-color);
+    }
+  }
 }

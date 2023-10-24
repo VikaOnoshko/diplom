@@ -1,3 +1,6 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
 .catalog__product {
   .select__triangle {
     display: none;
@@ -12,6 +15,39 @@
       color: var(--grey-color);
       font-family: 'Roboto';
       background-color: var(--background-color);
+    }
+  }
+
+  .button__filter {
+    position: relative;
+  }
+
+  .button__options-list {
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    padding: 5px;
+    z-index: 2;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 220px;
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+
+    .button__optons__item {
+      padding: 5px 0;
+      color: var(--grey-color);
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        background-color: var(--border-color);
+      }
+
+      span {
+        font-weight: 400;
+      }
     }
   }
 }
