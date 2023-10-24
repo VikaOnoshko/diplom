@@ -16,7 +16,7 @@ export const MyOrder = () => {
 
   useEffect(() => {
     OrderService.getOne(Number(id)).then((data) => setOrder(data));
-  }, []);
+  }, [id]);
 
   const totalPrice =
     order?.products?.reduce((acc, cur) => {
@@ -46,7 +46,7 @@ export const MyOrder = () => {
           <Breadcrumbs
             crumbs={[
               { title: 'Главная', link: PageNames.HOME },
-              { title: 'Оформление заказа', link: PageNames.ORDER },
+              { title: 'История заказов', link: PageNames.ORDER_HISTORY },
               { title: 'Детали заказа' },
             ]}
           />
@@ -94,7 +94,7 @@ export const MyOrder = () => {
                     <div className="my-order__text">
                       <b>Дата доставки: </b>
                       <span>
-                        {order &&
+                        {order?.recipient?.date &&
                           new Date(order.recipient.date).toLocaleDateString()}
                       </span>
                     </div>
