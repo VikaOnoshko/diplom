@@ -2,8 +2,8 @@ import { useAppNavigate } from '@router/hooks';
 import './index.less';
 
 type Props = {
-  open: boolean;
-  close: () => void;
+  open?: boolean;
+  close?: () => void;
 };
 
 export const Nav = ({ open, close }: Props) => {
@@ -14,7 +14,7 @@ export const Nav = ({ open, close }: Props) => {
       <span
         onClick={() => {
           goToCatalog();
-          close();
+          close && close();
         }}
       >
         Каталог товаров

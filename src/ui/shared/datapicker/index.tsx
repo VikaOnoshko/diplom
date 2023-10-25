@@ -15,7 +15,7 @@ export const Datapicker = ({
   onChange,
   ...fieldProps
 }: DatepickerProps) => {
-  const ref = useRef<ReactDatePicker>();
+  const ref = useRef<ReactDatePicker>(null);
 
   return (
     <Field
@@ -32,9 +32,9 @@ export const Datapicker = ({
           wrapperClassName="datepicker"
           selected={selected}
           onChange={onChange}
-          customClass="my-datepicker"
-          inputClass="my-input-datepicker"
-          calendarClass="my-calendar-datepicker"
+          // customClass="my-datepicker"
+          // inputClass="my-input-datepicker"
+          // calendarClass="my-calendar-datepicker"
           dateFormat="dd.MM.yyyy"
         />
       )}
