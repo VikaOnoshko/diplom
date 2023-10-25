@@ -48,6 +48,7 @@ export const Header = () => {
                 <IconButton>
                   <Currency />
                 </IconButton>
+
                 {!user && (
                   <IconButton onClick={() => setIsOpenAuth(true)}>
                     <span className="icon-person"></span>
@@ -55,18 +56,23 @@ export const Header = () => {
                 )}
 
                 {!!user && <UserIcon />}
-                <div className="header__options">
-                  <IconButton onClick={goToCart}>
-                    <Badge badgeContent={products.length}>
-                      <span className="icon-cart"></span>
-                    </Badge>
-                  </IconButton>
-                  <IconButton>
-                    <Badge badgeContent={1}>
-                      <span className="icon-favorite"></span>
-                    </Badge>
-                  </IconButton>
-                </div>
+
+                {!user && (
+                  <div className="header__options">
+                    <IconButton onClick={goToCart}>
+                      <Badge badgeContent={products.length}>
+                        <span className="icon-cart"></span>
+                      </Badge>
+                    </IconButton>
+                    <div className="header__favorite">
+                      <IconButton>
+                        <Badge badgeContent={1}>
+                          <span className="icon-favorite"></span>
+                        </Badge>
+                      </IconButton>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
