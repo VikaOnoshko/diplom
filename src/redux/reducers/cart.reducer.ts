@@ -1,22 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const saveProducts = (products: ItemAndCount<Product>[]) => {
-  localStorage.setItem('products', JSON.stringify(products));
-};
-
-const getProducts = (): ItemAndCount<Product>[] => {
-  try {
-    const products = localStorage.getItem('products');
-    if (products) {
-      return JSON.parse(products);
-    } else {
-      return [];
-    }
-  } catch {
-    return [];
-  }
-};
-
 const changeProductCountInList = (
   productList: ItemAndCount<Product>[],
   prodcut: ItemAndCount<Product>,
@@ -37,7 +20,21 @@ const removeProductFromList = (
   return productList.filter((product) => product.item.id !== productId);
 };
 
+const getProductsFromLocalstorage = (): ItemAndCount<Product>[] => {
+  try {
+    const products = localStorage.getItem('products');
+    if (products) {
+      return JSON.parse(products);
+    } else {
+      return [];
+    }
+  } catch {
+    return [];
+  }
+};
+
 export type InitialStateType = {
+  cartId?: number;
   products: ItemAndCount<Product>[];
   delivery?: number;
   photo?: number | null;
@@ -46,7 +43,7 @@ export type InitialStateType = {
 };
 
 export const initialState: InitialStateType = {
-  products: getProducts(),
+  products: getProductsFromLocalstorage(),
   delivery: 10,
 };
 
@@ -70,14 +67,12 @@ export const cartSlice = createSlice({
           { item: action.payload, count: 1 },
         ];
       }
-
-      saveProducts(state.products);
     },
+
     removeProduct: (state, action: PayloadAction<number>) => {
       state.products = removeProductFromList(state.products, action.payload);
-
-      saveProducts(state.products);
     },
+
     changeProductCount: (
       state,
       action: PayloadAction<ItemAndCount<Product>>,
@@ -86,12 +81,10 @@ export const cartSlice = createSlice({
         action.payload.count <= 0
           ? removeProductFromList(state.products, action.payload.item.id)
           : changeProductCountInList(state.products, action.payload);
-
-      saveProducts(state.products);
     },
+
     clear: (state) => {
       state.products = [];
-      saveProducts(state.products);
     },
 
     setVase: (state, action: PayloadAction<number | null>) => {
@@ -101,11 +94,20 @@ export const cartSlice = createSlice({
     setPostCard: (state, action: PayloadAction<number | null>) => {
       state.postCard = action.payload;
     },
+
     setDelivery: (state, action: PayloadAction<number>) => {
       state.delivery = action.payload;
     },
+
     setPtoto: (state, action: PayloadAction<number | null>) => {
       state.photo = action.payload;
+    },
+
+    cartUpdated: () => {},
+
+    setCart: (state, action: PayloadAction<Cart>) => {
+      state.cartId = action.payload.id;
+      state.products = action.payload.products;
     },
   },
 });

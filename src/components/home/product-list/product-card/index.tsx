@@ -21,6 +21,7 @@ export const ProductCard = ({ product, loading }: ProductCardProps) => {
   const { name, price, sale, rating, top, favorite, img } = product || {};
 
   const dispatch = useAppDispath();
+  const products = useAppSelector((state) => state.cart.products);
 
   const handleClick = () => {
     product && dispatch(addProduct(product));
@@ -28,8 +29,6 @@ export const ProductCard = ({ product, loading }: ProductCardProps) => {
 
   const actualPrice =
     price && sale ? +((price * (100 - sale)) / 100).toFixed(2) : price;
-
-  const products = useAppSelector((state) => state.cart.products);
 
   const hasInCart = products.some(({ item }) => item?.id === product?.id);
 

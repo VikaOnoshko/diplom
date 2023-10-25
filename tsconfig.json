@@ -21,8 +21,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@api/*":["./src/api/*"],
       "@assets/*":["./src/assets/*"],
       "@components/*":["./src/components/*"],
+      "@constants/*":["./src/constants/*"],
       "@providers/*":["src/providers/*"],
       "@services/*":["./src/services/*"],
       "@pages/*":["./src/pages/*"],

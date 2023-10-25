@@ -100,3 +100,10 @@ type NBCurrency = {
   Cur_Name: string;
   Cur_OfficialRate: number;
 };
+
+type Cart = {
+  id: number;
+  products: ItemAndCount<Product>[];
+  userId: string;
+};
+type CreateCart = Pick<Cart, 'products' | 'userId'>;
