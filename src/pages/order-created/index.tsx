@@ -26,8 +26,7 @@ export const OrderCreated = () => {
           <Breadcrumbs
             crumbs={[
               { title: 'Главная', link: PageNames.HOME },
-              { title: 'Корзина', link: PageNames.CART },
-              { title: 'Оформление заказа', link: PageNames.ORDER },
+              { title: 'История заказов', link: PageNames.ORDER_HISTORY },
               { title: 'Статус заказа' },
             ]}
           />

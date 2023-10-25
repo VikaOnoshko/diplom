@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import './index.less';
+import { useState, useEffect } from 'react';
 import { CategoryService } from '@services/category.service';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { setFilter } from '@redux/reducers/catalog.reducer';
@@ -34,7 +34,7 @@ export const GroupCategoryAccordion = ({
     if (isOpen && categories.length === 0) {
       CategoryService.getList(id).then((data) => setCategories(data));
     }
-  }, [isOpen]);
+  }, [isOpen, id, categories.length]);
 
   return (
     <Accordion

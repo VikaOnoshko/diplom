@@ -8,6 +8,8 @@ import currencyReducer from '@redux/reducers/currency.reducer';
 import cartReducer from '@redux/reducers/cart.reducer';
 import orderReducer from '@redux/reducers/order.reducer';
 import themeReducer from '@redux/reducers/theme.reducer';
+import { cartApi } from '@api/cart.api';
+import { cartMiddleware } from '@redux/middleware/cart.middleware';
 
 export const store = configureStore({
   reducer: {
@@ -18,7 +20,12 @@ export const store = configureStore({
     currency: currencyReducer,
     order: orderReducer,
     theme: themeReducer,
+    [cartApi.reducerPath]: cartApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware()
+      .prepend(cartMiddleware.middleware)
+      .concat(cartApi.middleware),
 });
 
 export type StoreType = ReturnType<typeof store.getState>;
