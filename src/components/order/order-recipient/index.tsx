@@ -67,7 +67,7 @@ export const OrderRecipient = ({ values, errors, onChange }: Props) => {
           variant="order"
           title="Время доставки"
           value={values.time}
-          onChange={(value) => onChange({ ...values, time: value })}
+          onSelect={(value) => onChange({ ...values, time: value })}
           options={[
             { name: '09:00 - 10:00', value: '09:00 - 10:00' },
             { name: '11:00 - 12:00', value: '11:00 - 12:00' },
