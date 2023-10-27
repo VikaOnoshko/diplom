@@ -1,10 +1,11 @@
+import { useEffect, useState, useCallback } from 'react';
 import './index.less';
 
-export type SelectProps = {
-  title?: string;
+type SelectProps = {
+  onSelect: (value: string) => void;
+  title?: string | React.ReactNode;
   options: { name: string; value: string }[];
   value: string;
-  onChange: (value: string) => void;
   className?: string;
   variant?: string;
 };
@@ -12,33 +13,58 @@ export type SelectProps = {
 export const Select = ({
   title,
   options,
-  value,
-  onChange,
-  className,
   variant,
+  className,
+  value,
+  onSelect,
 }: SelectProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      setIsOpen(!isOpen);
+    },
+    [isOpen],
+  );
+
+  const missclick = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  useEffect(() => {
+    document.body.addEventListener('click', missclick);
+
+    return () => document.body.removeEventListener('click', missclick);
+  }, [missclick]);
+
   const classSelect = `select ${className}`;
+  const selectedValue = options.find((item) => item.value === value);
 
   return (
-    <div className={classSelect} data-variant={variant}>
+    <div className={classSelect} data-variant={variant} onClick={toggle}>
       {title && (
-        <div className="select__text">
+        <div className="select__title">
           <span>{title}</span>
         </div>
       )}
-      <div className="select__name">
-        <select
-          name="category"
-          value={value}
-          onChange={(e) => onChange(e.currentTarget.value)}
-        >
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.name}
-            </option>
+
+      <div className="select__body">
+        <div className="select__value">
+          <span>{selectedValue?.name}</span>
+        </div>
+        <div className="select__options-list" data-open={isOpen}>
+          {options.map((item) => (
+            <div
+              className="select__optons-item"
+              onClick={() => {
+                onSelect(item.value);
+              }}
+            >
+              <span>{item.name}</span>
+            </div>
           ))}
-        </select>
-        <div className="select__triangle"></div>
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import './index.less';
-import { Select } from '@ui/shared/select';
 import { useAppDispath, useAppSelector } from '@redux/store/store';
 import { setSort } from '@redux/reducers/catalog.reducer';
 import { Button } from '@ui/shared/button';
 import { useState } from 'react';
+import { Select } from '@ui/shared/select';
 
 const SORT = [
   { value: 'rating', name: 'Рейтинг по возрастанию' },
@@ -30,9 +30,9 @@ export const Sort = () => {
       <Select
         className="select"
         value={sort}
-        onChange={handleChange}
         title={'Сортировка'}
         options={SORT}
+        onSelect={handleChange}
       />
 
       <div className="button__filter">

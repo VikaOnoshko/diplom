@@ -45,9 +45,7 @@ export const Header = () => {
                 <IconButton onClick={handleToggleTheme}>
                   <span className="icon-brightness-contrast"></span>
                 </IconButton>
-                <IconButton>
-                  <Currency />
-                </IconButton>
+                <Currency />
 
                 {!user && (
                   <IconButton onClick={() => setIsOpenAuth(true)}>

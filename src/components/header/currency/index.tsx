@@ -17,7 +17,7 @@ export const Currency = () => {
             options={currency.map((item) => {
               return { name: item.name, value: item.name };
             })}
-            onChange={(value) => {
+            onSelect={(value) => {
               dispatch(changeCurrency(value));
             }}
           />

@@ -20,11 +20,18 @@
       font-weight: 700;
     }
   }
-  .catalog__main {
+  &__main {
     display: flex;
   }
 
-  .catalog__filter-button {
+  &__nav {
+    .select {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__filter-button {
     display: none;
   }
 }
@@ -45,6 +52,7 @@
 
     .catalog__nav {
       ._center();
+      justify-content: space-around;
 
       button {
         width: 200px;
@@ -56,6 +64,10 @@
       h1 {
         font-size: 25px;
       }
+    }
+
+    .select {
+      display: none;
     }
   }
 }
