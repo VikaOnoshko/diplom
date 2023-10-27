@@ -1,19 +1,12 @@
-@import '@style/constants.less';
-@import '@style/mixins.less';
-
 .currency {
-  &__select.select {
-    select,
-    option {
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 450;
+  .select {
+    font-size: 20px;
+    .select__value {
       color: var(--primary-color);
-      font-family: 'Roboto';
-      background-color: var(--background-color);
+      text-decoration: none;
     }
-  }
-  .select__triangle {
-    border-top: 7px solid var(--primary-color);
+    .select__optons-item {
+      color: var(--grey-color);
+    }
   }
 }

@@ -49,7 +49,9 @@ export const UserIcon = () => {
             <span onClick={goToOrderHistory}>
               <span className="icon-chek"></span> Мои заказы
             </span>
-            {/* <span>Избранное</span> */}
+            <span>
+              <span className="icon-favorite"></span>Избранное
+            </span>
             <span onClick={goToCart}>
               <span className="icon-cart"></span>Корзина
             </span>

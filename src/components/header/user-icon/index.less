@@ -69,7 +69,33 @@
   }
 
   .icon-chek,
-  .icon-cart {
+  .icon-cart,
+  .icon-favorite {
     margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .user {
+    .user-list {
+      right: 0;
+      left: auto;
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .user {
+    .user-list {
+      width: 170px;
+    }
+    .button button {
+      height: 35px;
+      width: 90px;
+    }
+    .user__line {
+      margin-top: 11px;
+    }
   }
 }

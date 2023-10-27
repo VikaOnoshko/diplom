@@ -198,10 +198,9 @@ export const MyOrder = () => {
                 </div>
               </div>
               <div className="my-order__title">
-                <h3>Общая сумма заказа: </h3>
-                <span>
-                  <Price price={finallyPrice} />
-                </span>
+                <h3>Общая сумма: </h3>
+
+                <Price price={finallyPrice} />
               </div>
             </div>
           </div>
