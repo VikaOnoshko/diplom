@@ -14,7 +14,7 @@ export const CartPage = () => {
         <div className="cart__wrapper">
           <Breadcrumbs
             crumbs={[
-              { title: 'Главная', link: PageNames.CART },
+              { title: 'Главная', link: PageNames.HOME },
               { title: 'Корзина' },
             ]}
           />
