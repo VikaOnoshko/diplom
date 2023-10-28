@@ -7,10 +7,18 @@ type Props = {
 };
 
 export const Nav = ({ open, close }: Props) => {
-  const { goToCatalog } = useAppNavigate();
+  const { goToCatalog, goToHome } = useAppNavigate();
 
   return (
     <div className="header__navigation" data-open={open}>
+      <span
+        onClick={() => {
+          goToHome();
+          close && close();
+        }}
+      >
+        Главная
+      </span>
       <span
         onClick={() => {
           goToCatalog();
@@ -21,7 +29,6 @@ export const Nav = ({ open, close }: Props) => {
       </span>
       <span>Форум</span>
       <span>Отзывы</span>
-      <span>Акции</span>
       <span>Новости</span>
     </div>
   );

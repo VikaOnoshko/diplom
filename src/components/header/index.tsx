@@ -40,6 +40,7 @@ export const Header = () => {
                 <img src={logo} alt="logo" />
               </div>
               <BurgerMenu />
+
               <Nav />
               <div className="header__icons">
                 <IconButton onClick={handleToggleTheme}>
