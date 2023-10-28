@@ -1,0 +1,169 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.cart__clear {
+  ._center();
+}
+
+.cart__items {
+  width: 100%;
+
+  .button {
+    margin: 20px 0 10px 0;
+  }
+}
+
+.cart__header {
+  color: var(--grey-color;);
+}
+
+.cart__ampty-message {
+  color: var(--grey-color);
+  padding: 80px 0;
+  ._center();
+  height: 100%;
+  span {
+    font-weight: 700;
+    font-size: 30px;
+  }
+}
+
+.cart__ampty-text span {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--grey-color);
+}
+
+.cart__ampty-nav {
+  cursor: pointer;
+  color: var(--grey-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .cart__description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart__items .button {
+    margin: 20px 20px;
+  }
+
+  .cart__title {
+    justify-content: flex-end;
+  }
+  .cart__options {
+    display: none;
+  }
+  .cart-order {
+    margin-top: 30px;
+  }
+  .cart__item {
+    max-width: 100%;
+  }
+
+  .cart__header {
+    margin: 60px 0px 20px 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cart__header {
+    margin: 35px 0px 20px 0;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .cart-order__container {
+    width: 300px;
+    padding: 30px;
+  }
+
+  .cart-order__header {
+    padding-bottom: 20px;
+
+    h2 {
+      font-size: 25px;
+    }
+  }
+
+  .cart-order__main {
+    margin-bottom: 30px;
+  }
+
+  .cart-order .button {
+    height: 50px;
+  }
+
+  .cart-order__body {
+    margin-bottom: 45px;
+  }
+
+  .cart__items {
+    margin: 5px 0px;
+  }
+
+  .cart__items .button {
+    margin: 20px 0 25px 0;
+  }
+
+  .cart__header h1 {
+    font-size: 30px;
+  }
+
+  .cart__nav span {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cart__items {
+    margin: 0px 0px;
+  }
+
+  .cart__title {
+    margin-bottom: 5px;
+  }
+
+  .catt__list {
+    .button button {
+      font-size: 13px;
+      width: 195px;
+    }
+  }
+
+  .cart__title {
+    margin-bottom: 0px;
+  }
+
+  .cart__header h1 {
+    font-size: 27px;
+  }
+
+  .cart__arrow {
+    width: 8px;
+    height: 8px;
+  }
+
+  .cart-item {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cart__ampty-text span {
+    font-size: 15px;
+  }
+
+  .cart__items .button {
+    margin: 20px 0 10px 0;
+  }
+
+  .button button {
+    width: 140px;
+  }
+}

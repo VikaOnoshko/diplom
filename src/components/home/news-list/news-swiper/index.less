@@ -1,0 +1,22 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.news__swiper {
+  display: none;
+  padding-bottom: 30px;
+
+  .swiper-pagination-bullet {
+    background-color: var(--primary-color);
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .news__swiper {
+    display: flex;
+  }
+}

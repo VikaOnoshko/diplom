@@ -1,0 +1,122 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.categories {
+  &__container {
+    max-width: 250px;
+    background-color: var(--background-color);
+    // padding-top: 40px;
+  }
+
+  &__wrapper {
+    margin: -15px 0px;
+
+    ul {
+      padding: 0px;
+    }
+  }
+
+  margin-right: 50px;
+
+  button {
+    display: none;
+  }
+
+  &__header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .categories {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: var(--background-color);
+    z-index: 10;
+    margin: 0;
+    justify-content: flex-start;
+    display: none;
+    &[data-open='true'] {
+      display: flex;
+    }
+
+    .button {
+      justify-content: flex-start;
+      button {
+        ._center();
+        width: 130px;
+        height: 40px;
+        font-size: 13px;
+      }
+    }
+
+    &__wrapper {
+      margin: 0;
+    }
+
+    &__header {
+      display: flex;
+      background-color: var(--grey-color);
+      padding: 30px 20px;
+
+      .categories__name {
+        color: var(--background-color);
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .categories__main {
+      padding: 20px 10px;
+    }
+
+    .categories__close {
+      ._center();
+      position: absolute;
+      right: 10px;
+      top: 27px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .categories__close::before,
+    .categories__close::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: var(--background-color);
+      transition: @transition;
+    }
+
+    .categories__close::before {
+      transform: rotate(45deg);
+    }
+    .categories__close::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .categories__container {
+    max-width: none;
+    padding: 0px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .categories {
+    .accordion__summary span {
+      font-size: 17px;
+    }
+    .group-category__category-item {
+      font-size: 13px;
+    }
+  }
+}

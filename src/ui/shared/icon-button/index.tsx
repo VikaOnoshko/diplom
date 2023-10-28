@@ -1,5 +1,15 @@
-export type IconButtonProps = WithChildren;
+import './index.less';
 
-export const IconButton = ({ children }: IconButtonProps) => {
-  return <button>{children}</button>;
+export type IconButtonProps = WithChildren &
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >;
+
+export const IconButton = ({ children, ...props }: IconButtonProps) => {
+  return (
+    <button {...props} className="icon-button">
+      {children}
+    </button>
+  );
 };

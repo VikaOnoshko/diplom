@@ -1,0 +1,53 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.forum-card {
+  max-width: 470px;
+  margin: 0 15px;
+
+  &__header {
+    position: relative;
+    width: 100%;
+
+    &-background_empty {
+      width: 100%;
+      padding-top: 30%;
+    }
+    &-background_filled {
+      width: 100%;
+      padding-top: 45%;
+      background-color: var(--primary-color);
+    }
+
+    img {
+      position: absolute;
+      padding: 0 25px;
+      bottom: 0;
+    }
+  }
+  &__body {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 10px;
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-weight: 250;
+    font-size: 16px;
+  }
+
+  &__description {
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .forum-card {
+    max-width: 410px;
+  }
+}

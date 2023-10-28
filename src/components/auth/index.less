@@ -1,0 +1,114 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(13, 13, 13, 0.5);
+
+  .auth__container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .auth__header {
+    position: relative;
+  }
+  .auth__wrapper {
+    padding: 10px 10px 20px 10px;
+    background-color: white;
+    min-width: 450px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .auth__close {
+    ._center();
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: var(--text-color);
+      }
+    }
+  }
+
+  .auth__close::before,
+  .auth__close::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--border-color);
+    transition: @transition;
+  }
+
+  .auth__close::before {
+    transform: rotate(45deg);
+  }
+  .auth__close::after {
+    transform: rotate(-45deg);
+  }
+
+  &__title {
+    ._center();
+    font-size: 20px;
+    color: var(--grey-color);
+    font-weight: 700;
+  }
+
+  &__arrow {
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid var(--lite-color);
+    border-right: 3px solid var(--lite-color);
+    transform: translateX(1px) rotate(-135deg);
+  }
+
+  &__navigation {
+    left: 15px;
+    top: 10px;
+    position: absolute;
+    cursor: pointer;
+    display: inline;
+
+    &:hover {
+      .auth__icon {
+        background-color: var(--text-color);
+      }
+      .auth__text {
+        color: var(--text-color);
+      }
+    }
+  }
+
+  &__icon {
+    ._center();
+    display: inline-flex;
+    transition: @transition;
+
+    background: #cecece;
+    width: 25px;
+    height: 25px;
+    border-radius: 40px;
+    margin-right: 7px;
+    cursor: pointer;
+  }
+
+  &__text {
+    display: inline;
+    color: #cecece;
+    transition: @transition;
+  }
+}

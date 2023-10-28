@@ -1,0 +1,83 @@
+@import '@style/constants.less';
+@import '@style/mixins.less';
+
+.my-order {
+  &__container {
+    ._container();
+  }
+
+  &__wrapper {
+    ._wrapper();
+  }
+
+  &__header {
+    padding: 30px 0;
+    ._center();
+    color: var(--grey-color);
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin: 15px 0;
+    font-size: 20px;
+    ._center();
+    color: var(--grey-color);
+
+    h3 {
+      text-decoration: underline;
+    }
+  }
+
+  &__text {
+    color: var(--grey-color);
+    font-size: 20px;
+  }
+
+  &__total {
+    display: flex;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  &__content {
+    border: 2px solid var(--grey-color);
+    padding: 15px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  &__body {
+    ._center();
+  }
+}
+
+.my-product__item {
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .my-order {
+    &__header h1 {
+      font-size: 28px;
+    }
+
+    &__title h3 {
+      font-size: 20px;
+    }
+
+    &__text span,
+    b {
+      font-size: 16px;
+    }
+  }
+}
