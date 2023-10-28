@@ -13,7 +13,7 @@ export const HomePage = () => {
       <HomeBanner />
       <HomeForClient />
       <ProductList title="Акции" filter={{ onSale: true }} />
-      <ProductList title="Подарки" filter={{ category: 'present' }} />
+      <ProductList title="Подарки" filter={{ isPresent: true }} />
       <HomeNewsList />
     </div>
   );

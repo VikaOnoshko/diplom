@@ -26,7 +26,7 @@ type Product = {
   top: boolean;
   rating: number;
   price: number;
-  category: string;
+  isPresent: boolean;
 };
 
 type ItemAndCount<T> = {
