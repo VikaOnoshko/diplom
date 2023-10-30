@@ -60,6 +60,7 @@ type Category = {
 
 type Order = {
   id: number;
+  userId: string;
   recipient: {
     name: string;
     telephone: string;

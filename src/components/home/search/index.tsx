@@ -34,7 +34,7 @@ export const HomeSearch = () => {
     document.addEventListener('click', missClick);
 
     return () => document.removeEventListener('click', missClick);
-  }, []);
+  }, [missClick]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);

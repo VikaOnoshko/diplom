@@ -13,7 +13,9 @@ export const OrderService = {
     );
   },
 
-  getList() {
-    return Request.get<Order[]>(`/orders`).then((response) => response.data);
+  getList(params: Partial<Order>) {
+    return Request.get<Order[]>(`/orders`, { params }).then(
+      (response) => response.data,
+    );
   },
 };
