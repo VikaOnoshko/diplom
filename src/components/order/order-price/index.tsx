@@ -13,12 +13,13 @@ export const OrderPrice = () => {
   const { products, vase, photo, postCard, delivery } = useAppSelector(
     (state) => state.cart,
   );
+  const userId = useAppSelector((state) => state.user.user?.uid || 'null');
   const dispatch = useAppDispath();
   const { goToOrderCreated } = useAppNavigate();
 
   const sendOrder = () => {
     dispatch(
-      createOrder({ ...order, products }, (newOrder) =>
+      createOrder({ ...order, products, userId }, (newOrder) =>
         goToOrderCreated(String(newOrder.id)),
       ),
     );
