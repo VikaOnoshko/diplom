@@ -4,12 +4,14 @@ import './index.less';
 import { OrderHistoryItem } from './item-history-order';
 import { Breadcrumbs } from '@ui/shared/breadcrumb';
 import { PageNames } from '@router/routes';
+import { useAppSelector } from '@redux/store/store';
 
 export const OrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState<Order[]>([]);
+  const userId = useAppSelector((state) => state.user.user?.uid || 'null');
 
   useEffect(() => {
-    OrderService.getList().then((data) => setOrderHistory(data));
+    OrderService.getList({ userId }).then((data) => setOrderHistory(data));
   }, []);
 
   return (
