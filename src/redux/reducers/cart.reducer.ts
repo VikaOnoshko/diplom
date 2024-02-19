@@ -5,7 +5,7 @@ const changeProductCountInList = (
   prodcut: ItemAndCount<Product>,
 ) => {
   return productList.map((product) => {
-    if (prodcut.item.id === product.item.id) {
+    if (prodcut.item._id === product.item._id) {
       return prodcut;
     }
 
@@ -17,7 +17,7 @@ const removeProductFromList = (
   productList: ItemAndCount<Product>[],
   productId: number,
 ) => {
-  return productList.filter((product) => product.item.id !== productId);
+  return productList.filter((product) => product.item._id !== productId);
 };
 
 const getProductsFromLocalstorage = (): ItemAndCount<Product>[] => {
@@ -34,7 +34,7 @@ const getProductsFromLocalstorage = (): ItemAndCount<Product>[] => {
 };
 
 export type InitialStateType = {
-  cartId?: number;
+  cartId?: Id;
   products: ItemAndCount<Product>[];
   delivery?: number;
   photo?: number | null;
@@ -53,7 +53,7 @@ export const cartSlice = createSlice({
   reducers: {
     addProduct: (state, action: PayloadAction<Product>) => {
       const existProduct = state.products.find(
-        (product) => product.item.id === action.payload.id,
+        (product) => product.item._id === action.payload._id,
       );
 
       if (existProduct) {
@@ -79,7 +79,7 @@ export const cartSlice = createSlice({
     ) => {
       state.products =
         action.payload.count <= 0
-          ? removeProductFromList(state.products, action.payload.item.id)
+          ? removeProductFromList(state.products, action.payload.item._id)
           : changeProductCountInList(state.products, action.payload);
     },
 
@@ -106,7 +106,7 @@ export const cartSlice = createSlice({
     cartUpdated: () => {},
 
     setCart: (state, action: PayloadAction<Cart>) => {
-      state.cartId = action.payload.id;
+      state.cartId = action.payload._id;
       state.products = action.payload.products;
     },
   },

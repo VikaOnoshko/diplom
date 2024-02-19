@@ -21,7 +21,7 @@ export const CartList = () => {
     <div className="cart__items">
       {products.map((product) => (
         <CartItem
-          key={product.item.id}
+          key={product.item._id}
           product={product.item}
           count={product.count}
         />

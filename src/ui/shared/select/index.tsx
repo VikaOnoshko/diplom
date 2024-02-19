@@ -2,10 +2,10 @@ import { useEffect, useState, useCallback } from 'react';
 import './index.less';
 
 type SelectProps = {
-  onSelect: (value: string) => void;
+  onSelect: (value: object) => void;
   title?: string | React.ReactNode;
-  options: { name: string; value: string }[];
-  value: string;
+  options: { name: string; value: object }[];
+  value: object;
   className?: string;
   variant?: string;
 };

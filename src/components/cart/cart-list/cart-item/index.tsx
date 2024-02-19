@@ -25,7 +25,7 @@ export const CartItem = ({ product, count }: Props) => {
   const totalCount = actualPrice * count;
 
   const handleDeleteProduct = () => {
-    dispatch(removeProduct(product.id));
+    dispatch(removeProduct(product._id));
   };
 
   return (

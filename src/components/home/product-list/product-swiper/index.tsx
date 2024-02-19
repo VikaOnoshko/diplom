@@ -53,7 +53,7 @@ export const ProductSwiper = ({ products, loading }: Props) => {
           <SwiperSlide key={index}>
             <div className="product-list__slide">
               {slide.map((product) => (
-                <ProductCard product={product} key={product.id} />
+                <ProductCard product={product} key={product._id} />
               ))}
             </div>
           </SwiperSlide>

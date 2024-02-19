@@ -7,20 +7,20 @@ import './index.less';
 
 const FOR_CLIENT: ForClient[] = [
   {
-    id: 1,
+    _id: '1',
     img: like,
     title: 'Фото ваших доставок',
     description:
       'Безупречное качество обслуживания и доставка в любую точку города',
   },
   {
-    id: 2,
+    _id: '2',
     img: video,
     title: 'Видео отчеты клиентов',
     description: 'Наши счастливые клиенты',
   },
   {
-    id: 3,
+    _id: '3',
     img: present,
     title: 'Подарки клиентам',
     description:
@@ -44,7 +44,7 @@ export const HomeForClient = () => {
             {cards.map((card) => (
               <div
                 className="for-client__card for-client__card_left"
-                key={card.id}
+                key={card._id}
               >
                 <div className="for-client__img">
                   <img src={card.img} alt="img" />

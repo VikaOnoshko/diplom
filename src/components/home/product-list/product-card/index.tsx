@@ -30,18 +30,19 @@ export const ProductCard = ({ product, loading }: ProductCardProps) => {
   const actualPrice =
     price && sale ? +((price * (100 - sale)) / 100).toFixed(2) : price;
 
-  const hasInCart = products.some(({ item }) => item?.id === product?.id);
+  const hasInCart = products.some(({ item }) => item?._id === product?._id);
 
   const handlechangeProductCount = (newCount: number) => {
     product && dispatch(changeProductCount({ item: product, count: newCount }));
   };
 
   const countInCart =
-    (product && products.find((item) => item.item.id === product.id)?.count) ||
+    (product &&
+      products.find((item) => item.item._id === product._id)?.count) ||
     0;
 
   const handleDeleteProduct = () => {
-    product && dispatch(removeProduct(product.id));
+    product && dispatch(removeProduct(product._id));
   };
 
   const { goToOrder } = useAppNavigate();

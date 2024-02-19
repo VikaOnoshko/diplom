@@ -11,19 +11,19 @@ import './index.less';
 
 const NEWSLIST: News[] = [
   {
-    id: 1,
+    _id: '1',
     img: ava,
     title: 'Как сохранить букет свежим: советы и рекомендации',
     text: 'Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...',
   },
   {
-    id: 2,
+    _id: '2',
     img: ava,
     title: 'Как сохранить букет свежим: советы и рекомендации',
     text: 'Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...',
   },
   {
-    id: 3,
+    _id: '3',
     img: ava,
     title: 'Как сохранить букет свежим: советы и рекомендации',
     text: 'Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...',
@@ -49,8 +49,8 @@ export const NewsSwiper = () => {
         className="news__swiper"
       >
         {news.map((item) => (
-          <SwiperSlide key={item.id}>
-            <NewsCard key={item.id} news={item} />
+          <SwiperSlide key={item._id}>
+            <NewsCard key={item._id} news={item} />
           </SwiperSlide>
         ))}
       </Swiper>

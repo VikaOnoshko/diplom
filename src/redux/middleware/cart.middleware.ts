@@ -23,7 +23,7 @@ cartMiddleware.startListening({
       if (cartId) {
         listenerApi.dispatch(
           cartApi.endpoints.update.initiate({
-            id: cartId,
+            _id: cartId,
             products,
             userId,
           }),

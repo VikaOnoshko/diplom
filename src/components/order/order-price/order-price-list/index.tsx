@@ -8,7 +8,7 @@ export const OrderPriceList = () => {
     <div className="order-price__items">
       {products.map((product) => (
         <OrderPriceItem
-          key={product.item.id}
+          key={product.item._id}
           product={product.item}
           count={product.count}
         />

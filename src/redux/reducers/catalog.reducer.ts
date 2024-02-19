@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type InitialStateType = {
-  filter: { categories?: number };
-  sort: string;
+  filter: { categories?: Id };
+  sort: object;
 };
 
 const initialState: InitialStateType = {
   filter: {},
-  sort: 'rating',
+  sort: {},
 };
 
 export const catalogSlice = createSlice({
@@ -17,7 +17,7 @@ export const catalogSlice = createSlice({
     setFilter: (state, action: PayloadAction<object>) => {
       state.filter = action.payload;
     },
-    setSort: (state, action: PayloadAction<string>) => {
+    setSort: (state, action: PayloadAction<object>) => {
       state.sort = action.payload;
     },
   },

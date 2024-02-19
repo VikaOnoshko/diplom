@@ -20,7 +20,7 @@ export const OrderPrice = () => {
   const sendOrder = () => {
     dispatch(
       createOrder({ ...order, products, userId }, (newOrder) =>
-        goToOrderCreated(String(newOrder.id)),
+        goToOrderCreated(String(newOrder._id)),
       ),
     );
   };

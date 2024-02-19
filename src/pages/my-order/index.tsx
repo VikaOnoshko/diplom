@@ -15,7 +15,7 @@ export const MyOrder = () => {
   const [order, setOrder] = useState<Order>();
 
   useEffect(() => {
-    OrderService.getOne(Number(id)).then((data) => setOrder(data));
+    if (id) OrderService.getOne(id).then((data) => setOrder(data));
   }, [id]);
 
   const totalPrice =

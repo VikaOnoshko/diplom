@@ -69,7 +69,7 @@ export const HomeSearch = () => {
             (products.length > 0 ? (
               <div className="main-search__result-list">
                 {products.map((product) => (
-                  <SearchResultProduct key={product.id} product={product} />
+                  <SearchResultProduct key={product._id} product={product} />
                 ))}
               </div>
             ) : (

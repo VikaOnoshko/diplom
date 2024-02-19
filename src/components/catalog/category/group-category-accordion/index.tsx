@@ -8,7 +8,7 @@ import { Accordion } from '@ui/shared/accordion';
 type GroupCategoryAccordionProps = {
   groupCategory: GroupCategory;
   isOpen: boolean;
-  toggle: (id: number) => void;
+  toggle: (id: Id) => void;
 };
 
 export const GroupCategoryAccordion = ({
@@ -16,25 +16,25 @@ export const GroupCategoryAccordion = ({
   isOpen,
   toggle,
 }: GroupCategoryAccordionProps) => {
-  const { name, id } = groupCategory;
+  const { name, _id } = groupCategory;
   const [categories, setCategories] = useState<Category[]>([]);
 
   const { filter } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispath();
 
-  const handleClick = (id: number) => {
+  const handleClick = (id: Id) => {
     if (filter.categories === id) {
       dispatch(setFilter({}));
     } else {
-      dispatch(setFilter({ categories: id }));
+      dispatch(setFilter({ 'filter[category]': id }));
     }
   };
 
   useEffect(() => {
     if (isOpen && categories.length === 0) {
-      CategoryService.getList(id).then((data) => setCategories(data));
+      CategoryService.getList(_id).then((data) => setCategories(data));
     }
-  }, [isOpen, id, categories.length]);
+  }, [isOpen, _id, categories.length]);
 
   return (
     <Accordion
@@ -43,15 +43,15 @@ export const GroupCategoryAccordion = ({
       details={categories.map((category) => (
         <div
           className="group-category__category-item"
-          key={category.id}
-          data-active={filter.categories === category.id}
-          onClick={() => handleClick(category.id)}
+          key={category._id}
+          data-active={filter.categories === category._id}
+          onClick={() => handleClick(category._id)}
         >
           {category.name}
         </div>
       ))}
       onClickSummary={() => {
-        toggle(id);
+        toggle(_id);
       }}
       isOpen={isOpen}
     />

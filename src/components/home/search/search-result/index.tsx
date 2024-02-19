@@ -12,19 +12,19 @@ export const SearchResultProduct = ({ product }: SearchResultProductProps) => {
   const dispatch = useAppDispath();
 
   const handleDeleteProduct = () => {
-    dispatch(removeProduct(product.id));
+    dispatch(removeProduct(product._id));
   };
 
   const handleAddProduct = () => {
     dispatch(addProduct(product));
   };
 
-  const hasInCart = products.some(({ item }) => item?.id === product?.id);
+  const hasInCart = products.some(({ item }) => item?._id === product?._id);
 
   return (
     <li
       className="main-search__result-product result-product "
-      key={product.id}
+      key={product._id}
     >
       <img src={product.img} alt="product" />
       <div className="result-product__info">

@@ -12,16 +12,19 @@ export const CatalogResult = () => {
   const { sort, filter } = useAppSelector((store) => store.catalog);
 
   useEffect(() => {
-    ProductService.getList({ ...filter, sortby: sort, page, limit: 12 }).then(
-      ({ items, count }) => {
-        if (page === 1) {
-          setProductList(items);
-        } else {
-          setProductList([...productList, ...items]);
-        }
-        setTotalCount(count);
-      },
-    );
+    ProductService.getList({
+      ...filter,
+      ...sort,
+      page,
+      limit: 12,
+    }).then(({ items, count }) => {
+      if (page === 1) {
+        setProductList(items);
+      } else {
+        setProductList([...productList, ...items]);
+      }
+      setTotalCount(count);
+    });
   }, [page, sort, filter]);
 
   useEffect(() => {
@@ -40,7 +43,7 @@ export const CatalogResult = () => {
       {productList.length > 0 && (
         <div className="catalog-card">
           {productList.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       )}

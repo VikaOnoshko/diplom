@@ -6,17 +6,17 @@ import { useState } from 'react';
 import { Select } from '@ui/shared/select';
 
 const SORT = [
-  { value: 'rating', name: 'Рейтинг по возрастанию' },
-  { value: '-rating', name: 'Рейтинг по убыванию' },
-  { value: 'price', name: 'Цена по возрастанию' },
-  { value: '-price', name: 'Цена по убыванию' },
+  { value: { 'sort[rating]': 'asc' }, name: 'Рейтинг по возрастанию' },
+  { value: { 'sort[rating]': 'desc' }, name: 'Рейтинг по убыванию' },
+  { value: { 'sort[price]': 'asc' }, name: 'Цена по возрастанию' },
+  { value: { 'sort[price]': 'desc' }, name: 'Цена по убыванию' },
 ];
 
 export const Sort = () => {
   const { sort } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispath();
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: object) => {
     dispatch(setSort(value));
   };
 

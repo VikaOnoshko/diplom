@@ -1,9 +1,9 @@
 import { Request } from '@providers/request';
 
 export const CategoryService = {
-  getList(id: number) {
-    return Request.get<Category[]>(`/group-categories/${id}/categories`).then(
-      (response) => response.data,
-    );
+  getList(id: Id) {
+    return Request.get<Category[]>('/categories', {
+      params: new URLSearchParams({ 'filter[group]': id }),
+    }).then((response) => response.data);
   },
 };

@@ -14,9 +14,7 @@ export const Category = ({ isOpen, close }: Props) => {
     [],
   );
 
-  const [openCategoryGroup, setOpenCategoryGroup] = useState<number | null>(
-    null,
-  );
+  const [openCategoryGroup, setOpenCategoryGroup] = useState<Id | null>(null);
 
   useEffect(() => {
     GroupCategoryService.getList().then((data) => setGroupCategoryList(data));
@@ -41,9 +39,9 @@ export const Category = ({ isOpen, close }: Props) => {
             />
             {groupCatigoryList.map((group) => (
               <GroupCategoryAccordion
-                key={group.id}
+                key={group._id}
                 groupCategory={group}
-                isOpen={group.id === openCategoryGroup}
+                isOpen={group._id === openCategoryGroup}
                 toggle={(id) => {
                   if (openCategoryGroup === id) {
                     setOpenCategoryGroup(null);

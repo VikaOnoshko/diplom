@@ -34,7 +34,7 @@ export const HomeBanner = () => {
             className="banner__swiper"
           >
             {banners.map((banner) => (
-              <SwiperSlide key={banner.id}>
+              <SwiperSlide key={banner._id}>
                 <div className="banner__img">
                   <img src={banner.img} alt="banner" />
                 </div>

@@ -7,19 +7,19 @@ import { NewsCard } from './news-card';
 
 const NEWSLIST: News[] = [
   {
-    id: 1,
+    _id: '1',
     img: ava,
     title: 'Как сохранить букет свежим: советы и рекомендации',
     text: 'Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...',
   },
   {
-    id: 2,
+    _id: '2',
     img: ava,
     title: 'Как сохранить букет свежим: советы и рекомендации',
     text: 'Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...',
   },
   {
-    id: 3,
+    _id: '3',
     img: ava,
     title: 'Как сохранить букет свежим: советы и рекомендации',
     text: 'Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...',
@@ -49,7 +49,7 @@ export const HomeNewsList = () => {
           <div className="forum__body">
             <div className="forum__list">
               {news.map((news) => (
-                <NewsCard key={news.id} news={news} />
+                <NewsCard key={news._id} news={news} />
               ))}
             </div>
             <NewsSwiper />

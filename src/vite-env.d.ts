@@ -1,23 +1,22 @@
 /// <reference types="vite/client" />
+type Id = string;
+type IdObject = { _id: Id };
 
 type WithChildren = {
   children: React.ReactNode;
 };
 
-type HomeBanner = {
-  id: number;
+type HomeBanner = IdObject & {
   img: string;
 };
 
-type ForClient = {
-  id: number;
+type ForClient = IdObject & {
   img: string;
   title: string;
   description: string;
 };
 
-type Product = {
-  id: number;
+type Product = IdObject & {
   name: string;
   img: string;
   sale?: number;
@@ -34,8 +33,7 @@ type ItemAndCount<T> = {
   count: number;
 };
 
-type News = {
-  id: number;
+type News = IdObject & {
   img: string;
   title: string;
   text: string;
@@ -46,20 +44,17 @@ type PaginationResponse<T> = {
   count: number;
 };
 
-type GroupCategory = {
-  id: number;
+type GroupCategory = IdObject & {
   name: string;
 };
 
-type Category = {
-  id: number;
+type Category = IdObject & {
   name: string;
   img: string;
-  groupCategoryId: number;
+  groupId: number;
 };
 
-type Order = {
-  id: number;
+type Order = IdObject & {
   userId: string;
   recipient: {
     name: string;
@@ -102,8 +97,7 @@ type NBCurrency = {
   Cur_OfficialRate: number;
 };
 
-type Cart = {
-  id: number;
+type Cart = IdObject & {
   products: ItemAndCount<Product>[];
   userId: string;
 };

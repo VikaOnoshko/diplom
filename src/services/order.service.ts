@@ -2,12 +2,21 @@ import { Request } from '@providers/request';
 
 export const OrderService = {
   create(body: Order) {
-    return Request.post<Order>('/orders', body).then(
+    const data = {
+      ...body,
+      products: body.products?.map(({ count, item: { _id } }) => ({
+        count,
+        item: _id,
+      })),
+    };
+
+    console.log(data);
+    return Request.post<Order>('/orders', data).then(
       (response) => response.data,
     );
   },
 
-  getOne(id: number) {
+  getOne(id: Id) {
     return Request.get<Order>(`/orders/${id}`).then(
       (response) => response.data,
     );

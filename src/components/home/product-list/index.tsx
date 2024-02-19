@@ -68,7 +68,7 @@ export const ProductList = ({ title, filter }: ProductListProps) => {
             {!loading &&
               products.map((product) => (
                 <ProductCard
-                  key={product.id}
+                  key={product._id}
                   product={product}
                   loading={false}
                 />

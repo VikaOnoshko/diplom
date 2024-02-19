@@ -32,7 +32,7 @@ export const OrderHistoryItem = ({ order }: Props) => {
         <div
           className="order-history__details"
           onClick={() => {
-            goToMyOrder(String(order.id));
+            goToMyOrder(String(order._id));
           }}
         >
           <span>Перейти к заказу</span>
